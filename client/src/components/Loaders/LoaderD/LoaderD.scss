@@ -1,0 +1,61 @@
+@import '../../../App.scss';
+
+.grand_wrapperD {
+  background-color: $off-white;
+  margin-top: 30vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: $dark-green;
+  }
+}
+.bookstack {
+  height: 65%;
+  width: 65%;
+  transform-origin: 50% 50%;
+  .ldl-scale {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg) scale(0.8, 0.8);
+  }
+  .coverr {
+    fill: $main-green;
+  }
+  .pages {
+    fill: $off-white;
+  }
+  .custom-line{
+    stroke: $dark-green;
+  }
+  .outline {
+    fill: $dark-green;
+  }
+  .bookmark {
+    fill: $light-green;
+  }
+  
+  .book {
+    transform-origin: 50% 50%;
+    transform: translateX(-10px);
+    animation: bookstack-shuffle 1.5s ease-in-out alternate infinite;
+  }
+  .top {
+    animation-delay: .2s;
+  }
+  .middle {
+    animation-delay: .4s;
+  }
+  .bottom {
+    animation-delay: .6s;
+  }
+}
+  
+  @keyframes bookstack-shuffle {
+    0% {transform: translateX(-10px)}
+    10% {transform: translateX(-10px)}
+    90% {transform: translateX(10px)}
+    100% {transform: translateX(10px)}
+}

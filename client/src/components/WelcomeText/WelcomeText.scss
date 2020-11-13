@@ -1,0 +1,25 @@
+.landingText {
+
+  h3 {
+    margin: 20px;
+    margin-top: 5px;
+    letter-spacing: 1.6pt;
+  }
+  .bookmoochTitle {
+    margin-left: 5px;
+    letter-spacing: 1.6pt;
+  }
+  .goTitle {
+    letter-spacing: 1.6pt;
+    margin-top: -10px;
+    margin-left: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    .goText {
+      margin-top: 10px;
+      margin-left: 5px;
+    }
+  }
+}

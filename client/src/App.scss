@@ -1,0 +1,50 @@
+$main-green: #669798;
+$option-2: #47857c;
+$dark-green: #284e48;
+$light-green: #97cfc7;
+$off-white: #FFFAF1;
+
+$accent-2: #ffc690;
+$accent-3: #fffeaa;
+
+.backdrop {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  bottom: 0px;
+  .cream {
+    position: absolute;
+
+    background-color: $off-white;
+    height: 30%;
+    width:100%;
+    bottom: 12vh;
+    border-radius: 0 0 100px 100px;
+    z-index: -1;
+  }
+  .green {
+    position: absolute;  
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+
+    background-color: $main-green;
+
+    z-index: -2;
+  }
+}
+.route {
+  height: 100vh;
+  min-width: 320px;
+  
+  overflow: hidden;
+  position: absolute;  
+  width: 100%;
+  top: 0;
+}
+
+
+

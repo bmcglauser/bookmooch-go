@@ -1,0 +1,58 @@
+@import '../../../App.scss';
+
+.circle-add-button-wrapper {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .the-button {
+    height: 100px;
+    width: 100px;
+    display: grid;
+    grid-template: 1 / 1;
+    background-color: rgba(255,255,255,0);
+    border-radius: 50%;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    .the-circle {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      background-color: $main-green;
+      border: 4px solid $off-white;
+
+      &:active {
+        outline: none;
+        background-color: adjust-color($color: $main-green, $lightness: 10%);
+      }
+    }
+    .vertical-bar, .horizontal-bar {
+      position: fixed;
+      border-radius: 3px;
+      background-color: $off-white;
+
+    }
+    .vertical-bar {
+      height: 60px;
+      width: 6px;
+      margin: 20px 47px;
+    }
+    .horizontal-bar {
+      height: 6px;
+      width: 60px;
+      margin: 47px 20px;
+    }
+  }
+
+  .label {
+    color: $off-white;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 10pt;
+  }
+}

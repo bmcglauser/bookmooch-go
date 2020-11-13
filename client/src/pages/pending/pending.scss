@@ -1,0 +1,30 @@
+@import '../../App.scss';
+
+.pending-page-grand-wrapper {
+  margin-top: 90px;
+  height: calc(100vh - 90px);
+  width:100%;
+  color: $main-green;
+  h2 {
+    margin-left: 5%;
+    font-weight: normal;
+  }
+  .pending-list {
+    margin: 0 0 20px 5%;
+    width:90%;
+    height: 30vh;
+    overflow: scroll;
+    border-bottom: 4px solid $main-green;
+    border-radius: 15px;
+  }
+  .to-receive-list {
+    margin-bottom: 0px;
+  }
+  .pending-page-footer {
+    margin-top: 0vh;
+    width:100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }  
+}

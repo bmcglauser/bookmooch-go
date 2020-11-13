@@ -1,0 +1,60 @@
+@import '../../../App.scss';
+
+.grand_wrapperB {
+  background-color: $off-white;
+  margin-top: 30vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: $dark-green;
+  }
+}
+.bookrow {
+  width: 65%;
+  height: 65%;
+
+  .ldl-scale {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg) scale(0.8, 0.8);
+  }
+  .custom-line, .coverr, .spine {
+    stroke: $dark-green;
+  }
+  .top-outline {
+    fill: $dark-green;
+  }
+  .pages {
+    fill: $off-white;
+  }
+  .coverr {
+    fill: $main-green;
+  }
+  .spine {
+    fill: $light-green;
+  }
+
+
+  .book {
+    transform-origin: 50% 50%;
+    animation: bookrow-spin 4s ease-in-out infinite;
+  }
+  .second{
+    animation-delay: .2s;
+  }
+  .third {
+    animation-delay: .4s;
+  }
+  .fourth {
+    animation-delay: .6s;
+  }
+}
+  
+@keyframes bookrow-spin {
+  0% {transform: rotateZ(0deg)}
+  80% {transform: rotateZ(360deg)}
+  100% {transform: rotateZ(360deg)}
+}

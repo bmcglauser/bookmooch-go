@@ -1,0 +1,101 @@
+@import '../../App.scss';
+
+.mooch-send-item-grand-wrapper {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  width: 100%;
+  color: $main-green;
+
+  .active-item-wrapper {
+    margin: 0 0 10px 0;
+  }
+  > p {
+    margin: 2px 5% 1vh;
+    text-align: right;
+    font-style: italic;
+  }
+  .mooch-detail-text-wrapper {
+    margin: 5px 10% 0px;
+    width: 80%;
+    height: 39vh;
+    h4 {
+      margin-top: 10px;
+      font-size: 14pt;
+    }
+    p {
+      margin-left: 20%;
+      font-size: 16pt;
+      line-height: 2;
+    }
+  }
+  .buttons-wrapper {
+    margin-left: 10%;
+    height: 20vh;
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+    .single-button-wrapper {
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 16pt;
+      text-align: center;
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 5px;
+        background-color: $main-green;
+        &:focus {
+          outline: none;
+        }
+        &:active {
+          background-color: adjust-color($main-green, $lightness:10%);
+        }
+      }
+      > p {
+        margin-top: 5px;
+      }
+      .accept {
+        height: 40px;
+        width: 50px;
+        background-image: url(../../assets/accept-icon.png);
+        background-repeat: round;
+      }
+      .reject {
+        height: 25px;
+        width: 25px;
+        background-image: url(../../assets/reject-icon.png);
+        background-repeat: round;
+      }
+      .sent {
+        height: 40px;
+        width: 60px;
+        background-image: url(../../assets/envelope-icon.png);
+        background-repeat: round;
+      }
+      .big-button {
+        height: 70px;
+        width: 70px;
+      }
+      .small-button {
+        height: 50px;
+        width: 50px;
+      }
+    }
+    .reject-wrapper {
+      align-self: flex-end;
+    }
+  }
+  .mooch-send-item-footer {
+    margin-top: 0vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  } 
+}

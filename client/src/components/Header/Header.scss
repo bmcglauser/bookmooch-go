@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+.main-header {
+  height: 80px;
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  background-color: $off-white;
+
+  h1 {
+    color: $main-green;
+    font-size: 28px;
+  }
+  .logo {
+    justify-self: flex-start;
+    align-self: flex-start;
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    flex-shrink: 0;
+  }
+  .title {
+    margin: auto 5px;
+    flex-grow: 1;
+    text-align: center;
+  }
+}

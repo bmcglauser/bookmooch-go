@@ -1,0 +1,32 @@
+@import '../../App.scss';
+
+.search-results-page-grand-wrapper {
+  margin-top: 90px;
+  height: calc(100vh - 90px);
+  width: 100%;
+  color: $main-green;
+  > h3 {
+    margin-left: 5%;
+    height: 4vh;
+    font-size: 14pt;
+  }
+  .query-text {
+    margin-left: 10%;
+    height: 4vh;
+    font-size: 16pt;
+  }
+  .full-results-list {
+    height: 69vh;
+    width: 100%;
+    border-radius: 0 0 100px 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .search-results-footer {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  } 
+}

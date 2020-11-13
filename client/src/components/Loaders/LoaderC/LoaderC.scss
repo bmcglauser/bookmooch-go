@@ -1,0 +1,54 @@
+@import '../../../App.scss';
+
+.grand_wrapperC {
+  background-color: $off-white;
+  margin-top: 30vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: $dark-green;
+  }
+}
+.iconspin {
+  height: 65%;
+  width: 65%;
+  transform-origin: 50% 50%;
+  animation: iconspin-spin 6s ease-in-out infinite;
+  
+  .ldl-scale {
+    transform-origin: 50% 50%;
+    transform: scale(0.8, 0.8);
+  }
+  .coverr {
+    fill: $main-green;
+  }
+  .pages {
+    fill: $off-white;
+  }
+  .custom-line {
+    stroke: $dark-green;
+    stroke-width: 2;
+  }
+  .main-outline {
+    fill: $dark-green; 
+  }
+  .circle {
+    stroke: $dark-green;
+    fill: $off-white;
+  }
+  .dot {
+    fill: $dark-green;
+  }
+}
+  
+@keyframes iconspin-spin {
+  0%   { transform: rotateZ(0deg)   rotateY(0deg) }
+  50%  { transform: rotateZ(360deg) rotateY(180deg) }
+  60%  { transform: rotateZ(360deg) rotateY(180deg) }
+  90%  { transform: rotateZ(360deg) rotateY(360deg) }
+  100% { transform: rotateZ(360deg) rotateY(360deg) }
+}

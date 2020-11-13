@@ -1,0 +1,30 @@
+@import '../../App.scss';
+
+.item {
+  height: 120px;
+  width: 90%;
+  margin-left: 5%;
+
+  border: 6px solid $main-green;
+  border-radius: 15px;
+  margin: 15px;
+  
+  background: #ffffff88;
+  color: $main-green;
+
+  h2 {
+    font-size: 13pt;
+    text-decoration: underline;
+    padding: 10px;
+    height: 30px;
+    overflow: scroll;
+  }
+
+  h4{
+    font-weight: bold;
+    margin-left: 50px;
+  }
+}
+
+.fullList {
+}

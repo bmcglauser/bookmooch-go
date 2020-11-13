@@ -1,0 +1,168 @@
+@import '../../App.scss';
+
+.profile-grand-wrapper {
+  margin-top: 80px;
+  height: 95vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+
+  .profile-info-wrapper {
+    height: 33vh;
+  }
+  .profileButtons {
+    width: 100vw;
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: $main-green;
+    text-align: center;
+
+    > div {
+      width: 30vw;
+    }
+    .lateral-button {
+      height: 80px;
+      width: 80px;
+      border: 4px solid $main-green;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,.7)
+    }
+    .center-button {
+      height: 80px;
+      width: 80px;
+      border: 4px solid $main-green;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,.7)
+    }
+    .buttonColLeft {
+      .findButtonWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        .find {
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          .white-find-icon {
+            height: 60px;
+            width: 60px;
+            background-image: url(../../assets/find-white.png);
+            background-repeat: round;
+          }
+        }
+      }
+    }
+    .buttonColCenter {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      .centerButtons {
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .pendingButtonWrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+
+          .pending {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .white-pending-icon {
+              height: 60px;
+              width: 60px;
+              background-image: url(../../assets/pending-white.png);
+              background-repeat: round;
+            }
+          }
+        }
+        .faqButtonWrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+
+          .faq {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .white-faq-icon {
+              background-image: url(../../assets/faq-white.png);
+              background-repeat: round;
+              height: 60px;
+              width: 40px;
+            }
+          }
+        }
+      }
+    }
+    .buttonColRight {
+      .addButtonWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .add {
+          margin-bottom: 10px;
+          display: grid;
+          grid-template: 1 / 1;
+          border: 4px solid $main-green;
+          &:focus {
+            outline: none;
+          }
+          &:active {
+            outline: none;
+          }
+          
+          .vertical-bar, .horizontal-bar {
+            position: fixed;
+            border-radius: 3px;
+            background-color: $main-green;
+          }
+          .vertical-bar {
+            height: 60px;
+            width: 6px;
+            margin: 7px 34px;
+          }
+          .horizontal-bar {
+            height: 6px;
+            width: 60px;
+            margin: 34px 7px;
+          }
+        }
+      }
+    }
+  }
+  .bottomLogoutWrapper {
+    margin-top: 3.25vh;
+    width: 100%;
+
+    .bottomLogoutLink{
+      text-align: center;
+      color: $off-white;
+      
+      a {
+        color: $off-white;
+        font-weight: bold;
+      }
+    } 
+  }
+}

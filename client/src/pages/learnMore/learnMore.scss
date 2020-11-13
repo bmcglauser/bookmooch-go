@@ -1,0 +1,109 @@
+@import '../../App.scss';
+
+.learn-more-page-wrapper {
+  margin-top: 85px;
+  height: calc(100vh - 85px);
+  color: $main-green;
+
+  .learn-more-top-block {
+    margin-left: 5%;
+    width: 90%;
+    height: 28vh;
+    display: flex;
+
+    .left-text {
+      margin: 0 20px 0 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      h4 {
+        font-size: 14pt;
+        font-style: italic;
+      }
+    }
+    .right-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      p {
+        font-size: 12pt;
+        line-height: 1.5;
+      }
+    }  
+  }
+  .learn-more-bottom-block {
+    margin: 2vh 0 0 7.5%;
+    width: 85%;
+    height: 47vh;
+    display: flex;
+    flex-direction: column;
+
+    .bottom-block-text {
+      text-align: center;
+      line-height: 1.7;
+      h2 {
+        font-size: 20pt;
+      }
+      p {
+        font-size: 16pt;
+      }
+    }
+    .buttons-wrapper {
+      margin-top: 2vh;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .button-link {
+        margin: 10px;
+        width: 45%;
+        .wide-button {
+          width: 100%;
+          height: 60px;
+          border: none;
+          border-radius: 10px;
+          background-color: $main-green;
+          p {
+            margin-top: 5px;
+            color: $off-white;
+            font-size: 14pt;
+            letter-spacing: .7pt;
+          }
+          &:focus {
+            outline: none;
+          }
+          &:active {
+            background-color: adjust-color($color: $main-green, $lightness: 10%);
+          }
+        }
+      }
+    }
+    .bottom-faq-text {
+      margin-top: 7vh;
+      height: 10vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      > a {
+        color: $main-green;
+        font-weight: bold;
+        h4 {
+          margin-top: 8px;
+          font-size: 14pt;
+        }
+      }
+    }
+  }
+  .learn-more-footer {
+    margin-top: 3.5vh;
+    color: $off-white;
+    text-align: center;
+    p {
+      a {
+        color: $off-white;
+        font-weight: bold;
+      }
+    } 
+  }
+}

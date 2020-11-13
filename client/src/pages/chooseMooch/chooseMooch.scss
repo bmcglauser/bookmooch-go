@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+.choose-mooch-page-grand-wrapper {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  width: 100%;
+
+  .active-item-wrapper {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+  }
+  .users-with-wrapper {
+    height: 58.5vh;
+    width: 100%;
+    border-radius: 0 0 100px 100px;
+    overflow-y: scroll;
+
+    .extra-space {
+      height: 100px;
+    }
+  }
+  .choose-mooch-footer {
+    margin-top: 0vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+}

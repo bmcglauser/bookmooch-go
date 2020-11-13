@@ -1,0 +1,39 @@
+@import '../../../App.scss';
+
+.active-item-grand-wrapper {
+  margin-left: 10%;
+  flex-shrink: 0;
+  width: 80%;
+  height: 14vh;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 10px;
+  background-color: $main-green;
+  color: $off-white;
+
+  .cover-art {
+    margin: 5px 10px 5px 10px;
+    align-self: center;
+    border: 1px solid $off-white;
+    height: 76px;
+    min-width: 50px;
+    max-width: 70px;
+  }
+  .not-found {
+    text-align: center;
+    font-size: 10pt;
+    > p {
+      margin-top:5px;
+    }
+  }
+  .active-item-text {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .author {
+      font-weight: normal;
+    }
+  }
+
+}

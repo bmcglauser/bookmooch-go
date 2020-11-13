@@ -1,0 +1,78 @@
+@import '../../App.scss';
+
+.join-form {
+  height: 100%;
+  width: 100%;
+
+  font-size: 11pt;
+  text-align: right;
+
+  label {
+    line-height: 2.5;
+    input {
+      margin: 5px 10px;
+      height: 30px;
+      width: 50%;
+      font-size: 14pt;
+      margin-left: 5px;
+      border: 1px solid $main-green;
+      border-radius: 4px;
+      padding: 2px;
+
+      &:focus {
+        outline: none;
+        border: 3px solid $main-green;
+      }
+
+    }
+  }
+    .text-area-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      textarea {
+        margin: 5px 10px;
+        height: 70px;
+        width: 50%;
+        font-size: 14pt;
+        margin-left: 5px;
+        border: 1px solid $main-green;
+        border-radius: 4px;
+        padding: 2px;
+        resize: none;
+        &:focus {
+          outline: none;
+          border: 3px solid $main-green;
+        }
+      }
+    }
+
+  .join-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4vh;
+
+    .join-form-submit {
+      height: 45px;
+      width: 120px;
+      background-color: $main-green;
+      font-size: 13pt;
+      color: $off-white;
+      border: none;
+      border-radius: 6px;
+
+      .join-button-text {
+        margin-top: 4px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        background-color: adjust-color($color: $main-green, $lightness: 10%);
+      }
+    }
+  }
+
+}

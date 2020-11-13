@@ -1,0 +1,32 @@
+@import '../../App.scss';
+
+.login {
+  height: 100%;
+  color: $main-green;
+  text-align: center;
+
+  .logo {
+    margin-top: 80px;
+    height: 150px;
+    width: 150px;
+  }
+  .welcome-text-wrapper {
+    margin: 5vh 0;
+    height: 15vh;
+  }
+  .login-form-wrapper {
+    margin: 5vh 0;
+    height: 27vh;
+  }
+  .footerLogin {
+    margin-top: 10vh;
+    color: $off-white;
+
+    a {
+      color: $off-white;
+      font-weight: bold;
+    }
+  }
+  
+}
+

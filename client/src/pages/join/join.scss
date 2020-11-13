@@ -1,0 +1,26 @@
+@import '../../App.scss';
+
+.join-page-grand-wrapper {
+  margin-top: 90px;
+  width: 100%;
+  height: calc(100vh - 90px);
+  color: $main-green;
+
+  .join-form-wrapper {
+    width: 100%;
+    height: 75vh;
+  }
+  
+  .join-page-footer {
+    margin: 5vh 0 0 7.5%;
+    width: 85%;
+    color: $off-white;
+    p {
+      text-align: center;
+      a {
+        color: $off-white;
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import '../../App.scss';
+
+.add-page-grand-wrapper {
+  margin-top: 90px;
+  height: calc(100vh - 90px);
+  
+  .find-book-to-add {
+    margin: 17vh 10% 0;
+    height: 58vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: $main-green;
+    text-align: center;
+    .top-block {
+
+      h2 {
+        font-weight: normal;
+      }
+      input {
+        margin-top: 30px;
+        width:100%;
+        height: 40px;
+        border: 1px solid $main-green;
+        border-radius: 6px;
+        font-size: 14pt;
+        &:focus {
+          border: 2px solid $main-green;
+          outline: none;
+        }
+      }
+    }
+    > p {
+      font-size: 14pt;
+      line-height: 2;
+    }
+    button {
+      height: 60px;
+      width: 140px;
+      border: none;
+      border-radius: 10px;
+      background-color: $main-green;
+      p {
+        margin-top: 6px;
+        color: $off-white;
+        font-weight: bold;
+        font-size: 12pt;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        background-color: adjust-color($main-green, $lightness: 10%);
+      }
+    }
+  }
+  .add-page-footer {
+    margin-top: 12.1vh;
+    height: 12vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    > p {
+      margin: -7px 10px 0;
+      width: 60%;
+      font-size: 14px;
+      color: $off-white;
+      align-self: center;
+      text-align: right;
+    } 
+  }
+}
