@@ -4,17 +4,35 @@ const {
   GetPendingById,
   GetConfidentialPendingById,
   GetSearch,
-  GetSearchRecent
+  GetSearchRecent,
+  AddBookToBookshelf,
+  RemoveBookFromBookshelf,
+  RequestAskFirst,
+  AcceptMooch,
+  MoochNow,
+  MarkSent,
+  MarkReject,
+  GiveFeedback,
+  
 } = require('./apiFunctions');
 
 exports.resolvers = {
   Query: {
-    getBookByAsin:              (_, { asin }) => GetBookByAsin(asin),
+    getBookByAsin:              (_, { asin })               => GetBookByAsin(asin),
     getUserByUsername:          (_, { username, self, pw }) => GetUserByUsername(username, self, pw),
-    getPendingById:             (_, { pending_id }) => GetPendingById(pending_id),
-    getConfidentialPendingById: (_, { pending_id }) => GetConfidentialPendingById(pending_id),
-    getSearch:                  (_, { text }) => GetSearch(text, 1),
-    getSearchRecent:            () => GetSearchRecent(),
+    getPendingById:             (_, { pending_id })         => GetPendingById(pending_id),
+    getConfidentialPendingById: (_, { pending_id })         => GetConfidentialPendingById(pending_id),
+    getSearch:                  (_, { text })               => GetSearch(text, 1),
+    getSearchRecent:            ()                          => GetSearchRecent(),
+
+    addBookToBookshelf:         (_, {asin, self, pw})                      => AddBookToBookshelf(asin, self, pw),
+    removeBookFromBookshelf:    (_, {asin, self, pw})                      => RemoveBookFromBookshelf(asin, self, pw),
+    requestAskFirst:            (_, {asin, giverid, self, pw})             => RequestAskFirst(asin, giverid, self, pw),
+    acceptMooch:                (_, {requester, asin, self, pw})           => AcceptMooch(requester, asin, self, pw),
+    moochNow:                   (_, {asin, giverid, selfAddress, selfCountry, self}) => MoochNow(asin, giverid, selfAddress, selfCountry, self),
+    markSent:                   (_, {pendingID, self, pw})                 => MarkSent(pendingID, self, pw),
+    markReject:                 (_, {pendingID, self, pw})                 => MarkReject(pendingID, self, pw),
+    giveFeedback:               (_, {pendingID, score, self, pw}) => GiveFeedback(pendingID, score, self, pw),
   },
   Book: { 
     asin:          obj => obj.id,

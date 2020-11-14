@@ -8,6 +8,15 @@ exports.typeDefs = gql`
     getConfidentialPendingById(pending_id: String!): Mooch,
     getSearch(text: String!, pageNum: Int): [Book],
     getSearchRecent: [Book],
+
+    addBookToBookshelf      (asin: String!, self: String, pw: String): String,
+    removeBookFromBookshelf (asin: String!, self: String, pw: String): String,
+    requestAskFirst         (asin: String!, giverid: String!, self: String, pw: String): String,
+    acceptMooch             (requester: String!, asin: String!, self: String, pw: String) : String,
+    moochNow                (asin: String!, giverid: String!, selfAddress: String!, selfCountry: String, self: String, pw: String) : String,
+    markSent                (pendingID: String!, self: String, pw: String) : String,
+    markReject              (pendingID: String!, self: String, pw: String) : String,
+    giveFeedback            (pendingID: String!, score: String!, self: String, pw: String) : String,
   }
 
   type Book {

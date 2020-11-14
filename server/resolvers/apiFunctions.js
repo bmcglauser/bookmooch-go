@@ -4,8 +4,8 @@ require('dotenv').config();
 
 
 const AUTH = {
-  user: process.env.USERNAME,
-  pw: process.env.PW
+  user: process.env.USERNAMEA,
+  pw: process.env.PWA
 };
 
 exports.GetBookByAsin = (asin) => {
@@ -116,7 +116,7 @@ exports.AddBookToBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
       'content-type': 'application/x-www-form-urlencoded',
     },
     data: qs.stringify({
-      asin: `${asin}`,
+      asins: `${asin}`,
       target: 'inventory',
       action: 'add',
       o: 'json'
@@ -166,10 +166,10 @@ exports.RequestAskFirst = (asin, giverid, self = AUTH.user, pw = AUTH.pw) => {
       username: `${self}`,
       password: `${pw}`
     },
-  }).then(res => res.data[0])
+  }).then(res => res.data)
     .catch(e => e.message);
 };
-exports.MoochNow = (asin, giverid, selfAddress, selfCountry, self = AUTH.user, pw = AUTH.pw) => {
+exports.MoochNow = (asin, giverid, selfAddress, selfCountry = 'US', self = AUTH.user, pw = AUTH.pw) => {
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/mooch',
@@ -188,7 +188,7 @@ exports.MoochNow = (asin, giverid, selfAddress, selfCountry, self = AUTH.user, p
       username: `${self}`,
       password: `${pw}`
     },
-  }).then(res => res.data[0])
+  }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
 exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = AUTH.pw) => {
@@ -213,8 +213,8 @@ exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = A
   }).then(res => res.data[0])
     .catch(e => e.message);
 };
-// Allows for newStatus = 'accept', 'sent', 'reject'
-exports.MarkStatus = (pendingID, newStatus, comment = '', self = AUTH.user, pw = AUTH.pw) => {
+// Allows for newStatus = 'sent', 'reject', 'received'
+exports.MarkSent = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -224,15 +224,52 @@ exports.MarkStatus = (pendingID, newStatus, comment = '', self = AUTH.user, pw =
     },
     data: qs.stringify({
       id: `${pendingID}`,
-      action: `${newStatus}`,
-      comment: `${comment}`,
+      action: 'sent',
       o: 'json'
     }),
     auth: {
       username: `${self}`,
       password: `${pw}`
     },
-  }).then(res => res.data[0])
+  }).then(res => res.data.result_text)
+    .catch(e => e.message);
+};
+exports.MarkReject = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
+  return axios({
+    method: 'post',
+    url: 'http://bookmooch.com/api/pending_action',
+    headers: {
+      'mode': 'no-cors',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    data: qs.stringify({
+      id: `${pendingID}`,
+      action: 'reject',
+      comment: 'sorry',
+      param1: 'l',
+      o: 'json'
+    }),
+    auth: {
+      username: `${self}`,
+      password: `${pw}`
+    },
+  }).then(res => res.data.result_text)
+    .catch(e => e.message);
+};
+
+exports.AcceptMooch = (requester, asin, self = AUTH.user, pw = AUTH.pw) => {
+  return axios({
+    method: 'get',
+    url: `http://bookmooch.com/m/askme_yes?userid=${requester}&asin=${asin}`,
+    headers: {
+      'mode': 'no-cors',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    auth: {
+      username: `${self}`,
+      password: `${pw}`
+    },
+  }).then(res => res.data)
     .catch(e => e.message);
 };
 
