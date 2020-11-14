@@ -1,3 +1,4 @@
+import React from 'react';
 import './feedback.scss';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -38,7 +39,7 @@ export default function FeedbackPage (props) {
     <>
     <Header title="Give feedback!" />
     <div className="feedback-page-grand-wrapper">
-      <p className="top-text">You've marked the following<br />book as received:</p>
+      <p className="top-text">You{`&#39`}ve marked the following<br />book as received:</p>
       <div className="active-item-wrapper">
         <ActiveItem book={book} />
       </div>
@@ -81,5 +82,4 @@ export default function FeedbackPage (props) {
     </div>
     </>
   );
-};
-
+}

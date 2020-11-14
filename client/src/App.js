@@ -1,3 +1,4 @@
+import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.scss';

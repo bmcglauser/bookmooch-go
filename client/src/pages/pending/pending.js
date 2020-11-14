@@ -1,3 +1,5 @@
+import React from 'react';
+import './pending.scss';
 import { gql, useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import BackButton from '../../components/Buttons/BackButton'
@@ -5,7 +7,6 @@ import CircleAddButton from '../../components/Buttons/CircleAddButton'
 import SearchButton from '../../components/Buttons/SearchButton'
 import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
-import './pending.scss';
 
 
 export default function PendingPage (props) {
@@ -77,4 +78,4 @@ export default function PendingPage (props) {
     </div>
     </>
   );
-};
+}

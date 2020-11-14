@@ -1,10 +1,11 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './join.scss';
 import Header from '../../components/Header';
 import JoinForm from '../../containers/JoinForm';
 
 
-export default function JoinPage (props) {
+export default function JoinPage () {
   return (
     <>
     <Header title="Join BookMooch!" />
@@ -20,4 +21,4 @@ export default function JoinPage (props) {
     </div>
     </>
   );
-};
+}

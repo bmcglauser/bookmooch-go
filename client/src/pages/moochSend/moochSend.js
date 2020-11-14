@@ -1,3 +1,4 @@
+import React from 'react';
 import './moochSend.scss';
 import { gql, useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -60,7 +61,7 @@ export default function MoochSendPage (props) {
       <div className="active-item-wrapper">
         <ActiveItem book={mooch.book}/>
       </div>
-      <p>you're getting {pointsStr} to send this book</p>
+      <p>you{`&#39`}re getting {pointsStr} to send this book</p>
       <div className="mooch-detail-text-wrapper">
         <h4>Sending to:</h4>
         <p>{mooch.receiver_address}</p>
@@ -96,4 +97,4 @@ export default function MoochSendPage (props) {
     </div>
     </>
   );
-};
+}

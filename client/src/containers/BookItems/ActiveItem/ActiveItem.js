@@ -1,3 +1,4 @@
+import React from 'react';
 import './ActiveItem.scss';
 import RandomColorCover from '../../../components/RandomColorCover';
 
@@ -18,4 +19,4 @@ export default function ActiveItem ({book}) {
       </div>
     </div>
   );
-};
+}

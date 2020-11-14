@@ -1,3 +1,4 @@
+import React from 'react';
 import './moochReceive.scss';
 import { gql, useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -38,7 +39,6 @@ export default function MoochReceivePage (props) {
   }
 
   const mooch = data.getConfidentialPendingById;
-  console.log(mooch);
 
   let dateReq, dateReqStr;
   let dateSent, dateSentStr;
@@ -59,7 +59,7 @@ export default function MoochReceivePage (props) {
       <div className="active-item-wrapper">
         <ActiveItem book={mooch.book}/>
       </div>
-      <p>you're spending {pointsStr} to get this book</p>
+      <p>you{`&#39`}re spending {pointsStr} to get this book</p>
       <div className="mooch-detail-text-wrapper">
         <h4>Mooching from:</h4>
         <p>{mooch.giverUsername}</p>
@@ -83,4 +83,4 @@ export default function MoochReceivePage (props) {
     </div>
     </>
   );
-};
+}

@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './learnMore.scss';
 import Header from '../../components/Header';
 
-export default function LearnMorePage (props) {
+export default function LearnMorePage () {
   return (
     <>
     <Header title="BookMooch is:" />
@@ -15,7 +16,7 @@ export default function LearnMorePage (props) {
         </div>
         <div className="right-text">
           <p>Join over <b>300,000 members</b><br />already on BookMooch.com</p>
-          <p>You'll never pay to join<br />or to get books.</p>
+          <p>You{`&#39`}ll never pay to join<br />or to get books.</p>
           <p>Give away books you have.<br />Get books you want.</p>
         </div>
       </div>
@@ -57,4 +58,4 @@ export default function LearnMorePage (props) {
     </div>
     </>
   );
-};
+}

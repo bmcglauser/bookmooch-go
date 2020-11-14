@@ -1,3 +1,4 @@
+import React from 'react';
 import './PendingItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
@@ -42,4 +43,4 @@ export default function PendingItem ({mooch, direction}) {
       </Link> 
     );
   } 
-};
+}

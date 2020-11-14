@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './SearchResultItem.scss';
+import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
 
 export default function SearchResultItem ({book}) {
@@ -26,4 +27,4 @@ export default function SearchResultItem ({book}) {
       </div>
     </Link>
   );
-};
+}

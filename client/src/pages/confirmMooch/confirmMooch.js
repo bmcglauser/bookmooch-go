@@ -1,5 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
+import React from 'react';
 import './confirmMooch.scss';
+import { gql, useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
@@ -106,9 +107,9 @@ export default function ConfirmMoochPage (props) {
         </button>
       </div>
       <div className="confirm-mooch-footer">
-        <p>You'll have {pointsLeftStr} left after mooching this book</p>
+        <p>You{`&#39`}ll have {pointsLeftStr} left after mooching this book</p>
       </div>
     </div>
     </>
   );
-};
+}

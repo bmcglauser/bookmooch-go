@@ -1,4 +1,5 @@
-import './chooseMooch.scss'
+import React from 'react';
+import './chooseMooch.scss';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import BackButton from '../../components/Buttons/BackButton';
@@ -72,4 +73,4 @@ export default function ChooseMoochPage (props) {
     </div>
     </>
   );
-};
+}

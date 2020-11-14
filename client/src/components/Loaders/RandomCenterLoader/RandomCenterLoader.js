@@ -1,3 +1,4 @@
+import React from 'react';
 import LoaderB from '../LoaderB'
 import LoaderC from '../LoaderC'
 import LoaderD from '../LoaderD'
@@ -15,4 +16,4 @@ export default function RandomCenterLoader () {
     default:
       return <LoaderD />
   }
-};
+}

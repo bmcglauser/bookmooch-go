@@ -1,3 +1,4 @@
+import React from 'react';
 import './Info.scss';
 import LoaderA from '../../components/Loaders/LoaderA';
 // import LoaderB from '../../components/Loaders/LoaderB';

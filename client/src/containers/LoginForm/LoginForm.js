@@ -1,6 +1,7 @@
+import React from 'react';
 import './LoginForm.scss';
 
-export default function LoginForm (props) {
+export default function LoginForm () {
   return (
     <form className='login-form'>
       <label htmlFor='username'>Username</label>

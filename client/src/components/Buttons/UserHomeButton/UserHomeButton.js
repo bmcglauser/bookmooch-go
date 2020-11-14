@@ -1,7 +1,8 @@
+import React from 'react';
 import './UserHomeButton.scss';
 import { Link } from 'react-router-dom';
 
-export default function UserHomeButton (props) {
+export default function UserHomeButton () {
   return (
     <Link to="/profile" style={{textDecoration:'none'}}>
       <div className="user-button-wrapper">
@@ -10,4 +11,4 @@ export default function UserHomeButton (props) {
       </div>
     </Link>
   );
-};
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import './UserWithItem.scss'
 import { Link } from 'react-router-dom';
 const moment = require('moment');
@@ -40,12 +41,12 @@ export default function UserWithItem ({self, other, asin}) {
         willSendP = <p className="will-send">will send<br />to your country</p>;
         requestable = true;
     } else {
-        willSendP = <p className="will-send">'will not send<br />to your country'</p>;
+        willSendP = <p className="will-send">will not send<br />to your country</p>;
         requestable = false;
     }
       break;
     default:
-      willSendP = <p className="will-send">'will not send<br />to your country'</p>;
+      willSendP = <p className="will-send">will not send<br />to your country</p>;
       requestable = false;
   }
   const condition = other.listings[0].condition || '';
@@ -71,7 +72,7 @@ export default function UserWithItem ({self, other, asin}) {
           <div className="bottom-block-text">
             <p><i>added on {addedDateStr}</i></p>
             <p>Feedback score: {other.feedback_score}</p>
-            <p>Condition: "{condition} "</p>
+            <p>Condition: {`&#34`}{condition} {`&#34`}</p>
           </div>
           <div className="request-button-wrapper">
             <Link to={`/confirmmooch/${other.username}/${asin}`} style={{textDecoration: 'none'}}>
@@ -98,7 +99,7 @@ export default function UserWithItem ({self, other, asin}) {
           <div className="bottom-block-text">
             <p><i>added on {addedDateStr}</i></p>
             <p>Feedback score: {other.feedback_score}</p>
-            <p>Condition: "{condition} "</p>
+            <p>Condition: {`&#34`}{condition} {`&#34`}</p>
           </div>
         </div>
       </div>

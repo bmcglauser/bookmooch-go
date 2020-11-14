@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './BookshelfItem.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
@@ -33,4 +34,4 @@ export default function BookshelfItem ( {listing} ) {
       </div>
     </div>
   );
-};
+}

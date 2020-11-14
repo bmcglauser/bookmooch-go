@@ -1,3 +1,4 @@
+import React from 'react';
 
 export default function RandomColorCover () {
   const randomNumber = Math.floor(Math.random() * 8);
@@ -21,4 +22,4 @@ export default function RandomColorCover () {
       </p>
     </div>
   );
-};
+}

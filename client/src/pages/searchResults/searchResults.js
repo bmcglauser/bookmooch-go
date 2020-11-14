@@ -1,3 +1,4 @@
+import React from 'react';
 import './searchResults.scss';
 import { gql, useQuery } from '@apollo/client';
 import Header from '../../components/Header';
@@ -91,4 +92,4 @@ export default function SearchResultsPage (props) {
     </div>
     </>
   );
-};
+}

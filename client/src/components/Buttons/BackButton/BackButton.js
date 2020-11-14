@@ -1,3 +1,4 @@
+import React from 'react';
 import './BackButton.scss'
 
 export default function BackButton (props) {
@@ -7,4 +8,4 @@ export default function BackButton (props) {
       <p>Go back</p>
     </div>
   );
-};
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import './ProfileInfo.scss'
 import { Link } from 'react-router-dom';
 

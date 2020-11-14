@@ -1,7 +1,8 @@
-import './bookshelf.scss'
+import React from 'react';
+import './bookshelf.scss';
 import Header from '../../components/Header';
 import BookshelfItem from '../../containers/BookItems/BookshelfItem';
-import CircleAddButton from '../../components/Buttons/CircleAddButton'
+import CircleAddButton from '../../components/Buttons/CircleAddButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import SearchButton from '../../components/Buttons/SearchButton';
 

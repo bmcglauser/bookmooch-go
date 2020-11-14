@@ -1,3 +1,4 @@
+import React from 'react';
 import './LoaderC.scss';
 
 function LoaderC() {

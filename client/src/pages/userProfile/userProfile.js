@@ -1,6 +1,7 @@
+import React from 'react';
+import './userProfile.scss';
 import { Link } from "react-router-dom";
 import { gql, useQuery } from '@apollo/client';
-import './userProfile.scss';
 import Header from "../../components/Header";
 import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -84,4 +85,4 @@ export default function UserProfilePage () {
     </div>
     </>
   )
-};
+}

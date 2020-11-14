@@ -1,8 +1,9 @@
+import React from 'react';
 import './sampleinfo.scss';
 import Header from '../../components/Header';
 import Info from '../../containers/Info';
 
-export default function SampleInfo (props) {
+export default function SampleInfo () {
   return (
     <>
     <Header title="Sample Info" />
@@ -10,5 +11,5 @@ export default function SampleInfo (props) {
       <Info />
     </div>
     </>
-  )
-};
+  );
+}

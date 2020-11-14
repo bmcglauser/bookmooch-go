@@ -1,10 +1,11 @@
+import React from 'react';
 import './findAdd.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Header from '../../components/Header';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 
-export default function FindAddPage(props) {
+export default function FindAddPage() {
   const [searchText, setSearchText] = useState('');
   return (
     <>
@@ -16,7 +17,7 @@ export default function FindAddPage(props) {
           <input onChange={e=>setSearchText(e.target.value)}type="text" />
         </div>
         <p>
-          Click below to find the book you want to add. On the book's details page you'll be able to "Add this book to give away"
+  Click below to find the book you want to add. On the book{`&#39`}s details page you{`&#39`}ll be able to {`&#34`}Add this book to give away{`&#34`}
         </p>
         <Link to={`/searchresults/${searchText}`} style={{textDecoration:'none'}}>
           <button className="find-add-button">
@@ -28,9 +29,9 @@ export default function FindAddPage(props) {
       </div>
       <div className="add-page-footer">
         <UserHomeButton />
-        <p>for books not yet in the catalogue, you'll have to enter the details manually on desktop</p>
+        <p>for books not yet in the catalogue, you{`&#39`}ll have to enter the details manually on desktop</p>
       </div>
     </div>
     </>
   );
-};
+}

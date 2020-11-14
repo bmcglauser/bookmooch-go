@@ -1,6 +1,7 @@
+import React from 'react';
 import './JoinForm.scss';
 
-export default function JoinForm (props) {
+export default function JoinForm () {
   return (
     <form className="join-form">
       <label htmlFor="username">Username (jsmith02):
@@ -45,4 +46,4 @@ export default function JoinForm (props) {
       </div>
     </form>
   );
-};
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import './WelcomeText.scss';
 
 function WelcomeText({ back }) {

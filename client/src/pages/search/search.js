@@ -1,3 +1,4 @@
+import React from 'react';
 import './search.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,7 @@ import Header from '../../components/Header';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import CircleAddButton from '../../components/Buttons/CircleAddButton';
 
-export default function SearchPage (props) {
+export default function SearchPage () {
   const [searchText, setSearchText] = useState('');
 
   return (
