@@ -1,7 +1,7 @@
 @import '../../../App.scss';
 
 $thickness : 5px;
-$duration : 4000;
+$duration : 3000;
 $delay : $duration/6;
 
 // based on animation by Antoine Grélard
@@ -15,7 +15,7 @@ $delay : $duration/6;
 
 .grand_wrapperA {
   position: absolute;
-  margin-top: 5vh;
+  margin: 5vh 0 0 3vw;
   height: 25vh;
   width: 97vw;
   top: 20vh;

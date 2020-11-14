@@ -6,7 +6,7 @@ import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import SearchButton from '../../components/Buttons/SearchButton';
 
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 
 
 export default function BookshelfPage (props) {
@@ -30,7 +30,7 @@ export default function BookshelfPage (props) {
 
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

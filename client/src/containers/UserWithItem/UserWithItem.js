@@ -74,7 +74,7 @@ export default function UserWithItem ({self, other, asin}) {
             <p>Condition: "{condition} "</p>
           </div>
           <div className="request-button-wrapper">
-            <Link to='/' style={{textDecoration: 'none'}}>
+            <Link to={`/confirmmooch/${other.username}/${asin}`} style={{textDecoration: 'none'}}>
               <button className="request-button">
                 <div className="request-button-icon" />
               </button>

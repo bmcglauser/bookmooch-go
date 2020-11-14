@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './SearchResultItem.scss';
+import RandomColorCover from '../../../components/RandomColorCover';
 
 export default function SearchResultItem ({book}) {
   const numberAvail = book.usernamesWith ? book.usernamesWith.length : 0;
@@ -9,11 +10,7 @@ export default function SearchResultItem ({book}) {
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
-  : <div className="cover-art not-found">
-      <p>
-        no<br />cover<br />art<br />found
-      </p>
-    </div>
+  : <RandomColorCover />
 
   let bookTitle = book.title.length > 20 ? book.title.slice(0, 21)+'...' : book.title;
 

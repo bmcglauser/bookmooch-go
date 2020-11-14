@@ -1,6 +1,6 @@
 import './confirmAdd.scss'
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 
@@ -20,7 +20,7 @@ export default function ConfirmAddPage (props) {
   const { loading, error, data } = useQuery(GET_BOOK);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

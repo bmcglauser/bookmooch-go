@@ -1,6 +1,8 @@
 import './PendingItem.scss';
 import { Link } from 'react-router-dom';
+import RandomColorCover from '../../../components/RandomColorCover';
 const moment = require('moment');
+
 
 export default function PendingItem ({mooch, direction}) {
   const book = mooch.book;
@@ -9,11 +11,7 @@ export default function PendingItem ({mooch, direction}) {
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
-  : <div className="cover-art not-found">
-      <p>
-        no<br />cover<br />art<br />found
-      </p>
-    </div>
+  : <RandomColorCover />
 
   const bookTitle = book.title.length > 20 ? book.title.slice(0, 21)+'...' : book.title;
 

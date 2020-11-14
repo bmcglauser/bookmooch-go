@@ -39,7 +39,6 @@ export default function SearchResultsPage (props) {
         }
       }
     `;
-  
   const { loading, error, data } = useQuery(GET_SEARCH);
 
   if (loading) {
@@ -56,6 +55,25 @@ export default function SearchResultsPage (props) {
     .sort((bookA, bookB) => bookB.availCount - bookA.availCount)
     .map((book, i) => <SearchResultItem key={i+'/'+book.asin} book={book}/>);
 
+  if (!resultsArr.length) {
+    return (<>
+    <Header title="Finding a book" />
+    <div className="search-results-page-grand-wrapper">
+      <h3>Showing results for: </h3>
+      <p className="query-text">{queryStr}</p>
+      <div className="no-results">
+        <h1>No results found,<br />please try again</h1>
+        <div className="white-space" />
+      </div>
+      <div className="search-results-footer">
+        <BackButton ctx={props}/>
+        <CircleAddButton />
+        <UserHomeButton />
+      </div>
+    </div>
+    </>);
+  }
+  
   return(
     <>
     <Header title="Finding a book" />

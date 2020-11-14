@@ -28,5 +28,19 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-  } 
+  }
+  .no-results{
+    height: 68vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      margin-top: 10vh;
+      text-align: center;
+    }
+    .white-space {
+      height: 35vh;
+    }
+  }
 }

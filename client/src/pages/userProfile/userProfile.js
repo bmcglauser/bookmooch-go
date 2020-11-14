@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 import './userProfile.scss';
 import Header from "../../components/Header";
 import ProfileInfo from '../../containers/ProfileInfo';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 
 
 export default function UserProfilePage () {
@@ -22,7 +22,7 @@ export default function UserProfilePage () {
   const { loading, error, data } = useQuery(GET_USER);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

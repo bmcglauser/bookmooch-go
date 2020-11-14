@@ -1,6 +1,6 @@
 import './moochSend.scss';
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import Header from '../../components/Header';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
@@ -32,7 +32,7 @@ export default function MoochSendPage (props) {
   const { loading, error, data } = useQuery(GET_PENDING_ITEM);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

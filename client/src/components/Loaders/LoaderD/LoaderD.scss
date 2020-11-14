@@ -40,16 +40,16 @@
   .book {
     transform-origin: 50% 50%;
     transform: translateX(-10px);
-    animation: bookstack-shuffle 1.5s ease-in-out alternate infinite;
+    animation: bookstack-shuffle .75s ease-in-out alternate infinite;
   }
   .top {
-    animation-delay: .2s;
+    animation-delay: .1s;
   }
   .middle {
-    animation-delay: .4s;
+    animation-delay: .2s;
   }
   .bottom {
-    animation-delay: .6s;
+    animation-delay: .3s;
   }
 }
   

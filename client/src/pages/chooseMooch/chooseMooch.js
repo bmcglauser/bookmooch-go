@@ -5,7 +5,7 @@ import BackButton from '../../components/Buttons/BackButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import UserWithItem from '../../containers/UserWithItem';
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 
 const falseSelf = {
   username: 'spectrome',
@@ -42,7 +42,7 @@ export default function ChooseMoochPage (props) {
   const { loading, error, data } = useQuery(GET_MOOCH_CHOICE);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

@@ -2,7 +2,7 @@ import './feedback.scss';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 
 export default function FeedbackPage (props) {
@@ -25,7 +25,7 @@ export default function FeedbackPage (props) {
   const { loading, error, data } = useQuery(GET_TRANSACTION);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

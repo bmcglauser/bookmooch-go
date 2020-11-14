@@ -1,14 +1,11 @@
 import './BookDetailsInfo.scss'
+import RandomColorCover from '../../../components/RandomColorCover';
 
 export default function BookDetailsInfo ({book}) {
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
-  : <div className="cover-art not-found">
-      <p>
-        no<br />cover<br />art<br />found
-      </p>
-    </div>
+  : <RandomColorCover />
 
   const summary = book.summary && book.summary.length
     ? <p className="summary-text">{book.summary}</p>

@@ -5,7 +5,7 @@ import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
 import './bookDetails.scss';
 import { gql, useQuery } from '@apollo/client';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 
 // const falseBook = {
 //   title: "A Book Title",
@@ -35,7 +35,7 @@ export default function BookDetailsPage (props) {
   const { loading, error, data } = useQuery(GET_BOOK);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

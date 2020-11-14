@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './BookshelfItem.scss'
+import RandomColorCover from '../../../components/RandomColorCover';
 const moment = require('moment');
 
 
@@ -10,17 +11,13 @@ export default function BookshelfItem ( {listing} ) {
 
   const bookCover = listing.book.cover_art_url 
   ? <img className="cover-art" src={listing.book.cover_art_url} alt={`book cover`} />
-  : <div className="cover-art not-found">
-      <p>
-        no<br />cover<br />art<br />found
-      </p>
-    </div>
+  : <RandomColorCover />
 
   const bookTitle = book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
 
   return (
     <div className="bookshelf-item-grand-wrapper">
-      <Link to={`/details/${book.asin}`} style={{textDecoration:'none'}}>
+      <Link to={`/details/${listing.asin}`} style={{textDecoration:'none'}}>
         {bookCover}
         <div className="center-text">
           <h3 className="title">{bookTitle}</h3>

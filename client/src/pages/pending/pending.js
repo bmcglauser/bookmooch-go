@@ -4,7 +4,7 @@ import BackButton from '../../components/Buttons/BackButton'
 import CircleAddButton from '../../components/Buttons/CircleAddButton'
 import SearchButton from '../../components/Buttons/SearchButton'
 import PendingItem from '../../containers/BookItems/PendingItem';
-import LoaderA from '../../components/Loaders/LoaderA';
+import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import './pending.scss';
 
 
@@ -42,7 +42,7 @@ export default function PendingPage (props) {
   const { loading, error, data } = useQuery(GET_PENDING);
 
   if (loading) {
-    return <LoaderA />;
+    return <RandomCenterLoader />;
   }
   if (error) {
     return <p> Error! ${error.message} </p>

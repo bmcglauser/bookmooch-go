@@ -19,6 +19,7 @@ import MoochSendPage     from './pages/moochSend/';
 import MoochReceivePage  from './pages/moochReceive/';
 import FeedbackPage      from './pages/feedback/';
 import ConfirmAddPage    from './pages/confirmAdd/';
+import ConfirmMoochPage  from './pages/confirmMooch/';
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -31,25 +32,26 @@ function App() {
       <Router>        
         <div className="route">
           <Switch>
-            <Route path="/" exact                   component={LandingPage} />
-            <Route path="/landing"                 component={LandingPage} />
-            <Route path="/login"                   component={LoginPage} />
-            <Route path="/sample"                  component={SampleInfo} />
-            <Route path="/profile"                 component={UserProfilePage} />
-            <Route path="/bookshelf/:username"     component={BookshelfPage} />
-            <Route path="/pending/:username"       component={PendingPage} />
-            <Route path="/search"                  component={SearchPage} />
-            <Route path="/details/:asin"           component={BookDetailsPage} />
-            <Route path="/confirmadd/:asin"        component={ConfirmAddPage} />
-            <Route path="/join"                    component={JoinPage} />
-            <Route path="/about"                   component={LearnMorePage} />
-            <Route path="/faq"                     component={FAQPage} />
-            <Route path="/findadd"                 component={FindAddPage} />
-            <Route path="/searchresults/:string"   component={SearchResultsPage} />
-            <Route path="/choose/:asin"            component={ChooseMoochPage} />
-            <Route path="/sending/:user/:number"   component={MoochSendPage} />
-            <Route path="/receiving/:user/:number" component={MoochReceivePage} />
-            <Route path="/feedback/:user/:number"  component={FeedbackPage} />
+            <Route path="/" exact                    component={LandingPage} />
+            <Route path="/landing"                  component={LandingPage} />
+            <Route path="/login"                    component={LoginPage} />
+            <Route path="/sample"                   component={SampleInfo} />
+            <Route path="/profile"                  component={UserProfilePage} />
+            <Route path="/bookshelf/:username?"      component={BookshelfPage} />
+            <Route path="/pending/:username?"        component={PendingPage} />
+            <Route path="/search"                   component={SearchPage} />
+            <Route path="/details/:asin?"            component={BookDetailsPage} />
+            <Route path="/confirmadd/:asin"         component={ConfirmAddPage} />
+            <Route path="/join"                     component={JoinPage} />
+            <Route path="/about"                    component={LearnMorePage} />
+            <Route path="/faq"                      component={FAQPage} />
+            <Route path="/findadd"                  component={FindAddPage} />
+            <Route path="/searchresults/:string?"    component={SearchResultsPage} />
+            <Route path="/choose/:asin?"             component={ChooseMoochPage} />
+            <Route path="/confirmmooch/:user/:asin" component={ConfirmMoochPage} />
+            <Route path="/sending/:user/:number"    component={MoochSendPage} />
+            <Route path="/receiving/:user/:number"  component={MoochReceivePage} />
+            <Route path="/feedback/:user/:number"   component={FeedbackPage} />
           </Switch>
         </div>
         <div className="backdrop">
