@@ -274,7 +274,7 @@ exports.AcceptMooch = (requester, asin, self = AUTH.user, pw = AUTH.pw) => {
 };
 
 // currently missing appkey param
-exports.Join = (dataObj) => {
+exports.Join = () => {            // takes (dataObj) input
 //   return axios({
 //     method: 'post',
 //     url: 'http://bookmooch.com/api/join',

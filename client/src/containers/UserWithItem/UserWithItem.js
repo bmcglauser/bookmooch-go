@@ -73,7 +73,7 @@ export default function UserWithItem ({self, other, asin}) {
           <div className="bottom-block-text">
             <p><i>added on {addedDateStr}</i></p>
             <p>Feedback score: {other.feedback_score}</p>
-            <p>Condition: {`&#34`}{condition} {`&#34`}</p>
+            <p>Condition: "{condition} "</p>
           </div>
           <div className="request-button-wrapper">
             <Link to={`/confirmmooch/${other.username}/${asin}`} style={{textDecoration: 'none'}}>
@@ -100,7 +100,7 @@ export default function UserWithItem ({self, other, asin}) {
           <div className="bottom-block-text">
             <p><i>added on {addedDateStr}</i></p>
             <p>Feedback score: {other.feedback_score}</p>
-            <p>Condition: {`&#34`}{condition} {`&#34`}</p>
+            <p>Condition: "{condition} "</p>
           </div>
         </div>
       </div>

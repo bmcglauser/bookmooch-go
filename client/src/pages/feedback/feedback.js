@@ -27,7 +27,7 @@ export default function FeedbackPage (props) {
     <>
     <Header title="Give feedback!" />
     <div className="feedback-page-grand-wrapper">
-      <p className="top-text">You{`&#39`}ve marked the following<br />book as received:</p>
+      <p className="top-text">You've marked the following<br />book as received:</p>
       <div className="active-item-wrapper">
         <ActiveItem book={book} />
       </div>

@@ -20,7 +20,7 @@ exports.typeDefs = gql`
   }
 
   type Book {
-    asin: String!,
+    asin: String,
     title: String,
     author: String,
     cover_art_url: String,

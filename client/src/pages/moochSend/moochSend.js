@@ -40,7 +40,7 @@ export default function MoochSendPage (props) {
       <div className="active-item-wrapper">
         <ActiveItem book={mooch.book}/>
       </div>
-      <p>you{`&#39`}re getting {pointsStr} to send this book</p>
+      <p>you're getting {pointsStr} to send this book</p>
       <div className="mooch-detail-text-wrapper">
         <h4>Sending to:</h4>
         <p>{mooch.receiver_address}</p>

@@ -1,10 +1,10 @@
 import React from 'react';
 import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
-import { Link } from 'react-router-dom';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
 
@@ -12,6 +12,7 @@ const self = {
   username: 'spectrome',
   display_name: 'Brett G',
   country: 'UK',
+  address: 'Brett Glauser / 71-91 Aldwych / Codeworks @ WeWork / London / WC2B 4HN',
   points: '122'
 };
 
@@ -88,7 +89,7 @@ export default function ConfirmMoochPage (props) {
         </button>
       </div>
       <div className="confirm-mooch-footer">
-        <p>You{`&#39`}ll have {pointsLeftStr} left after mooching this book</p>
+        <p>You'll have {pointsLeftStr} left after mooching this book</p>
       </div>
     </div>
     </>

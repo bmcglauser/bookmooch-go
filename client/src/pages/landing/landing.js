@@ -13,7 +13,7 @@ export default function LandingPage () {
         <WelcomeText back={false} />
       </div>
       <Link to="/about" style={{textDecoration: 'none'}}>
-        <button>Let{`&#39`}s go</button>
+        <button>Let's go</button>
       </Link>
       <p className="footerLogin">
         Already have an account? Log in <Link to="/login">here</Link>

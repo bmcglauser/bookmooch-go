@@ -39,7 +39,7 @@ export default function MoochReceivePage (props) {
       <div className="active-item-wrapper">
         <ActiveItem book={mooch.book}/>
       </div>
-      <p>you{`&#39`}re spending {pointsStr} to get this book</p>
+      <p>you're spending {pointsStr} to get this book</p>
       <div className="mooch-detail-text-wrapper">
         <h4>Mooching from:</h4>
         <p>{mooch.giverUsername}</p>

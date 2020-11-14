@@ -1,0 +1,72 @@
+@import '../../App.scss';
+
+.error-block-grand-wrapper {
+  margin-top: 150px;
+  height: calc(100vh - 150px);
+  color: $main-green;
+
+  .error-icon-wrapper {
+    margin-left: 27.5%;
+    height: 45vw;
+    width: 45%;
+    border: 8px solid $main-green;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error-icon {
+      height: 100px;
+      width: 100px;
+      background-image: url(../../assets/white-error-icon.png);
+      background-repeat: round;  
+    }
+  }
+  .error-text {
+    margin: 25px 0 0 10%;
+    height: 8vh;
+    width: 80%;
+
+    h3 {
+      text-align: center;
+    }
+  }
+  .error-buttons-wrapper {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+    }
+    .error-button {
+      margin: 20px;
+      height: 30vw;
+      width: 30vw;
+      border-radius: 25px;
+      background-color: $main-green;
+      color: $off-white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      > p{
+        margin-top: 8px;
+      }
+      .icon {
+        height: 50px;
+        width: 50px;
+        
+      } 
+      .home {
+        background-image: url(../../assets/home-icon.png);
+        background-repeat: round;  
+      }
+      .back {
+        background-image: url(../../assets/back-icon.png);
+        background-repeat: round;        
+      }
+    }
+  }
+}

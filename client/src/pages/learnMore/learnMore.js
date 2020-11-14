@@ -16,7 +16,7 @@ export default function LearnMorePage () {
         </div>
         <div className="right-text">
           <p>Join over <b>300,000 members</b><br />already on BookMooch.com</p>
-          <p>You{`&#39`}ll never pay to join<br />or to get books.</p>
+          <p>You'll never pay to join<br />or to get books.</p>
           <p>Give away books you have.<br />Get books you want.</p>
         </div>
       </div>

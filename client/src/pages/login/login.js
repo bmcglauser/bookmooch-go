@@ -17,7 +17,7 @@ export default function LoginPage () {
         <LoginForm />
       </div>
       <p className="footerLogin">
-        Don{`&#39`}t have an account yet? Learn more <Link to="/about">here</Link>
+        Don't have an account yet? Learn more <Link to="/about">here</Link>
       </p>
     </div>
   )

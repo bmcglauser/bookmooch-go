@@ -24,10 +24,10 @@ export default function ConfirmAddPage (props) {
     <Header title="Confirm your add" />
     <div className="confirm-add-page-grand-wrapper">
       <div className="top-block">
-        <p className="top-text">You{`&#39`}re adding the following<br />to your bookshelf, to give away:</p>
+        <p className="top-text">You're adding the following<br />to your bookshelf, to give away:</p>
         <ActiveItem book={data.getBookByAsin} />
       </div>
-      <p className="condition-prompt-text">You can also add notes on the condition of your copy, if you{`&#39`}d like</p>
+      <p className="condition-prompt-text">You can also add notes on the condition of your copy, if you'd like</p>
       <form className="confirm-add-form">
         <textarea placeholder="Cover scuffed, light markings inside..."/>
         <div className='button-wrapper'>
@@ -44,7 +44,7 @@ export default function ConfirmAddPage (props) {
         </button>
       </div>
       <div className="confirm-add-footer">
-        <p>You{`&#39`}ll get 1/10th of a point just for adding this book!</p>
+        <p>You'll get 1/10th of a point just for adding this book!</p>
       </div>
     </div>
     </>

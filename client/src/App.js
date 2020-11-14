@@ -21,6 +21,7 @@ import MoochReceivePage  from './pages/moochReceive/';
 import FeedbackPage      from './pages/feedback/';
 import ConfirmAddPage    from './pages/confirmAdd/';
 import ConfirmMoochPage  from './pages/confirmMooch/';
+import ErrorPage         from './pages/errorPage/';
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -53,6 +54,7 @@ function App() {
             <Route path="/sending/:user/:number"    component={MoochSendPage} />
             <Route path="/receiving/:user/:number"  component={MoochReceivePage} />
             <Route path="/feedback/:user/:number"   component={FeedbackPage} />
+            <Route path="/error"                    component={ErrorPage} />
           </Switch>
         </div>
         <div className="backdrop">

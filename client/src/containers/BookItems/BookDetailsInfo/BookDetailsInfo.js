@@ -10,7 +10,7 @@ export default function BookDetailsInfo ({book}) {
 
   const summary = book.summary && book.summary.length
     ? <p className="summary-text">{book.summary}</p>
-    : <p className="summary-text">No summary found for this book, but it{`&#39`}s likely perfectly good!</p>
+    : <p className="summary-text">No summary found for this book, but it's likely perfectly good!</p>
 
   let availabilityText;
   if (book.usernamesWith) {
