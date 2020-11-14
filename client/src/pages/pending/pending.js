@@ -1,46 +1,20 @@
 import React from 'react';
 import './pending.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import BackButton from '../../components/Buttons/BackButton'
 import CircleAddButton from '../../components/Buttons/CircleAddButton'
 import SearchButton from '../../components/Buttons/SearchButton'
 import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import queryService from '../../services/queryService';
 
 
 export default function PendingPage (props) {
   const username = props.match.params.username;
-  const GET_PENDING = gql`
-    query {
-      getUserByUsername (username: "${username}") {
-        username
-        pending_give {
-          transaction_name
-          asin
-          book {
-            title
-            author
-          }
-          status
-          receiverUsername
-          created_on
-        }
-        pending_receive {
-          transaction_name
-          asin
-          book {
-            title
-            author
-          }
-          status
-          giverUsername
-          created_on
-        }
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_PENDING);
+  const query = queryService.GET_ALL_PENDING(username);
+  
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;

@@ -5,8 +5,9 @@ import BackButton from '../../components/Buttons/BackButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
 import './bookDetails.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import queryService from '../../services/queryService';
 
 // const falseBook = {
 //   title: "A Book Title",
@@ -20,20 +21,9 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 
 export default function BookDetailsPage (props) {
   const asin = props.match.params.asin
-  const GET_BOOK = gql`
-    query {
-      getBookByAsin (asin: "${asin}") {
-        asin
-        title
-        author
-        cover_art_url
-        availCount
-        summary
-        usernamesWith
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_BOOK);
+  const query = queryService.GET_BOOK_DETAILS(asin);
+
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;

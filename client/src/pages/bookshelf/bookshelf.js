@@ -1,34 +1,20 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import './bookshelf.scss';
 import Header from '../../components/Header';
 import BookshelfItem from '../../containers/BookItems/BookshelfItem';
 import CircleAddButton from '../../components/Buttons/CircleAddButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import SearchButton from '../../components/Buttons/SearchButton';
-
-import { gql, useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import queryService from '../../services/queryService';
 
 
 export default function BookshelfPage (props) {
   const username = props.match.params.username;
-  const GET_BOOKSHELF = gql`
-  query {
-    getUserByUsername (username: "${username}") {
-      username
-      listings {
-        asin
-        book {
-          title
-          author
-        }
-        listed_on
-      }
-    }
-  }
-  `;
-  const { loading, error, data } = useQuery(GET_BOOKSHELF);
-
+  const query = queryService.GET_BOOKSHELF(username);
+  
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;

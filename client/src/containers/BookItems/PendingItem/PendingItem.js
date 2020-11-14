@@ -2,13 +2,13 @@ import React from 'react';
 import './PendingItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
-const moment = require('moment');
+import formatDate from '../../../services/dateProcessor';
 
 
 export default function PendingItem ({mooch, direction}) {
   const book = mooch.book;
-  const date = new Date(parseInt(mooch.created_on.padEnd(13, '0')));
-  const addedStr = moment(date).format('MMM Do YYYY');
+
+  const addedStr = formatDate(mooch.created_on);
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />

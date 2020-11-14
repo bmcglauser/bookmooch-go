@@ -1,46 +1,21 @@
 import React from 'react';
 import './searchResults.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import BackButton from '../../components/Buttons/BackButton';
 import CircleAddButton from '../../components/Buttons/CircleAddButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import SearchResultItem from '../../containers/BookItems/SearchResultItem';
 import LoaderA from '../../components/Loaders/LoaderA';
-
-
-
+import queryService from '../../services/queryService';
 
 export default function SearchResultsPage (props) {
-  const queryStr = props.match.params.string;
-  const GET_SEARCH = queryStr === '~~~recent'
-  ? gql`
-      query {
-        getSearchRecent {
-          asin
-          title
-          author
-          cover_art_url
-          usernamesWith
-          availCount
-          summary
-        }
-      }
-    `
-  : gql`
-      query {
-        getSearch (text: "${queryStr}") {
-          asin
-          title
-          author
-          cover_art_url
-          usernamesWith
-          availCount
-          summary
-        }
-      }
-    `;
-  const { loading, error, data } = useQuery(GET_SEARCH);
+  const searchStr = props.match.params.string;
+  const query = searchStr === '~~~recent'
+    ? queryService.GET_RECENT()
+    : queryService.GET_SEARCH(searchStr)
+
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <LoaderA />;
@@ -61,7 +36,7 @@ export default function SearchResultsPage (props) {
     <Header title="Finding a book" />
     <div className="search-results-page-grand-wrapper">
       <h3>Showing results for: </h3>
-      <p className="query-text">{queryStr}</p>
+      <p className="query-text">{searchStr}</p>
       <div className="no-results">
         <h1>No results found,<br />please try again</h1>
         <div className="white-space" />
@@ -80,7 +55,7 @@ export default function SearchResultsPage (props) {
     <Header title="Finding a book" />
     <div className="search-results-page-grand-wrapper">
       <h3>Showing results for: </h3>
-      <p className="query-text">{queryStr === '~~~recent' ? 'Recently added books' : queryStr}</p>
+      <p className="query-text">{searchStr === '~~~recent' ? 'Recently added books' : searchStr}</p>
       <div className="full-results-list">
         {resultsArr}
       </div>

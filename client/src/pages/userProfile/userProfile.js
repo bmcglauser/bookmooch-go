@@ -1,26 +1,17 @@
 import React from 'react';
 import './userProfile.scss';
 import { Link } from "react-router-dom";
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Header from "../../components/Header";
 import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
-
+import queryService from '../../services/queryService';
 
 export default function UserProfilePage () {
   const username = "spectrome";
-  const GET_USER = gql`
-    query {
-      getUserByUsername (username: "${username}") {
-        display_name
-        username
-        points
-        listingCount
-        feedback_score
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_USER);
+  const query = queryService.GET_USER(username);
+
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;

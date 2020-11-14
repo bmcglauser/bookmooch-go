@@ -1,36 +1,20 @@
 import React from 'react';
 import './moochSend.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import Header from '../../components/Header';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import BackButton from '../../components/Buttons/BackButton';
-const moment = require('moment');
+import formatDate from '../../services/dateProcessor';
+import queryService from '../../services/queryService';
 
 
 export default function MoochSendPage (props) {
   const id = props.match.params.user + '/' + props.match.params.number;
-  const GET_PENDING_ITEM = gql`
-  query {
-    getConfidentialPendingById (pending_id: "${id}") {
-      transaction_name
-      asin
-      book {
-        title
-        author
-      }
-      receiver_address
-      points_to_giver
-      points_from_receiver
-      created_on
-      sent_on
-      condition
-      status
-    }
-  }
-  `;
-  const { loading, error, data } = useQuery(GET_PENDING_ITEM);
+  const query = queryService.GET_CONF_PENDING_GIVE(id);
+
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -41,16 +25,11 @@ export default function MoochSendPage (props) {
 
   const mooch = data.getConfidentialPendingById;
 
-  let dateReq, dateReqStr;
-  let dateSent, dateSentStr;
-  dateReq = new Date(parseInt(mooch.created_on.padEnd(13, '0')));
-  dateReqStr = moment(dateReq).format('MMM Do YYYY');
-  if (mooch.sent_on) {
-    dateSent = new Date(parseInt(mooch.sent_on.padEnd(13, '0')));
-    dateSentStr = moment(dateSent).format('MMM Do YYYY');
-  } else {
-    dateSentStr = "Not sent yet"
-  }
+  const dateReqStr = formatDate(mooch.created_on);
+  
+  let dateSentStr;
+  if (mooch.sent_on) dateSentStr = formatDate(mooch.sent_on);
+    else dateSentStr = "Not sent yet"
   
   let pointsStr = mooch.points_to_giver === '10' ? "1 point" : `${parseInt(mooch.points_from_receiver)/10} points`
 

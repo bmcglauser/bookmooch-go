@@ -1,12 +1,12 @@
 import React from 'react';
 import './confirmMooch.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import { Link } from 'react-router-dom';
-const moment = require('moment');
-
+import formatDate from '../../services/dateProcessor';
+import queryService from '../../services/queryService';
 
 const self = {
   username: 'spectrome',
@@ -18,27 +18,9 @@ const self = {
 export default function ConfirmMoochPage (props) {
   const username = props.match.params.user;
   const asin = props.match.params.asin;
-  const GET_CONFIRM_MOOCH = gql`
-    query {
-      getUserByUsername (username: "${username}") {
-        username
-        display_name
-        country
-        willsend
-        listings(asin: "${asin}") {
-          asin
-          listed_on
-          condition
-        }
-      },
-      getBookByAsin(asin: "${asin}") {
-        asin
-        title
-        author
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_CONFIRM_MOOCH);
+  const query = queryService.GET_CONFIRM_MOOCH(username, asin);
+
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -51,8 +33,7 @@ export default function ConfirmMoochPage (props) {
   const book = data.getBookByAsin;
 
   const condition = user.listings[0].condition || '';
-  const addedDate = new Date(parseInt(user.listings[0].listed_on.padEnd(13, '0')));
-  const addedDateStr = moment(addedDate).format('MMM D, YYYY');
+  const addedDateStr = formatDate(user.listings[0].listed_on);
 
   const pointCost = self.country === user.country ? 1 : 3;
   const pointsLeft = parseInt(self.points) / 10 - pointCost;

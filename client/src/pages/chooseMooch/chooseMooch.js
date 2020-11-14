@@ -5,8 +5,9 @@ import ActiveItem from '../../containers/BookItems/ActiveItem';
 import BackButton from '../../components/Buttons/BackButton';
 import UserHomeButton from '../../components/Buttons/UserHomeButton';
 import UserWithItem from '../../containers/UserWithItem';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import queryService from '../../services/queryService';
 
 const falseSelf = {
   username: 'spectrome',
@@ -17,30 +18,9 @@ const falseSelf = {
 
 export default function ChooseMoochPage (props) {
   const asin = props.match.params.asin
-  const GET_MOOCH_CHOICE = gql`
-  query {
-    getBookByAsin (asin: "${asin}") {
-      asin
-      title
-      author
-      cover_art_url
-      summary
-      usersWith {
-        username
-        display_name
-        country
-        feedback_score
-        willsend
-        listings(asin: "${asin}") {
-          asin
-          listed_on
-          condition
-        }
-      }
-    }
-  }
-`;
-  const { loading, error, data } = useQuery(GET_MOOCH_CHOICE);
+  const query = queryService.GET_MOOCH_CHOICE(asin);
+  
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;

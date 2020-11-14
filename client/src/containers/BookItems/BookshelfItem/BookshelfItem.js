@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BookshelfItem.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
-const moment = require('moment');
-
+import formatDate from '../../../services/dateProcessor';
 
 export default function BookshelfItem ( {listing} ) {
-  const date = new Date(parseInt(listing.listed_on.padEnd(13, '0')));
-  const addedStr = moment(date).format('MMM Do YYYY');
+
+  const addedStr = formatDate(listing.listed_on)
   const book = listing.book;
 
   const bookCover = listing.book.cover_art_url 

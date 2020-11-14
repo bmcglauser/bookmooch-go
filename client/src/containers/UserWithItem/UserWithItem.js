@@ -1,7 +1,8 @@
 import React from 'react';
 import './UserWithItem.scss'
 import { Link } from 'react-router-dom';
-const moment = require('moment');
+import formatDate from '../../services/dateProcessor';
+
 
 // const falseSelf = {
 //   username: 'spectrome',
@@ -50,8 +51,8 @@ export default function UserWithItem ({self, other, asin}) {
       requestable = false;
   }
   const condition = other.listings[0].condition || '';
-  const addedDate = new Date(parseInt(other.listings[0].listed_on.padEnd(13, '0')));
-  const addedDateStr = moment(addedDate).format('M/D/YYYY');
+  
+  const addedDateStr = formatDate(other.listings[0].listed_on);
 
   const idArr = other.display_name.split(' (');
   const name = idArr[0];

@@ -2,28 +2,16 @@ import React from 'react';
 import './feedback.scss';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
+import queryService from '../../services/queryService';
 
 export default function FeedbackPage (props) {
   const id = props.match.params.user + '/' + props.match.params.number;
-  const GET_TRANSACTION = gql`
-    query {
-      getPendingById (pending_id: "${id}") {
-        transaction_name
-        asin
-        book {
-          title
-          author
-          cover_art_url
-        }
-        giverUsername      
-      }
-    }
-  `;
+  const query = queryService.GET_TRANSACTION(id);
 
-  const { loading, error, data } = useQuery(GET_TRANSACTION);
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -47,7 +35,6 @@ export default function FeedbackPage (props) {
         <div className="top-form-block">
           <p className="form-text">How was your<br />experience mooching<br />from {mooch.giverUsername}?</p>
           <div className="radio-block">
-
             <div className="radio-item">
               <input type="radio" id="bad" name="rating" value="-1" />
               <label htmlFor="bad">Bad</label>
@@ -60,12 +47,6 @@ export default function FeedbackPage (props) {
               <input type="radio" id="great" name="rating" value="1" />
               <label htmlFor="great">Great!</label>
             </div>
-            {/* <input type="radio" id="bad" name="rating" value="-1" />
-            <label htmlFor="bad">Bad</label><br />
-            <input type="radio" id="fine" name="rating" value="0" />
-            <label htmlFor="fine">Fine</label><br />
-            <input type="radio" id="great" name="rating" value="1" />
-            <label htmlFor="great">Great!</label> */}
           </div>
         </div>
         <div className="bottom-form-block">

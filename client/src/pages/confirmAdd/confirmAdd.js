@@ -1,24 +1,16 @@
 import React from 'react';
 import './confirmAdd.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
-
+import queryService from '../../services/queryService';
 
 export default function ConfirmAddPage (props) {
   const asin = props.match.params.asin;
-  const GET_BOOK = gql`
-  query {
-    getBookByAsin (asin: "${asin}") {
-      asin
-      title
-      author
-      cover_art_url
-    }
-  }
-  `;
-  const { loading, error, data } = useQuery(GET_BOOK);
+  const query = queryService.GET_SIMPLE_BOOK(asin);
+  
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;
