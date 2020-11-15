@@ -20,7 +20,19 @@
     .extra-space {
       height: 100px;
     }
+
+    .none-found {
+      margin: 10vh 0 0 20%;
+      width: 60%;
+      color: $main-green;
+      p {
+        line-height: 1.5;
+        text-align: center;
+        font-size: 16pt;
+      }
+    }
   }
+
   .choose-mooch-footer-wwrapper {
   }
 

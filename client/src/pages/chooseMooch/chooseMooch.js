@@ -35,6 +35,13 @@ export default function ChooseMoochPage (props) {
     <UserWithItem key={user.username} self={falseSelf} other={user} asin={asin}/>
   )
 
+  const users = usersArr.length
+    ? usersArr
+    : <div className="none-found">
+        <p>No users found with this book listed</p>
+      </div>
+    ;
+
   return (
     <>
     <Header title="Get this book!" />
@@ -43,7 +50,7 @@ export default function ChooseMoochPage (props) {
         <ActiveItem book={book} />
       </div>
       <div className="users-with-wrapper">
-        {usersArr}
+        {users}
         <div className="extra-space" />
       </div>
       <div className="choose-mooch-footer-wrapper">
