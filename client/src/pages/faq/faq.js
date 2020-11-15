@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
-import BackButton from '../../components/Buttons/BackButton';
+import BackButton from '../../components/FooterButtons/BackButton';
 import './faq.scss';
 
 export default function FAQPage(props) {

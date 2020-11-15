@@ -2,8 +2,7 @@ import React from 'react';
 import './chooseMooch.scss';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
-import BackButton from '../../components/Buttons/BackButton';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
+import Footer from '../../components/Footer';
 import UserWithItem from '../../containers/UserWithItem';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -46,9 +45,8 @@ export default function ChooseMoochPage (props) {
         {usersArr}
         <div className="extra-space" />
       </div>
-      <div className="choose-mooch-footer">
-        <BackButton ctx={props} />
-        <UserHomeButton />
+      <div className="choose-mooch-footer-wrapper">
+        <Footer leftBut="back" rightBut="userHome" ctx={props}/>
       </div>
     </div>
     </>

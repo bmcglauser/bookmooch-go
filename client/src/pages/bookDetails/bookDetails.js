@@ -1,22 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
-import BackButton from '../../components/Buttons/BackButton';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
-import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
-import './bookDetails.scss';
 import { useQuery } from '@apollo/client';
+import './bookDetails.scss';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
 import queryService from '../../services/queryService';
-
-// const falseBook = {
-//   title: "A Book Title",
-//   author: "Person Authorson",
-//   cover_art_url: "http://ecx.images-amazon.com/images/I/41PQH3vGUpL.jpg",
-//   usernamesWith: ['userA247','anotherUserWV2009','BookLuvrr','catDad23'],
-//   asin: "B00BW917Y",
-//   summary: "This is a lengthy description of a book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat turpis, ullamcorper at velit in, fringilla luctus massa. Pellentesque egestas massa blandit dolor ultricies blandit. Proin vestibulum eleifend blandit. Ut commodo commodo orci, sit amet tempus libero molestie at. Pellentesque rhoncus condimentum laoreet. Aliquam vel ligula nisi. Curabitur quis scelerisque lorem. Quisque non quam nec ipsum consectetur tincidunt a ac urna. Aenean iaculis, mauris quis elementum aliquet, nunc dui vestibulum mi, vitae venenatis urna leo at dui. Etiam pharetra tincidunt ligula, nec convallis nisl iaculis in. Quisque vehicula tellus neque, non pretium magna congue et. Aliquam erat volutpat. Nulla molestie."
-// };
 
 
 export default function BookDetailsPage (props) {
@@ -53,13 +43,8 @@ export default function BookDetailsPage (props) {
             </button>
           </Link>
         </div>
-        <div className='detail-footer'>
-          <div className='footer-button'>
-            <BackButton ctx={props} />
-          </div>
-          <div className='footer-button'>
-            <UserHomeButton />
-          </div>
+        <div className='detail-footer-wrapper'>
+          <Footer leftBut="back" rightBut="search" ctx={props}/>
         </div>
       </div>
     </>

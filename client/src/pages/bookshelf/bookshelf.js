@@ -2,10 +2,8 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import './bookshelf.scss';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import BookshelfItem from '../../containers/BookItems/BookshelfItem';
-import CircleAddButton from '../../components/Buttons/CircleAddButton';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
-import SearchButton from '../../components/Buttons/SearchButton';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
@@ -34,14 +32,8 @@ export default function BookshelfPage (props) {
         <div className="bookshelf-list">
           {bookshelfArr}
         </div>
-        <div className='bookshelf-footer'>
-          <div className="footer-button">
-            <UserHomeButton />
-          </div>
-          <CircleAddButton />
-          <div className="footer-button">
-            <SearchButton />
-          </div>
+        <div className='bookshelf-footer-wrapper'>
+          <Footer leftBut="userHome" centerBut="circleAdd" rightBut="search" />
         </div>
       </div>
     </>

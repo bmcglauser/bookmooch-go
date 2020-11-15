@@ -2,9 +2,7 @@ import React from 'react';
 import './pending.scss';
 import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
-import BackButton from '../../components/Buttons/BackButton'
-import CircleAddButton from '../../components/Buttons/CircleAddButton'
-import SearchButton from '../../components/Buttons/SearchButton'
+import Footer from '../../components/Footer';
 import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
@@ -45,9 +43,7 @@ export default function PendingPage (props) {
         {toReceiveArr}
       </div>
       <div className="pending-page-footer">
-        <BackButton ctx={props} />
-        <CircleAddButton />
-        <SearchButton />
+        <Footer leftBut="back" centerBut="circleAdd" rightBut="userHome" ctx={props}/>
       </div>
     </div>
     </>

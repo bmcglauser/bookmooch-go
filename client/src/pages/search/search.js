@@ -3,8 +3,7 @@ import './search.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
-import CircleAddButton from '../../components/Buttons/CircleAddButton';
+import Footer from '../../components/Footer';
 
 export default function SearchPage () {
   const [searchText, setSearchText] = useState('');
@@ -47,14 +46,8 @@ export default function SearchPage () {
           </Link>
         </div>
       </div>
-      <div className="search-footer">
-        <div className='footer-button'>
-          <UserHomeButton />
-        </div>
-        <CircleAddButton />
-        <div className='footer-button'>
-          <div className="placeholder"/>
-        </div>
+      <div className="search-footer-wrapper">
+        <Footer leftBut="userHome" centerBut="circleAdd" />
       </div>
     </div>
     </>

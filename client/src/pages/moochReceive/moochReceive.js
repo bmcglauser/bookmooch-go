@@ -4,8 +4,7 @@ import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem'
 import Header from '../../components/Header';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
-import BackButton from '../../components/Buttons/BackButton';
+import Footer from '../../components/Footer';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService/queryService';
 
@@ -56,9 +55,8 @@ export default function MoochReceivePage (props) {
           <p>mark received</p>
         </div>
       </div>
-      <div className="mooch-receive-item-footer">
-        <BackButton ctx={props}/>
-        <UserHomeButton />
+      <div className="mooch-receive-item-footer-wrapper">
+        <Footer leftBut="back" rightBut="userHome" ctx={props}/>
       </div>
     </div>
     </>

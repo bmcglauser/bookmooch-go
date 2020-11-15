@@ -127,21 +127,7 @@
       }
     }
   }
-  .search-footer {
+  .search-footer-wrapper {
     margin-top: 10px;
-    width: 99%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    .placeholder {
-      width: 1px;
-      height: 1px;
-    }
-    .footer-button {
-      width: 85px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
   } 
 }

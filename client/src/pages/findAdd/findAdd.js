@@ -3,7 +3,7 @@ import './findAdd.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Header from '../../components/Header';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
+import UserHomeButton from '../../components/FooterButtons/UserHomeButton';
 
 export default function FindAddPage() {
   const [searchText, setSearchText] = useState('');

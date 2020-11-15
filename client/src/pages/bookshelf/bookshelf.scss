@@ -11,20 +11,8 @@
     border-radius: 0px 0px 100px 100px;
     overflow-y: scroll;
   }
-  .bookshelf-footer {
-    margin-bottom: 5px;
-    width: 100%;
+  .bookshelf-footer-wrapper {
     height: 10vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    color: $off-white;
-
-    .footer-button {
-      width: 85px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    width: 100%;
   }
 }

@@ -2,9 +2,7 @@ import React from 'react';
 import './searchResults.scss';
 import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
-import BackButton from '../../components/Buttons/BackButton';
-import CircleAddButton from '../../components/Buttons/CircleAddButton';
-import UserHomeButton from '../../components/Buttons/UserHomeButton';
+import Footer from '../../components/Footer';
 import SearchResultItem from '../../containers/BookItems/SearchResultItem';
 import LoaderA from '../../components/Loaders/LoaderA';
 import queryService from '../../services/queryService';
@@ -41,10 +39,8 @@ export default function SearchResultsPage (props) {
         <h1>No results found,<br />please try again</h1>
         <div className="white-space" />
       </div>
-      <div className="search-results-footer">
-        <BackButton ctx={props}/>
-        <CircleAddButton />
-        <UserHomeButton />
+      <div className="search-results-footer-wrapper">
+        <Footer leftBut="back" centerBut="circleAdd" rightBut="userHome" ctx={props}/>
       </div>
     </div>
     </>);
@@ -59,10 +55,8 @@ export default function SearchResultsPage (props) {
       <div className="full-results-list">
         {resultsArr}
       </div>
-      <div className="search-results-footer">
-        <BackButton ctx={props}/>
-        <CircleAddButton />
-        <UserHomeButton />
+      <div className="search-results-footer-wrapper">
+        <Footer leftBut="back" centerBut="circleAdd" rightBut="userHome" ctx={props}/>
       </div>
     </div>
     </>
