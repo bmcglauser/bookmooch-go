@@ -28,7 +28,7 @@ export default function ConfirmMoochPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   const user = data.getUserByUsername;

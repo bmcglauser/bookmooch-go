@@ -107,6 +107,24 @@ exports.GetSearchRecent = () => {
   }).then(res => res.data)
     .catch((e) => e.message);
 };
+exports.LoginUser = (self = AUTH.user, pw = AUTH.pw) => {
+  return axios ({
+    method: 'post',
+    url: 'http://bookmooch.com/api/login',
+    headers: {
+      'mode': 'no-cors',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    data: qs.stringify({
+      o: 'json'
+    }),
+    auth: {
+      username: `${self}`,
+      password: `${pw}`
+    },
+  }).then(res => res.data.success)
+    .catch(e => e.message);
+};
 exports.AddBookToBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
   return axios ({
     method: 'post',

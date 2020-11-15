@@ -20,7 +20,7 @@ export default function MoochSendPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   const mooch = data.getConfidentialPendingById;

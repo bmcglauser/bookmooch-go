@@ -26,7 +26,7 @@ export default function ChooseMoochPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
   
   const book = data.getBookByAsin;

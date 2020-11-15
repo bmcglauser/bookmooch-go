@@ -19,7 +19,7 @@ export default function BookshelfPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   const bookshelfArr = data.getUserByUsername.listings.map(

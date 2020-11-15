@@ -9,8 +9,8 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
 export default function UserProfilePage (props) {
-  const username = "spectrome";
-  const query = queryService.GET_USER(username);
+  const self = props.match.params.username;
+  const query = queryService.GET_USER(self);
 
   const { loading, error, data } = useQuery(query);
 
@@ -18,7 +18,7 @@ export default function UserProfilePage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   return (
@@ -42,7 +42,7 @@ export default function UserProfilePage (props) {
         <div className="buttonColCenter">
           <div className="centerButtons">
             <div className="pendingButtonWrapper">
-              <Link to="/pending/spectrome">
+              <Link to={`/pending/${self}`}>
                 <button className="pending center-button">
                   <div className="white-pending-icon" />
                 </button>

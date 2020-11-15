@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './errorPage.scss';
 import Header from '../../components/Header';
 
-export default function ErrorPage ({ctx}) {
+export default function ErrorPage ({message, ctx}) {
   let errorButtons;
 
   const startOverButton = 
@@ -39,6 +39,7 @@ export default function ErrorPage ({ctx}) {
       </div>
       <div className="error-text">
         <h3>Uh oh! Looks like there was a problem loading the page...</h3>
+        <h4>{message}</h4>
       </div>
       {errorButtons}
     </div>

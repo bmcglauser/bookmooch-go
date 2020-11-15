@@ -10,8 +10,8 @@ import queryService from '../../services/queryService';
 
 
 export default function PendingPage (props) {
-  const username = props.match.params.username;
-  const query = queryService.GET_ALL_PENDING(username);
+  const self = props.match.params.username;
+  const query = queryService.GET_ALL_PENDING(self);
   
   const { loading, error, data } = useQuery(query);
 
@@ -19,7 +19,7 @@ export default function PendingPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   const toSendArr = data.getUserByUsername.pending_give

@@ -17,6 +17,7 @@ exports.typeDefs = gql`
     markSent                (pendingID: String!, self: String, pw: String) : String,
     markReject              (pendingID: String!, self: String, pw: String) : String,
     giveFeedback            (pendingID: String!, score: String!, self: String, pw: String) : String,
+    login                   (self: String, pw: String): String,
   }
 
   type Book {

@@ -13,7 +13,8 @@ const {
   MarkSent,
   MarkReject,
   GiveFeedback,
-  
+  LoginUser,
+
 } = require('./apiFunctions');
 
 exports.resolvers = {
@@ -32,7 +33,8 @@ exports.resolvers = {
     moochNow:                   (_, {asin, giverid, selfAddress, selfCountry, self}) => MoochNow(asin, giverid, selfAddress, selfCountry, self),
     markSent:                   (_, {pendingID, self, pw})                 => MarkSent(pendingID, self, pw),
     markReject:                 (_, {pendingID, self, pw})                 => MarkReject(pendingID, self, pw),
-    giveFeedback:               (_, {pendingID, score, self, pw}) => GiveFeedback(pendingID, score, self, pw),
+    giveFeedback:               (_, {pendingID, score, self, pw})          => GiveFeedback(pendingID, score, self, pw),
+    login:                      (_, {self, pw})                            => LoginUser(self, pw),
   },
   Book: { 
     asin:          obj => obj.id,
@@ -96,8 +98,8 @@ exports.resolvers = {
               obj.history_received
                 .slice(after, first + after)
               : [],
-    pending_give:      obj => obj.pending_give.map( id => GetPendingById(id) ),
-    pending_receive:   obj => obj.pending_receive.map( id => GetPendingById(id) ),
+    pending_give:      obj => obj.pending_give ? obj.pending_give.map( id => GetPendingById(id) ) : [],
+    pending_receive:   obj => obj.pending_receive ? obj.pending_receive.map( id => GetPendingById(id) ) : [],
   },
 
   Listing: {

@@ -20,7 +20,7 @@ export default function SearchResultsPage (props) {
     return <LoaderA />;
   }
   if (error) {
-    return <ErrorPage ctx={props}/>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
 
   const results = data.getSearch ? data.getSearch : data.getSearchRecent;
