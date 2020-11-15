@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import './bookshelf.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ErrorPage from '../errorPage';
 import BookshelfItem from '../../containers/BookItems/BookshelfItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
@@ -18,7 +19,7 @@ export default function BookshelfPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const bookshelfArr = data.getUserByUsername.listings.map(

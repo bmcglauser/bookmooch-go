@@ -54,7 +54,7 @@ function App() {
             <Route path="/sending/:user/:number"    component={MoochSendPage} />
             <Route path="/receiving/:user/:number"  component={MoochReceivePage} />
             <Route path="/feedback/:user/:number"   component={FeedbackPage} />
-            <Route path="/error"                    component={ErrorPage} />
+            <Route component={ErrorPage} />
           </Switch>
         </div>
         <div className="backdrop">

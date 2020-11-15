@@ -3,6 +3,7 @@ import './searchResults.scss';
 import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ErrorPage from '../errorPage';
 import SearchResultItem from '../../containers/BookItems/SearchResultItem';
 import LoaderA from '../../components/Loaders/LoaderA';
 import queryService from '../../services/queryService';
@@ -19,7 +20,7 @@ export default function SearchResultsPage (props) {
     return <LoaderA />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const results = data.getSearch ? data.getSearch : data.getSearchRecent;

@@ -3,6 +3,7 @@ import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import ErrorPage from '../errorPage';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import formatDate from '../../services/dateProcessor';
@@ -27,7 +28,7 @@ export default function ConfirmMoochPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const user = data.getUserByUsername;

@@ -3,6 +3,7 @@ import './confirmAdd.scss';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import Header from '../../components/Header';
+import ErrorPage from '../errorPage';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import queryService from '../../services/queryService';
 
@@ -16,7 +17,7 @@ export default function ConfirmAddPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   return (

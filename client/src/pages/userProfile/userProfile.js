@@ -3,11 +3,12 @@ import './userProfile.scss';
 import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import Header from "../../components/Header";
+import ErrorPage from '../errorPage';
 import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
-export default function UserProfilePage () {
+export default function UserProfilePage (props) {
   const username = "spectrome";
   const query = queryService.GET_USER(username);
 
@@ -17,7 +18,7 @@ export default function UserProfilePage () {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   return (

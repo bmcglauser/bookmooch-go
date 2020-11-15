@@ -2,6 +2,7 @@ import React from 'react';
 import './feedback.scss';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import ErrorPage from '../errorPage';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
@@ -17,7 +18,7 @@ export default function FeedbackPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const mooch = data.getPendingById;

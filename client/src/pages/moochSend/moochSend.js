@@ -5,6 +5,7 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ErrorPage from '../errorPage';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
 
@@ -19,7 +20,7 @@ export default function MoochSendPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const mooch = data.getConfidentialPendingById;

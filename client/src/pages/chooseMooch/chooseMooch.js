@@ -3,6 +3,7 @@ import './chooseMooch.scss';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import Footer from '../../components/Footer';
+import ErrorPage from '../errorPage';
 import UserWithItem from '../../containers/UserWithItem';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -25,7 +26,7 @@ export default function ChooseMoochPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
   
   const book = data.getBookByAsin;

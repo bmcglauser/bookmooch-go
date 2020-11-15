@@ -3,6 +3,7 @@ import './pending.scss';
 import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ErrorPage from '../errorPage';
 import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
@@ -18,7 +19,7 @@ export default function PendingPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage ctx={props}/>
   }
 
   const toSendArr = data.getUserByUsername.pending_give
