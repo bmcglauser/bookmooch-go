@@ -19,7 +19,7 @@ export default function FindAddPage() {
         <p>
   Click below to find the book you want to add. On the book's details page you'll be able to "Add this book to give away"
         </p>
-        <Link to={`/searchresults/${searchText}`} style={{textDecoration:'none'}}>
+        <Link to={`/searchresults/${searchText}/true`} style={{textDecoration:'none'}}>
           <button className="find-add-button">
             <p>
               Find my<br />book to add

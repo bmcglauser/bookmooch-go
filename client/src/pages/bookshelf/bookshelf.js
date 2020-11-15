@@ -26,12 +26,22 @@ export default function BookshelfPage (props) {
     listing => <BookshelfItem key={`${listing.asin}/${listing.listed_on}`} listing={listing}/>
     );
 
+  const bookshelf = bookshelfArr.length
+    ? bookshelfArr
+    : <div className="none-found">
+        <p className="none-text">You don't have any books listed</p>
+        <div className="none-prompt-block">
+          <p>Click here to add one!</p>
+          <div className="down-arrow" />
+        </div>
+      </div>
+
   return (
     <>
       <Header title="Your bookshelf" />
       <div className="bookshelf-grand-wrapper">
         <div className="bookshelf-list">
-          {bookshelfArr}
+          {bookshelf}
         </div>
         <div className='bookshelf-footer-wrapper'>
           <Footer leftBut="userHome" centerBut="circleAdd" rightBut="search" />

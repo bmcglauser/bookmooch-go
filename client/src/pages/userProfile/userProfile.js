@@ -9,7 +9,7 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
 export default function UserProfilePage (props) {
-  const self = props.match.params.username;
+  const self = props.match.params.username ? props.match.params.username : 'spectrome';
   const query = queryService.GET_USER(self);
 
   const { loading, error, data } = useQuery(query);

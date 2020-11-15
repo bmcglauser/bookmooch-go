@@ -28,8 +28,8 @@ export default function PendingPage (props) {
   const toReceiveArr = data.getUserByUsername.pending_receive
     .map(transaction => <PendingItem key={transaction.transaction_name} mooch={transaction} direction='to_receive' />);
 
-  // const toSend = props.pending_give || <h1 className="none-found">No mooches found for this user</h1>;
-  // const toReceive = props.pending_receive || <h1 className="none-found">No mooches found for this user</h1>;
+  const toSend = toSendArr.length ? toSendArr : <h3 className="none-found">No pending mooches to send</h3>;
+  const toReceive = toReceiveArr.length ? toReceiveArr : <h3 className="none-found">No pending mooches to receive</h3>;
   
   return (
     <>
@@ -37,11 +37,11 @@ export default function PendingPage (props) {
     <div className="pending-page-grand-wrapper">
       <h2>Your books to send:</h2>
       <div className="pending-list to-send-list">
-        {toSendArr}
+        {toSend}
       </div>
       <h2>Your books to receive:</h2>
       <div className="pending-list to-receive-list">
-        {toReceiveArr}
+        {toReceive}
       </div>
       <div className="pending-page-footer">
         <Footer leftBut="back" centerBut="circleAdd" rightBut="userHome" ctx={props}/>

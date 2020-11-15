@@ -5,6 +5,9 @@
   height: calc(100vh - 90px);
   width:100%;
   color: $main-green;
+  .none-found {
+    margin-top: 30px;
+  }
   h2 {
     margin-left: 5%;
     font-weight: normal;
