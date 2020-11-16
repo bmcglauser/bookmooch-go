@@ -9,12 +9,8 @@ export default function LoginController ({username, pw, ...props}) {
   const query = actionService.LOGIN(username, pw);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.login === '1') {
     props.ctx.history.push(`/profile/${username}`);

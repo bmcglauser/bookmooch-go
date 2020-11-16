@@ -1,9 +1,9 @@
 @import '../../../App.scss';
 
 .grand_wrapperB {
-  background-color: $off-white;
   margin-top: 30vw;
   width: 100%;
+  background-color: $off-white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,6 @@
   .spine {
     fill: $light-green;
   }
-
 
   .book {
     transform-origin: 50% 50%;

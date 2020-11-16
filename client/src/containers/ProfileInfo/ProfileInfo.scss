@@ -1,53 +1,52 @@
 @import '../../App.scss';
 
 .profileInfo {
+  margin: 0px 20px;
   height: 100%;
   border: 4px solid $main-green;
   border-radius: 10px;
-  margin: 0px 20px;
   color: $main-green;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   .top-block {
+    margin: 10px;
+    height: 10vh;
     display: flex;
     align-items: center;
-    height: 10vh;
-    margin: 10px;
 
     .initial-block {
+      height: 60px;
+      width: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      height: 60px;
-      width: 60px;
       background-color: $main-green;
       border-radius: 5px;
       
       p {
+        margin-top: 10px;
         color: $off-white;
         font-size: 25pt;
-        margin-top: 10px;
       }
     }
     .names {
-      line-height: 1.7;
       margin-left: 10px;
+      line-height: 1.7;
     }
   }
   .bottom-block {
+    margin: 0px 10px;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 10px;
-    height: 20vh;
 
     .stats {
       h5 {
-        font-size: 14pt;
         margin: 14px 0px;
+        font-size: 14pt;
       }
     }
     .bookshelf-button-block {
@@ -55,8 +54,8 @@
       align-items: center;
       flex-direction: column;
       p {
-        font-size: 10pt;
         margin-top: 5px;
+        font-size: 10pt;
         text-align: center;
       }
       .bookshelf-button {
@@ -70,10 +69,10 @@
         justify-content: center;
 
         .bookshelf-icon {
-          background-image: url(../../assets/bookshelf-icon.png);
-          background-repeat: round;
           height: 60px;
           width: 60px;
+          background-image: url(../../assets/bookshelf-icon.png);
+          background-repeat: round;
         }
       }
     }

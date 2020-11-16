@@ -1,20 +1,20 @@
 @import '../../../App.scss';
 
 .user-button-wrapper {
+  margin: 15px 5px 0px 5px;
+  width: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 15px 5px 0px 5px;
-  width: 75px;
   
   .user-button {
-    background-image: url(../../../assets/user-icon.png);
-    background-repeat: round;
     height: 35px;
     width: 35px;
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
+    background-image: url(../../../assets/user-icon.png);
+    background-repeat: round;
 
     &:focus {
       outline: none;
@@ -22,8 +22,8 @@
   }
 
   p {
-    color: $off-white;
     margin-top: 5px;
+    color: $off-white;
     font-size: 10pt;
   }
 

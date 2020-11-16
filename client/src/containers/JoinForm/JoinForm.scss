@@ -10,11 +10,10 @@
   label {
     line-height: 2.5;
     input {
-      margin: 5px 10px;
+      margin: 5px 10px 5px 5px;
       height: 30px;
       width: 50%;
       font-size: 14pt;
-      margin-left: 5px;
       border: 1px solid $main-green;
       border-radius: 4px;
       padding: 2px;
@@ -31,11 +30,10 @@
       justify-content: flex-end;
       align-items: flex-start;
       textarea {
-        margin: 5px 10px;
+        margin: 5px 10px 5px 5px;
         height: 70px;
         width: 50%;
         font-size: 14pt;
-        margin-left: 5px;
         border: 1px solid $main-green;
         border-radius: 4px;
         padding: 2px;
@@ -48,10 +46,10 @@
     }
 
   .join-button-wrapper {
+    margin-top: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4vh;
 
     .join-form-submit {
       height: 45px;

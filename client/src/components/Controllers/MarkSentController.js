@@ -9,12 +9,8 @@ export default function MarkSentController (props) {
   const query = actionService.MARK_SENT(pendingID);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.markSent === "ok") {
     props.ctx.history.push(`/pending`);

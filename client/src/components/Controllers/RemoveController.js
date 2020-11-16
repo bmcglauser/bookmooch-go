@@ -8,12 +8,8 @@ export default function RemoveController (props) {
   const query = actionService.REMOVE_BOOK(props.asin);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.removeBookFromBookshelf === `${props.asin}`) {
     props.ctx.history.push(`/bookshelf`);

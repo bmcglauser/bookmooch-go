@@ -8,12 +8,8 @@ export default function MoochNowController ({asin, giverid, selfAddress,...props
   const query = actionService.MOOCH_NOW(asin, giverid, selfAddress);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.moochNow === "success") {
     props.ctx.history.push(`/pending`);

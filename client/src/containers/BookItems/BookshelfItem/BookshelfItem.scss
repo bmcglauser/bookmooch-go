@@ -1,20 +1,20 @@
 @import '../../../App.scss';
 
 .bookshelf-item-grand-wrapper {
+  margin: 15px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 120px;
-  margin: 15px;
-  border-radius: 10px;
   border: 4px solid $main-green;
+  border-radius: 10px;
   background-color: rgba(255,255,255,.7);
   
   > a {
-  color: $main-green;
-  display: flex;
-  align-items: center;
-  width: 80%;
+    width: 80%;
+    color: $main-green;
+    display: flex;
+    align-items: center;
   }
 
   .cover-art {
@@ -33,25 +33,25 @@
     }
   }
   .center-text {
-    width: 70%;
     margin-top: 10px;
+    width: 70%;
     display: flex;
     flex-direction: column;
     .author {
       font-weight: normal;
     }
     .listed-on {
-      font-size: 11pt;
-      font-weight: normal;
-      font-style: italic;
       margin-top: 15px;
+      font-size: 11pt;
+      font-style: italic;
+      font-weight: normal;
     }
   }
   .remove-button-block {
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
     color: $main-green;
 
     .remove-button {

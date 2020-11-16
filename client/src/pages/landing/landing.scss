@@ -13,27 +13,29 @@
   .welcome-text-wrapper {
     margin: 9vh;
   }
-  button {
-    padding: 20px 35px 17px;
-    border: none;
-    border-radius: 10px;
-    background-color: $main-green;
-    color: $off-white;
-    font-size: 1.25em;
-    font-weight: bold;
-    &:focus {
-      outline: none;
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    a{
+      width: 100%;
     }
-    &:active {
-      background-color: adjust-color($color: $main-green, $lightness: 15%);
-    }
-  }
-  .footerLogin {
-    margin-top: 21.7vh;
-    color: $off-white;
-    a {
+    button {
+      margin: 10px 0;
+      width: 50%;
+      padding: 20px 35px 17px;
+      border: none;
+      border-radius: 10px;
+      background-color: $main-green;
       color: $off-white;
+      font-size: 1.25em;
       font-weight: bold;
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        background-color: adjust-color($color: $main-green, $lightness: 15%);
+      }
     }
   }
 }

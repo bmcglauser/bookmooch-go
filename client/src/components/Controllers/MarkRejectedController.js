@@ -9,12 +9,8 @@ export default function MarkRejectedController (props) {
   const query = actionService.REJECT_MOOCH(pendingID);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.markReject === "ok") {
     props.ctx.history.push(`/pending`);

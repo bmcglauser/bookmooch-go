@@ -8,12 +8,8 @@ export default function AddController (props) {
   const query = actionService.ADD_BOOK(props.asin);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.addBookToBookshelf === `${props.asin}`) {
     props.ctx.history.push(`/bookshelf`);

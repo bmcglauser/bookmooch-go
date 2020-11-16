@@ -1,13 +1,12 @@
 @import '../../App.scss';
 
 .item {
+  margin: 15px 15px 15px 5%;
   height: 120px;
   width: 90%;
-  margin-left: 5%;
 
   border: 6px solid $main-green;
   border-radius: 15px;
-  margin: 15px;
   
   background: #ffffff88;
   color: $main-green;
@@ -21,8 +20,8 @@
   }
 
   h4{
-    font-weight: bold;
     margin-left: 50px;
+    font-weight: bold;
   }
 }
 

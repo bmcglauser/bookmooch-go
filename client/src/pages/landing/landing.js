@@ -12,12 +12,14 @@ export default function LandingPage () {
       <div className="welcome-text-wrapper">
         <WelcomeText back={false} />
       </div>
-      <Link to="/about" style={{textDecoration: 'none'}}>
-        <button>Let's go</button>
-      </Link>
-      <p className="footerLogin">
-        Already have an account? Log in <Link to="/login">here</Link>
-      </p>
+      <div className="buttons-wrapper">
+        <Link to="/about" style={{textDecoration: 'none'}}>
+          <button>Let's go</button>
+        </Link>
+        <Link to="/login" style={{textDecoration: 'none'}}>
+          <button>Login</button>
+        </Link>
+      </div>
     </div>
   )
 }

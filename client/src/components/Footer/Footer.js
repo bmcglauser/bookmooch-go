@@ -17,7 +17,6 @@ function whichButton (inputStr, props) {
   }
 }
 
-
 export default function Footer (props) {
   const {leftBut, centerBut, rightBut, ctx} = props
   return (

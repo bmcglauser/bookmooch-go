@@ -1,13 +1,13 @@
 @import '../../../App.scss';
 
 .grand_wrapperD {
-  background-color: $off-white;
   margin-top: 30vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: $off-white;
 
   p {
     color: $dark-green;

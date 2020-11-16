@@ -10,12 +10,8 @@ export default function GiveFeedbackController (props) {
   const query = actionService.GIVE_FEEDBACK(pendingID, props.score);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props.ctx}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.giveFeedback === "ok") {
     props.ctx.history.push(`/pending`);

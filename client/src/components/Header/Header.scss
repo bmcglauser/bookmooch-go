@@ -4,11 +4,11 @@
   height: 80px;
   width: 100%;
   min-width: 320px;
+  top: 0;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: fixed;
-  top: 0;
   background-color: $off-white;
 
   h1 {
@@ -16,11 +16,11 @@
     font-size: 28px;
   }
   .logo {
-    justify-self: flex-start;
-    align-self: flex-start;
     margin: 10px;
     height: 60px;
     width: 60px;
+    justify-self: flex-start;
+    align-self: flex-start;
     flex-shrink: 0;
   }
   .title {
