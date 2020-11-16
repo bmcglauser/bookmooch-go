@@ -5,6 +5,7 @@ import './bookDetails.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
+import ErrorPage from '../errorPage';
 import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
 import queryService from '../../services/queryService';
 
@@ -19,7 +20,7 @@ export default function BookDetailsPage (props) {
     return <RandomCenterLoader />;
   }
   if (error) {
-    return <p> Error! ${error.message} </p>
+    return <ErrorPage message={error.message} ctx={props}/>
   }
   return (
     <>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -23,6 +23,7 @@ export default function ConfirmMoochPage (props) {
   const query = queryService.GET_CONFIRM_MOOCH(username, asin);
 
   const { loading, error, data } = useQuery(query);
+  const [address, setAddress] = useState('');
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -65,7 +66,7 @@ export default function ConfirmMoochPage (props) {
     <>
     <Header title="Confirm your mooch" />
     <div className="confirm-mooch-page-grand-wrapper">
-    <div className="top-block">
+      <div className="top-block">
         <p className="top-text">{topText}</p>
         <ActiveItem book={book} />
       </div>
@@ -75,8 +76,12 @@ export default function ConfirmMoochPage (props) {
         <p>Listed on: {addedDateStr}</p>
         <p>Condition notes: {condition}</p>
       </div>
+      <div className="address-entry">
+        <p>Where should the book be sent?</p>
+        <textarea onChange={e=>setAddress(e.target.value)} value={address} />
+      </div>
       <div className='button-wrapper confirm-wrapper'>
-        <Link to={`/controller/mooch/${asin}/x/x/x/${username}/4665Bergstrom`} style={{textDecoration:'none'}}>
+        <Link to={`/controller/mooch/${asin}/x/x/x/${username}/${address}`} style={{textDecoration:'none'}}>
           <button className="confirm button">
             <div className="confirm-icon" />
             <p>{confirmText}</p>

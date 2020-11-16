@@ -4,11 +4,11 @@ import RandomColorCover from '../../../components/RandomColorCover';
 
 export default function ActiveItem ({book}) {
 
-  const bookCover = book.cover_art_url 
+  const bookCover = book && book.cover_art_url 
     ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
     : <RandomColorCover />
 
-  const bookTitle = book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
+  const bookTitle = book.title && book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
 
   return (
     <div className="active-item-grand-wrapper">

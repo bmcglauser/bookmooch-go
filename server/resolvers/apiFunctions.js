@@ -3,8 +3,8 @@ const qs = require('qs');
 require('dotenv').config();
 
 const AUTH = {
-  user: process.env.USERNAMEB,
-  pw: process.env.PWB
+  user: process.env.USERNAMEA,
+  pw: process.env.PWA
 };
 
 exports.GetBookByAsin = (asin) => {
@@ -227,7 +227,7 @@ exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = A
       username: `${self}`,
       password: `${pw}`
     },
-  }).then(res => res.data[0])
+  }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
 exports.MarkSent = (pendingID, self = AUTH.user, pw = AUTH.pw) => {

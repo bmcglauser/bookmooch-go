@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
+import RandomCenterLoader from '../Loaders/RandomCenterLoader';
 import ErrorPage from '../../pages/errorPage';
 
 export default function MarkSentController (props) {
@@ -8,8 +9,12 @@ export default function MarkSentController (props) {
   const query = actionService.MARK_SENT(pendingID);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) return <p>loading</p>
-  if (error) return <p>{error.message}</p>;
+  if (loading) {
+    return <RandomCenterLoader />;
+  }
+  if (error) {
+    return <ErrorPage message={error.message} ctx={props.ctx}/>
+  }
 
   if (data && data.markSent === "ok") {
     props.ctx.history.push(`/pending`);

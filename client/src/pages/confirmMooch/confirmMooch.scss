@@ -15,19 +15,38 @@
     }
   }
   .mooch-copy-text {
-    margin: 3vh 10%;
+    margin: 1vh 10% 1vh;
     width: 80%;
-    height: 20vh;
-    // border: solid;
-
-    p {
+    height: 17vh;
+    overflow-y: scroll;
+    > p {
       font-size: 14pt;
       margin: 10px;
     }
   }
+  .address-entry {
+    margin: 2.5vh 0 0 10%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    > textarea {
+      height: 10vh;
+      resize: none;
+      border: 1px solid $main-green;
+      border-radius: 10px;
+      padding: 5px;
+      font-size: 14pt;
+      color: $main-green;
+
+      &:active, &:focus {
+        outline: none;
+        border: 3px solid $main-green;
+      }
+    }
+  }
   .button-wrapper {
     &.confirm-wrapper {
-      margin-top: 9vh;
+      margin-top: 3vh;
     }
     .button {
       margin: 1vh 15%;
@@ -63,7 +82,7 @@
     }
   }
   .confirm-mooch-footer {
-    margin-top: 10vh;
+    margin-top: 6vh;
     width: 100%;
     display: flex;
     align-items: flex-end;

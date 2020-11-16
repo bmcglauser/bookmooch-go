@@ -9,11 +9,11 @@ export default function BookshelfItem ( {listing} ) {
   const addedStr = formatDate(listing.listed_on)
   const book = listing.book;
 
-  const bookCover = listing.book.cover_art_url 
+  const bookCover = listing && listing.book && listing.book.cover_art_url 
   ? <img className="cover-art" src={listing.book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 
-  const bookTitle = book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
+  const bookTitle = book.title && book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
 
   return (
     <div className="bookshelf-item-grand-wrapper">

@@ -14,7 +14,7 @@ export default function PendingItem ({mooch, direction}) {
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 
-  const bookTitle = book.title.length > 20 ? book.title.slice(0, 21)+'...' : book.title;
+  const bookTitle = book && book.title && book.title.length > 20 ? book.title.slice(0, 21)+'...' : book.title;
 
   if (direction === 'to_send') {
     return (
