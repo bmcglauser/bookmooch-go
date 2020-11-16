@@ -1,6 +1,7 @@
 import React from 'react';
 import './moochSend.scss';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import Header from '../../components/Header';
@@ -33,6 +34,8 @@ export default function MoochSendPage (props) {
   
   let pointsStr = mooch.points_to_giver === '10' ? "1 point" : `${parseInt(mooch.points_from_receiver)/10} points`
 
+  const pendingIDtopass = id.split('/').join('+');
+
   return (
     <>
     <Header title="You're sending" />;
@@ -63,9 +66,11 @@ export default function MoochSendPage (props) {
           <p>reject</p>
         </div>
         <div className="single-button-wrapper">
-          <button className="big-button">
-            <div className="sent" />
-          </button>
+          <Link to={`/controller/sent/${pendingIDtopass}`} style={{textDecoration:"none"}} >
+            <button className="big-button">
+              <div className="sent" />
+            </button>
+          </Link>
           <p>sent</p>
         </div>
       </div>

@@ -55,7 +55,7 @@ function App() {
             <Route path="/sending/:user/:number"          component={MoochSendPage} />
             <Route path="/receiving/:user/:number"        component={MoochReceivePage} />
             <Route path="/feedback/:user/:number"         component={FeedbackPage} />
-            <Route path="/controller/:action/:itemid?/:username?/:pw?/:score?/:giverid?/:selfAddress?" component={ActionControllerPage} />
+            <Route path="/controller/:action/:itemid?/:username?/:pw?/:score?/:giverid?/:textBlock?" component={ActionControllerPage} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

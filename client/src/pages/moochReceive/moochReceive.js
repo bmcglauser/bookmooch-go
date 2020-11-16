@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './moochReceive.scss';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
@@ -10,7 +11,9 @@ import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService/queryService';
 
 export default function MoochReceivePage (props) {
-  const id = props.match.params.user + '/' + props.match.params.number;
+  const username = props.match.params.user
+  const transactionNumber = props.match.params.number
+  const id = username + '/' + transactionNumber;
   const query = queryService.GET_CONF_PENDING_RECEIVE(id);
 
   const { loading, error, data } = useQuery(query);
@@ -50,9 +53,11 @@ export default function MoochReceivePage (props) {
       </div>
       <div className="buttons-wrapper">
         <div className="received-button-wrapper">
-          <button className="big-button">
-            <div className="received" />
-          </button>
+          <Link to={`/feedback/${username}/${transactionNumber}`} style={{textDecoration:"none"}}>
+            <button className="big-button">
+              <div className="received" />
+            </button>
+          </Link>
           <p>mark received</p>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function ActionControllerPage (props) {
     pw,
     score,
     giverid,
-    selfAddress
+    textBlock
   } = props.match.params;
   
   const {
@@ -19,6 +19,8 @@ export default function ActionControllerPage (props) {
     LoginController,
     RemoveController,
     MoochNowController,
+    MarkSentController,
+    GiveFeedbackController,
   } = controllers;
 
   switch (action) {
@@ -29,7 +31,11 @@ export default function ActionControllerPage (props) {
     case 'remove':
         return <RemoveController ctx={props} asin={itemid}/>;
     case 'mooch':
-        return <MoochNowController ctx={props} giverid={giverid} selfAddress={selfAddress} asin={itemid}/>;
+        return <MoochNowController ctx={props} giverid={giverid} selfAddress={textBlock} asin={itemid}/>;
+    case 'sent':
+        return <MarkSentController ctx={props} pendingID={itemid} />;
+    case 'received':
+        return <GiveFeedbackController ctx={props} pendingID={itemid} score={score}/>;
     default:
       return <ErrorPage ctx={props} message="Invalid action" />
   }
