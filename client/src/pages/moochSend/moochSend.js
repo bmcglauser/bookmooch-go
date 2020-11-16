@@ -60,9 +60,11 @@ export default function MoochSendPage (props) {
           <p>accept</p>
         </div>
         <div className="single-button-wrapper reject-wrapper">
-          <button className="small-button">
-            <div className="reject" />
-          </button>
+          <Link to={`/controller/reject/${pendingIDtopass}`} style={{textDecoration:"none"}}>
+            <button className="small-button">
+              <div className="reject" />
+            </button>
+          </Link>
           <p>reject</p>
         </div>
         <div className="single-button-wrapper">

@@ -21,6 +21,8 @@ export default function ActionControllerPage (props) {
     MoochNowController,
     MarkSentController,
     GiveFeedbackController,
+    MarkRejectedController,
+    
   } = controllers;
 
   switch (action) {
@@ -29,13 +31,15 @@ export default function ActionControllerPage (props) {
     case 'add':
       return <AddController ctx={props} asin={itemid}/>;
     case 'remove':
-        return <RemoveController ctx={props} asin={itemid}/>;
+      return <RemoveController ctx={props} asin={itemid}/>;
     case 'mooch':
-        return <MoochNowController ctx={props} giverid={giverid} selfAddress={textBlock} asin={itemid}/>;
+      return <MoochNowController ctx={props} giverid={giverid} selfAddress={textBlock} asin={itemid}/>;
     case 'sent':
-        return <MarkSentController ctx={props} pendingID={itemid} />;
+      return <MarkSentController ctx={props} pendingID={itemid} />;
     case 'received':
-        return <GiveFeedbackController ctx={props} pendingID={itemid} score={score}/>;
+      return <GiveFeedbackController ctx={props} pendingID={itemid} score={score}/>;
+    case 'reject':
+      return <MarkRejectedController ctx={props} pendingID={itemid} />
     default:
       return <ErrorPage ctx={props} message="Invalid action" />
   }

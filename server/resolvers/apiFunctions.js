@@ -3,8 +3,8 @@ const qs = require('qs');
 require('dotenv').config();
 
 const AUTH = {
-  user: process.env.USERNAMEA,
-  pw: process.env.PWA
+  user: process.env.USERNAMEB,
+  pw: process.env.PWB
 };
 
 exports.GetBookByAsin = (asin) => {
