@@ -2,16 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginForm.scss';
-import LoginController from './LoginController';
-// import LoginUser from '../../services/queryService';
 
 
-
-function handler (e, ctx) {
-  return <LoginController formEvent={e} ctx={ctx} />
-}
-
-export default function LoginForm (ctx) {
+export default function LoginForm () {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,7 +14,7 @@ export default function LoginForm (ctx) {
       <input onChange={(e) => setUsername(e.target.value)} value={username} name='username' type='text' required/>
       <label htmlFor='password'>Password</label>
       <input onChange={(e) => setPassword(e.target.value)} value={password} name='password' type='password' required/>
-      <Link to={`/logincontroller/${username}/${password}`} style={{textDecoration:'none'}}>
+      <Link to={`/controller/login/x/${username}/${password}`} style={{textDecoration:'none'}}>
         <button>
           <p>
             Log in
@@ -29,5 +22,5 @@ export default function LoginForm (ctx) {
         </button>
       </Link>
     </div>
-  )
+  );
 }

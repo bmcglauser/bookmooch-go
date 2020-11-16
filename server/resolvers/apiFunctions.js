@@ -2,7 +2,6 @@ const axios = require('axios').default;
 const qs = require('qs');
 require('dotenv').config();
 
-
 const AUTH = {
   user: process.env.USERNAMEA,
   pw: process.env.PWA
@@ -155,7 +154,7 @@ exports.RemoveBookFromBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
       'content-type': 'application/x-www-form-urlencoded',
     },
     data: qs.stringify({
-      asin: `${asin}`,
+      asins: `${asin}`,
       target: 'inventory',
       action: 'del',
       o: 'json'
@@ -231,7 +230,6 @@ exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = A
   }).then(res => res.data[0])
     .catch(e => e.message);
 };
-// Allows for newStatus = 'sent', 'reject', 'received'
 exports.MarkSent = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
   return axios({
     method: 'post',
@@ -274,7 +272,6 @@ exports.MarkReject = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
-
 exports.AcceptMooch = (requester, asin, self = AUTH.user, pw = AUTH.pw) => {
   return axios({
     method: 'get',

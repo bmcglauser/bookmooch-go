@@ -10,7 +10,7 @@ import queryService from '../../services/queryService';
 
 
 export default function BookshelfPage (props) {
-  const username = props.match.params.username;
+  const username = props.match.params.username ? props.match.params.username : 'spectrome';
   const query = queryService.GET_BOOKSHELF(username);
   
   const { loading, error, data } = useQuery(query);

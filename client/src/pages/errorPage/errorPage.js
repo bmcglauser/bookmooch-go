@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './errorPage.scss';
 import Header from '../../components/Header';
 
-export default function ErrorPage ({message, ctx}) {
+export default function ErrorPage (props) {
   let errorButtons;
 
   const startOverButton = 
@@ -14,10 +14,10 @@ export default function ErrorPage ({message, ctx}) {
       </div>
     </Link>;
 
-  if (ctx) {
+  if (props.ctx) {
     errorButtons =
       <div className="error-buttons-wrapper">
-        <div onClick={()=>ctx.history.goBack()} className="error-button">
+        <div onClick={()=>props.ctx.history.goBack()} className="error-button">
           <div className="back icon" />
           <p>Go Back</p>
         </div>
@@ -39,7 +39,7 @@ export default function ErrorPage ({message, ctx}) {
       </div>
       <div className="error-text">
         <h3>Uh oh! Looks like there was a problem loading the page...</h3>
-        <h4>{message}</h4>
+        <h2>{props.message ? props.message : ''}</h2>
       </div>
       {errorButtons}
     </div>

@@ -14,7 +14,7 @@ export default function SearchResultItem ({book}) {
   : <RandomColorCover />
 
   let bookTitle = book.title.length > 18 ? book.title.slice(0, 19)+'...' : book.title;
-  let bookAuthor = book.author.length > 18 ? book.author.slice(0, 19)+'...' : book.author;
+  // let bookAuthor = book.author.length > 18 ? book.author.slice(0, 19)+'...' : book.author;
 
   return(
     <Link to={`/details/${book.asin}`} style={{textDecoration:'none'}}>
@@ -22,7 +22,7 @@ export default function SearchResultItem ({book}) {
         {bookCover}
         <div className="result-item-text">
           <h2>{bookTitle}</h2>
-          <h3>{bookAuthor}</h3>
+          <h3>{book.author}</h3>
           <p>{availStr}</p>
         </div>
       </div>

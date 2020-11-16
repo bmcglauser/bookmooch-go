@@ -14,15 +14,15 @@ import LearnMorePage     from './pages/learnMore';
 import FAQPage           from './pages/faq';
 import FindAddPage       from './pages/findAdd';
 import SearchResultsPage from './pages/searchResults';
-import ChooseMoochPage   from './pages/chooseMooch/';
+import ChooseMoochPage   from './pages/chooseMooch';
 import PendingPage       from './pages/pending';
-import MoochSendPage     from './pages/moochSend/';
-import MoochReceivePage  from './pages/moochReceive/';
-import FeedbackPage      from './pages/feedback/';
-import ConfirmAddPage    from './pages/confirmAdd/';
-import ConfirmMoochPage  from './pages/confirmMooch/';
-import ErrorPage         from './pages/errorPage/';
-import LoginController         from './containers/LoginForm/LoginController';
+import MoochSendPage     from './pages/moochSend';
+import MoochReceivePage  from './pages/moochReceive';
+import FeedbackPage      from './pages/feedback';
+import ConfirmAddPage    from './pages/confirmAdd';
+import ConfirmMoochPage  from './pages/confirmMooch';
+import ErrorPage         from './pages/errorPage';
+import ActionControllerPage    from './pages/actionController';
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -38,10 +38,9 @@ function App() {
             <Route path="/" exact                          component={LandingPage} />
             <Route path="/landing"                        component={LandingPage} />
             <Route path="/login"                          component={LoginPage} />
-            <Route path="/logincontroller/:username/:pw"  component={LoginController} />
             <Route path="/sample"                         component={SampleInfo} />
             <Route path="/profile/:username?"             component={UserProfilePage} />
-            <Route path="/bookshelf/:username"            component={BookshelfPage} />
+            <Route path="/bookshelf/:username?"            component={BookshelfPage} />
             <Route path="/pending/:username"              component={PendingPage} />
             <Route path="/search"                         component={SearchPage} />
             <Route path="/details/:asin?"                 component={BookDetailsPage} />
@@ -56,6 +55,7 @@ function App() {
             <Route path="/sending/:user/:number"          component={MoochSendPage} />
             <Route path="/receiving/:user/:number"        component={MoochReceivePage} />
             <Route path="/feedback/:user/:number"         component={FeedbackPage} />
+            <Route path="/controller/:action/:itemid?/:username?/:pw?/:score?/:giverid?/:selfAddress?" component={ActionControllerPage} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

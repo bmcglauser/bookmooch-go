@@ -1,11 +1,14 @@
 import React from 'react';
 import './confirmAdd.scss';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import Header from '../../components/Header';
 import ErrorPage from '../errorPage';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import queryService from '../../services/queryService';
+
+
 
 export default function ConfirmAddPage (props) {
   const asin = props.match.params.asin;
@@ -31,12 +34,14 @@ export default function ConfirmAddPage (props) {
       <p className="condition-prompt-text">You can also add notes on the condition of your copy, if you'd like</p>
       <form className="confirm-add-form">
         <textarea placeholder="Cover scuffed, light markings inside..."/>
-        <div className='button-wrapper'>
-          <button className="confirm button">
-            <div className="confirm-icon" />
-            <p>Confirm add</p>
-          </button>
-        </div>
+        <Link to={`/controller/add/${asin}`} style={{textDecoration: "none"}}>
+          <div className='button-wrapper'>
+            <button className="confirm button">
+              <div className="confirm-icon" />
+              <p>Confirm add</p>
+            </button>
+          </div>
+        </Link>
       </form>
       <div onClick={()=>props.history.goBack()} className='button-wrapper'>
         <button className="back button">
