@@ -10,7 +10,7 @@ import queryService from '../../services/queryService';
 
 
 export default function PendingPage (props) {
-  const self = props.match.params.username;
+  const self = props.match.params.username ? props.match.params.username : 'spectrome';
   const query = queryService.GET_ALL_PENDING(self);
   
   const { loading, error, data } = useQuery(query);

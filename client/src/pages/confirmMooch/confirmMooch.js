@@ -76,7 +76,7 @@ export default function ConfirmMoochPage (props) {
         <p>Condition notes: {condition}</p>
       </div>
       <div className='button-wrapper confirm-wrapper'>
-        <Link to='/' style={{textDecoration:'none'}}>
+        <Link to={`/controller/mooch/${asin}/x/x/x/${username}/4665Bergstrom`} style={{textDecoration:'none'}}>
           <button className="confirm button">
             <div className="confirm-icon" />
             <p>{confirmText}</p>

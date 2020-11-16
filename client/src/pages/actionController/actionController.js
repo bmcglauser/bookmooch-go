@@ -28,6 +28,8 @@ export default function ActionControllerPage (props) {
       return <AddController ctx={props} asin={itemid}/>;
     case 'remove':
         return <RemoveController ctx={props} asin={itemid}/>;
+    case 'mooch':
+        return <MoochNowController ctx={props} giverid={giverid} selfAddress={selfAddress} asin={itemid}/>;
     default:
       return <ErrorPage ctx={props} message="Invalid action" />
   }

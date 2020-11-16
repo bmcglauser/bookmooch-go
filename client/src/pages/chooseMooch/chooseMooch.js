@@ -12,7 +12,7 @@ import queryService from '../../services/queryService';
 const falseSelf = {
   username: 'spectrome',
   display_name: 'Brett G',
-  country: 'UK',
+  country: 'US',
   points: '12'
 };
 

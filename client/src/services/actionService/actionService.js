@@ -17,10 +17,10 @@ const REMOVE_BOOK = (asin) =>
       removeBookFromBookshelf(asin:"${asin}")
     }
   `;
-const MOOCH_NOW = (asin, giverid, selfAddress, selfCountry) => 
+const MOOCH_NOW = (asin, giverid, selfAddress) => 
   gql`
     query {
-      moochNow(asin:"${asin}", giverid:"${giverid}", selfAddress:"${selfAddress}", selfCountry:"${selfCountry}")
+      moochNow(asin:"${asin}", giverid:"${giverid}", selfAddress:"${selfAddress}")
     }
   `;
 const GIVE_FEEDBACK = (pendingID, score) => 

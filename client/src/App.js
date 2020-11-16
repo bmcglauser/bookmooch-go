@@ -41,7 +41,7 @@ function App() {
             <Route path="/sample"                         component={SampleInfo} />
             <Route path="/profile/:username?"             component={UserProfilePage} />
             <Route path="/bookshelf/:username?"            component={BookshelfPage} />
-            <Route path="/pending/:username"              component={PendingPage} />
+            <Route path="/pending/:username?"              component={PendingPage} />
             <Route path="/search"                         component={SearchPage} />
             <Route path="/details/:asin?"                 component={BookDetailsPage} />
             <Route path="/confirmadd/:asin"               component={ConfirmAddPage} />

@@ -4,26 +4,6 @@ import { Link } from 'react-router-dom';
 import formatDate from '../../services/dateProcessor';
 
 
-// const falseSelf = {
-//   username: 'spectrome',
-//   display_name: 'Brett G',
-//   country: 'UK',
-//   points: '12'
-// };
-// const falseOtherUser = {
-//   username: 'HasalottaBooks8675',
-//   display_name: 'Jimmy J',
-//   country: 'UK',
-//   listings: {
-//     listing: {
-//       listed_on: '1604660125',
-//       condition: 'Eh, it\'s alright'
-//     }
-//   },
-//   feedback_score: '122',
-//   willsend: 'anywhere'
-// };
-
 export default function UserWithItem ({self, other, asin}) {
 
   let willSendP;
