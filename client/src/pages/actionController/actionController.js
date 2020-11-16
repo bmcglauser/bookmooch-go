@@ -26,6 +26,8 @@ export default function ActionControllerPage (props) {
       return <LoginController ctx={props} username={username} pw={pw} />;
     case 'add':
       return <AddController ctx={props} asin={itemid}/>;
+    case 'remove':
+        return <RemoveController ctx={props} asin={itemid}/>;
     default:
       return <ErrorPage ctx={props} message="Invalid action" />
   }

@@ -26,9 +26,11 @@ export default function BookshelfItem ( {listing} ) {
         </div>
       </Link>
       <div className="remove-button-block">
-        <button className="remove-button">
-          <div className="remove-icon" />
-        </button>
+        <Link to={`/controller/remove/${listing.asin}`} style={{textDecoration: "none"}}>
+          <button className="remove-button">
+            <div className="remove-icon" />
+          </button>
+        </Link>
         <p>remove</p>
       </div>
     </div>
