@@ -1,7 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
-import RandomCenterLoader from '../Loaders/RandomCenterLoader';
 import ErrorPage from '../../pages/errorPage';
 
 export default function GiveFeedbackController (props) {
@@ -10,7 +9,7 @@ export default function GiveFeedbackController (props) {
   const query = actionService.GIVE_FEEDBACK(pendingID, props.score);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) return <RandomCenterLoader />;
+  if (loading) return <div />;
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.giveFeedback === "ok") {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './searchResults.scss';
 import { useQuery } from '@apollo/client';
 import Header from '../../components/Header';
@@ -15,15 +15,11 @@ export default function SearchResultsPage (props) {
   const query = searchStr === '~~~recent'
     ? queryService.GET_RECENT()
     : queryService.GET_SEARCH(searchStr)
-
+  
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <LoaderA />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <LoaderA />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>
 
   let results = data.getSearch ? data.getSearch : data.getSearchRecent;
   if (!toAdd) {results = results.filter(book => book.availCount !== '0')}

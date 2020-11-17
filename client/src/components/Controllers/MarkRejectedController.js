@@ -1,7 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
-import RandomCenterLoader from '../Loaders/RandomCenterLoader';
 import ErrorPage from '../../pages/errorPage';
 
 export default function MarkRejectedController (props) {
@@ -9,7 +8,7 @@ export default function MarkRejectedController (props) {
   const query = actionService.REJECT_MOOCH(pendingID);
   const { loading, error, data } = useQuery(query);
 
-  if (loading) return <RandomCenterLoader />;
+  if (loading) return <div />;
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.markReject === "ok") {
