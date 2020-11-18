@@ -6,7 +6,6 @@ import BookDetailsPage   from './pages/bookDetails';
 import BookshelfPage     from './pages/bookshelf';
 import LandingPage       from './pages/landing';
 import LoginPage         from './pages/login';
-import SampleInfo        from './pages/sampleinfo';
 import UserProfilePage   from './pages/userProfile';
 import SearchPage        from './pages/search';
 import JoinPage          from './pages/join';
@@ -38,7 +37,6 @@ function App() {
             <Route path="/" exact                          component={LandingPage} />
             <Route path="/landing"                        component={LandingPage} />
             <Route path="/login"                          component={LoginPage} />
-            <Route path="/sample"                         component={SampleInfo} />
             <Route path="/profile/:username?"             component={UserProfilePage} />
             <Route path="/bookshelf/:username?"            component={BookshelfPage} />
             <Route path="/pending/:username?"              component={PendingPage} />

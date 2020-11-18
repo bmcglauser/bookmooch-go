@@ -8,8 +8,13 @@ import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
+const ENV = {
+  // eslint-disable-next-line no-undef
+  user: process.env.REACT_APP_USERNAMEA
+};
+
 export default function UserProfilePage (props) {
-  const self = props.match.params.username ? props.match.params.username : 'spectrome';
+  const self = props.match.params.username ? props.match.params.username : ENV.user;
   const query = queryService.GET_USER(self);
 
   const { loading, error, data } = useQuery(query);

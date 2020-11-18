@@ -10,11 +10,16 @@ import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
 
 const self = {
-  username: 'spectrome',
-  display_name: 'Brett G',
-  country: 'UK',
-  address: 'Brett Glauser / 71-91 Aldwych / Codeworks @ WeWork / London / WC2B 4HN',
-  points: '122'
+  // eslint-disable-next-line no-undef
+  username: process.env.REACT_APP_USERNAMEA,
+  // eslint-disable-next-line no-undef
+  display_name: process.env.REACT_APP_DISPLAY_NAME,
+  // eslint-disable-next-line no-undef
+  country: process.env.REACT_APP_COUNTRY,
+  // eslint-disable-next-line no-undef
+  address: process.env.REACT_APP_ADDRESS,
+  // eslint-disable-next-line no-undef
+  points: process.env.REACT_APP_POINTS
 };
 
 export default function ConfirmMoochPage (props) {

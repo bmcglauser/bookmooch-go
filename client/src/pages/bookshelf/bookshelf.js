@@ -8,9 +8,13 @@ import BookshelfItem from '../../containers/BookItems/BookshelfItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
+const ENV = {
+  // eslint-disable-next-line no-undef
+  user: process.env.REACT_APP_USERNAMEA
+};
 
 export default function BookshelfPage (props) {
-  const username = props.match.params.username ? props.match.params.username : 'spectrome';
+  const username = props.match.params.username ? props.match.params.username : ENV.user;
   const query = queryService.GET_BOOKSHELF(username);
   
   const { loading, error, data } = useQuery(query);
