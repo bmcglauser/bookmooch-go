@@ -1,0 +1,378 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`seach page renders search page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="main-header"
+      >
+        <img
+          alt="BookMooch Go logo"
+          class="logo"
+          src="main-logo.svg"
+        />
+        <h1
+          class="title"
+        >
+          Find a book
+        </h1>
+      </div>
+      <div
+        class="search-page-grand-wrapper"
+      >
+        <div
+          class="search-top-block"
+        >
+          <p>
+            Search here by title, author or topic
+          </p>
+          <div
+            class="searchForm"
+          >
+            <input
+              required=""
+              type="text"
+            />
+            <a
+              href="/searchresults/"
+              style="text-decoration: none;"
+            >
+              <button
+                class="search-button"
+              >
+                <p>
+                  Search
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div
+          class="browse-block"
+        >
+          <p>
+            Or, try browsing the catalogue
+          </p>
+          <div
+            class="new-books-wrapper"
+          >
+            <a
+              href="/searchresults/~~~recent"
+              style="text-decoration: none;"
+            >
+              <button
+                class="square-button"
+              >
+                <p>
+                  Newly
+                  <br />
+                  Added
+                  <br />
+                  Books
+                </p>
+              </button>
+            </a>
+            <p>
+              The latest books to hit Bookmooch
+            </p>
+          </div>
+          <div
+            class="available-books-wrapper"
+          >
+            <p>
+              Books with the most listings by users
+            </p>
+            <a
+              href="/searchresults"
+              style="text-decoration: none;"
+            >
+              <button
+                class="square-button"
+              >
+                <p>
+                  Most
+                  <br />
+                  Available
+                  <br />
+                  Books
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div
+          class="search-footer-wrapper"
+        >
+          <div
+            class="footer-grand-wrapper"
+          >
+            <div
+              class="small-button"
+            >
+              <a
+                href="/profile"
+                style="text-decoration: none;"
+              >
+                <div
+                  class="user-button-wrapper"
+                >
+                  <button
+                    class="user-button"
+                  />
+                  <p>
+                    User Home
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div
+              class="circle-add-button-wrapper"
+            >
+              <a
+                href="/findadd"
+                style="text-decoration: none;"
+              >
+                <button
+                  class="the-button"
+                >
+                  <div
+                    class="the-circle"
+                  />
+                  <div
+                    class="vertical-bar"
+                  />
+                  <div
+                    class="horizontal-bar"
+                  />
+                </button>
+              </a>
+              <p
+                class="label"
+              >
+                Add a Book
+              </p>
+            </div>
+            <div
+              class="small-button"
+            >
+              <div />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="main-header"
+    >
+      <img
+        alt="BookMooch Go logo"
+        class="logo"
+        src="main-logo.svg"
+      />
+      <h1
+        class="title"
+      >
+        Find a book
+      </h1>
+    </div>
+    <div
+      class="search-page-grand-wrapper"
+    >
+      <div
+        class="search-top-block"
+      >
+        <p>
+          Search here by title, author or topic
+        </p>
+        <div
+          class="searchForm"
+        >
+          <input
+            required=""
+            type="text"
+          />
+          <a
+            href="/searchresults/"
+            style="text-decoration: none;"
+          >
+            <button
+              class="search-button"
+            >
+              <p>
+                Search
+              </p>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="browse-block"
+      >
+        <p>
+          Or, try browsing the catalogue
+        </p>
+        <div
+          class="new-books-wrapper"
+        >
+          <a
+            href="/searchresults/~~~recent"
+            style="text-decoration: none;"
+          >
+            <button
+              class="square-button"
+            >
+              <p>
+                Newly
+                <br />
+                Added
+                <br />
+                Books
+              </p>
+            </button>
+          </a>
+          <p>
+            The latest books to hit Bookmooch
+          </p>
+        </div>
+        <div
+          class="available-books-wrapper"
+        >
+          <p>
+            Books with the most listings by users
+          </p>
+          <a
+            href="/searchresults"
+            style="text-decoration: none;"
+          >
+            <button
+              class="square-button"
+            >
+              <p>
+                Most
+                <br />
+                Available
+                <br />
+                Books
+              </p>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="search-footer-wrapper"
+      >
+        <div
+          class="footer-grand-wrapper"
+        >
+          <div
+            class="small-button"
+          >
+            <a
+              href="/profile"
+              style="text-decoration: none;"
+            >
+              <div
+                class="user-button-wrapper"
+              >
+                <button
+                  class="user-button"
+                />
+                <p>
+                  User Home
+                </p>
+              </div>
+            </a>
+          </div>
+          <div
+            class="circle-add-button-wrapper"
+          >
+            <a
+              href="/findadd"
+              style="text-decoration: none;"
+            >
+              <button
+                class="the-button"
+              >
+                <div
+                  class="the-circle"
+                />
+                <div
+                  class="vertical-bar"
+                />
+                <div
+                  class="horizontal-bar"
+                />
+              </button>
+            </a>
+            <p
+              class="label"
+            >
+              Add a Book
+            </p>
+          </div>
+          <div
+            class="small-button"
+          >
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
