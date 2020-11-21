@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FAQ page FAQ page renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="main-header"
+      >
+        <img
+          alt="BookMooch Go logo"
+          class="logo"
+          src="main-logo.svg"
+        />
+        <h1
+          class="title"
+        >
+          Frequently Asked Questions
+        </h1>
+      </div>
+      <div
+        class="faq-page-grand-wrapper"
+      >
+        <div
+          class="question-list"
+        >
+          <div
+            class="question-block"
+          >
+            <h2
+              class="question-text"
+            >
+              Are the books really free? What’s the catch?
+            </h2>
+            <p
+              class="answer-text"
+            >
+              The books really are free! There is never nor will there ever be a charge to use BookMooch. Users just like you are sending them, free of charge. The only catch is that when it’s your turn to send a book, it’s also your turn to pay the postage (which can vary from country to country). In the US, you should ask for Media Mail rate, which is usually under $3.00, regardless of the book’s size.
+            </p>
+          </div>
+          <div
+            class="question-block"
+          >
+            <h2
+              class="question-text"
+            >
+              Can you explain the points system more?
+            </h2>
+            <p
+              class="answer-text"
+            >
+              Sure. If you and the other user are in the same country, 1 point is exchanged between the two of you. You’ll earn 3 points for shipping a book to a different country, and likewise will have to spend 3 points for a book to be sent across international borders. Finally, adding books to your bookshelf alone can get you points! For each book you add to be given away, you’ll earn 1/10th of a point. These can add up, so be sure to register as many books as you want to get rid of. They have new homes waiting for them!
+            </p>
+          </div>
+          <div
+            class="question-block"
+          >
+            <h2
+              class="question-text"
+            >
+              What’s a feedback score? Does it matter?
+            </h2>
+            <p
+              class="answer-text"
+            >
+              When you mark a book you’ve asked for as received, you’re asked to rate how well the sender did. Timeliness and accuracy of the book’s condition notes are what you’re asked to consider. You can rate them Badly, which gives their feedback score -1, Fine, which does not change their feedback score, or Good, which gives their feedback score +1. You can look at a user’s feedback score to determine who you should mooch from when more than one user has the book you want.
+            </p>
+          </div>
+          <div
+            class="question-block"
+          >
+            <h2
+              class="question-text"
+            >
+              Who even thought of this?
+            </h2>
+            <p
+              class="answer-text"
+            >
+              BookMooch is conceived, designed, written and administered by John Buckman, who also runs the online record label Magnatune. This mobile adaptation is designed and developed by Brett Glauser for the sole purpose of accessibility to those wishing to use BookMooch from their mobile devices.
+            </p>
+          </div>
+          <div
+            class="blank"
+          />
+        </div>
+        <div
+          class="faq-page-footer"
+        >
+          <div
+            class="back-button-wrapper"
+          >
+            <button />
+            <p>
+              Go back
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="main-header"
+    >
+      <img
+        alt="BookMooch Go logo"
+        class="logo"
+        src="main-logo.svg"
+      />
+      <h1
+        class="title"
+      >
+        Frequently Asked Questions
+      </h1>
+    </div>
+    <div
+      class="faq-page-grand-wrapper"
+    >
+      <div
+        class="question-list"
+      >
+        <div
+          class="question-block"
+        >
+          <h2
+            class="question-text"
+          >
+            Are the books really free? What’s the catch?
+          </h2>
+          <p
+            class="answer-text"
+          >
+            The books really are free! There is never nor will there ever be a charge to use BookMooch. Users just like you are sending them, free of charge. The only catch is that when it’s your turn to send a book, it’s also your turn to pay the postage (which can vary from country to country). In the US, you should ask for Media Mail rate, which is usually under $3.00, regardless of the book’s size.
+          </p>
+        </div>
+        <div
+          class="question-block"
+        >
+          <h2
+            class="question-text"
+          >
+            Can you explain the points system more?
+          </h2>
+          <p
+            class="answer-text"
+          >
+            Sure. If you and the other user are in the same country, 1 point is exchanged between the two of you. You’ll earn 3 points for shipping a book to a different country, and likewise will have to spend 3 points for a book to be sent across international borders. Finally, adding books to your bookshelf alone can get you points! For each book you add to be given away, you’ll earn 1/10th of a point. These can add up, so be sure to register as many books as you want to get rid of. They have new homes waiting for them!
+          </p>
+        </div>
+        <div
+          class="question-block"
+        >
+          <h2
+            class="question-text"
+          >
+            What’s a feedback score? Does it matter?
+          </h2>
+          <p
+            class="answer-text"
+          >
+            When you mark a book you’ve asked for as received, you’re asked to rate how well the sender did. Timeliness and accuracy of the book’s condition notes are what you’re asked to consider. You can rate them Badly, which gives their feedback score -1, Fine, which does not change their feedback score, or Good, which gives their feedback score +1. You can look at a user’s feedback score to determine who you should mooch from when more than one user has the book you want.
+          </p>
+        </div>
+        <div
+          class="question-block"
+        >
+          <h2
+            class="question-text"
+          >
+            Who even thought of this?
+          </h2>
+          <p
+            class="answer-text"
+          >
+            BookMooch is conceived, designed, written and administered by John Buckman, who also runs the online record label Magnatune. This mobile adaptation is designed and developed by Brett Glauser for the sole purpose of accessibility to those wishing to use BookMooch from their mobile devices.
+          </p>
+        </div>
+        <div
+          class="blank"
+        />
+      </div>
+      <div
+        class="faq-page-footer"
+      >
+        <div
+          class="back-button-wrapper"
+        >
+          <button />
+          <p>
+            Go back
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
