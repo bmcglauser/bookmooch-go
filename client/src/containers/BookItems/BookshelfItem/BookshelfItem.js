@@ -16,7 +16,7 @@ export default function BookshelfItem ( {listing} ) {
   const bookTitle = book.title && book.title.length > 24 ? book.title.slice(0, 25)+'...' : book.title;
 
   return (
-    <div className="bookshelf-item-grand-wrapper">
+    <div className="bookshelf-item-grand-wrapper" data-testid="bookshelf-item">
       <Link to={`/details/${listing.asin}`} style={{textDecoration:'none'}}>
         {bookCover}
         <div className="center-text">

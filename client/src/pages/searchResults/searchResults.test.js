@@ -36,24 +36,45 @@ const GET_SEARCH = gql`
 const mocks = [
   {
     request: {
+      query: GET_RECENT,
+      variables: {}
+    },
+    result: {
+      data: {
+        getSearchRecent: [
+          {
+            asin: "0060560983",
+            title: "Some Enchanted Evening",
+            author: "Christina Dodd",
+            cover_art_url: "http://ecx.images-amazon.com/images/I/51Eq58LPfmL.jpg",
+            usernamesWith: [],
+            availCount: "0",
+            summary: ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    request: {
       query: GET_SEARCH,
       variables: {
         text: 'some'
-      },
-      result: {
-        data: {
-          getSearch: [
-            {
-              asin: "0060560983",
-              title: "Some Enchanted Evening",
-              author: "Christina Dodd",
-              cover_art_url: "http://ecx.images-amazon.com/images/I/51Eq58LPfmL.jpg",
-              usernamesWith: [],
-              availCount: "0",
-              summary: ""
-            }
-          ]
-        }
+      }
+    },
+    result: {
+      data: {
+        getSearch: [
+          {
+            asin: "0060560983",
+            title: "Some Enchanted Evening",
+            author: "Christina Dodd",
+            cover_art_url: "http://ecx.images-amazon.com/images/I/51Eq58LPfmL.jpg",
+            usernamesWith: [],
+            availCount: "0",
+            summary: ""
+          }
+        ]
       }
     }
   }
@@ -61,13 +82,14 @@ const mocks = [
 
 describe('search results page', () => {
   it('renders Search Results page', async () => {
-   const { getByText, findByText } = render (
+   const { getByText } = render (
       <MockedProvider mocks={mocks} addTypename={false}>
-        <SearchResults match={{ params: { string: 'some' } }} />
-      </MockedProvider>
+        <SearchResults match={{ params: { string: '~~~recent' } }} />
+      </MockedProvider>,
+      { wrapper: MemoryRouter }
     );
     expect(getByText('Loading...')).toBeInTheDocument();
-    // const book = await findByText('Some Enchanted Evening');
-    // expect(book).toBeInTheDocument();
+    // const book = await findByText(/Some/);
+    // expect(book).toBeInTheDocument(); 
   });
 });

@@ -18,7 +18,6 @@ export default function PendingPage (props) {
   const query = queryService.GET_ALL_PENDING(self);
   
   const { loading, error, data } = useQuery(query);
-
   if (loading) {
     return <RandomCenterLoader />;
   }
