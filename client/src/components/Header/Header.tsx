@@ -2,7 +2,11 @@ import React from 'react';
 import './Header.scss';
 import Logo from '../../assets/main-logo.svg';
 
-function Header({ title }) {
+type HeaderProps = {
+  title: string
+}
+
+function Header({ title }: HeaderProps): JSX.Element {
 
   return (
     <div className="main-header">
