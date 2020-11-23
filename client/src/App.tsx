@@ -28,7 +28,7 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-function App() {
+function App(): JSX.Element {
     return (
     <ApolloProvider client={apolloClient}>
       <Router>        

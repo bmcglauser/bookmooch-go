@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 
 
-export default function LoginForm () {
+export default function LoginForm (): JSX.Element {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

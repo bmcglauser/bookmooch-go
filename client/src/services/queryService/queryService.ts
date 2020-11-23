@@ -14,7 +14,7 @@ const GET_BOOK_DETAILS = (asin: string) => gql`
   }
   `;
 
-const GET_BOOKSHELF = (username) => gql`
+const GET_BOOKSHELF = (username: string) => gql`
   query {
     getUserByUsername (username: "${username}") {
       username
@@ -30,7 +30,7 @@ const GET_BOOKSHELF = (username) => gql`
   }
   `;
 
-const GET_MOOCH_CHOICE = (asin) => gql`
+const GET_MOOCH_CHOICE = (asin: string) => gql`
   query {
     getBookByAsin (asin: "${asin}") {
       asin
@@ -54,7 +54,7 @@ const GET_MOOCH_CHOICE = (asin) => gql`
   }
 `;
 
-const GET_SIMPLE_BOOK = (asin) => gql`
+const GET_SIMPLE_BOOK = (asin: string) => gql`
   query {
     getBookByAsin (asin: "${asin}") {
       asin
@@ -65,7 +65,7 @@ const GET_SIMPLE_BOOK = (asin) => gql`
   }
   `;
 
-  const GET_CONFIRM_MOOCH = (username, asin) => gql`
+  const GET_CONFIRM_MOOCH = (username: string, asin: string) => gql`
     query {
       getUserByUsername (username: "${username}") {
         username
@@ -86,7 +86,7 @@ const GET_SIMPLE_BOOK = (asin) => gql`
     }
   `;
 
-  const GET_TRANSACTION = (id) => gql`
+  const GET_TRANSACTION = (id: string) => gql`
   query {
     getPendingById (pending_id: "${id}") {
       transaction_name
@@ -101,7 +101,7 @@ const GET_SIMPLE_BOOK = (asin) => gql`
   }
 `;
 
-const GET_CONF_PENDING_RECEIVE = (id) => gql`
+const GET_CONF_PENDING_RECEIVE = (id: string) => gql`
   query {
     getConfidentialPendingById (pending_id: "${id}") {
       transaction_name
@@ -121,7 +121,7 @@ const GET_CONF_PENDING_RECEIVE = (id) => gql`
   }
   `;
 
-  const GET_CONF_PENDING_GIVE = (id) => gql`
+  const GET_CONF_PENDING_GIVE = (id: string) => gql`
   query {
     getConfidentialPendingById (pending_id: "${id}") {
       transaction_name
@@ -141,7 +141,7 @@ const GET_CONF_PENDING_RECEIVE = (id) => gql`
   }
   `;
 
-  const GET_ALL_PENDING = (username) => gql`
+  const GET_ALL_PENDING = (username: string) => gql`
     query {
       getUserByUsername (username: "${username}") {
         username
@@ -185,7 +185,7 @@ const GET_CONF_PENDING_RECEIVE = (id) => gql`
       }
     `
 
-    const GET_SEARCH = (string) => gql`
+    const GET_SEARCH = (string: string) => gql`
     query {
       getSearch (text: "${string}") {
         asin
@@ -199,7 +199,7 @@ const GET_CONF_PENDING_RECEIVE = (id) => gql`
     }
   `;
 
-  const GET_USER = (username) => gql`
+  const GET_USER = (username: string) => gql`
   query {
     getUserByUsername (username: "${username}") {
       display_name

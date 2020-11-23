@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/main-logo.svg';
 import WelcomeText from '../../components/WelcomeText';
 
-export default function LandingPage () {
+export default function LandingPage(): JSX.Element{
   return (
     <div className='landing'>
       <img src={Logo} className="logo" alt="BookMooch Go logo"/>

@@ -1,7 +1,11 @@
 import React from 'react';
 import './WelcomeText.scss';
 
-function WelcomeText({ back }) {
+type WelcomeTextProps = {
+  back: boolean
+}
+
+function WelcomeText({ back }: WelcomeTextProps): JSX.Element {
 const welcome = <h3>Welcome {back ? 'back' : ''} to</h3>
   return (
     <div className='landingText'>
