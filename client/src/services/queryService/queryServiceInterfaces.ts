@@ -37,4 +37,13 @@ export interface Transaction {
   created_on: string;
   receiverUsername?: string;
   giverUsername?: string;
+  giver?: User;
+  receiver?: User;
+  receiver_address?: string;
+  points_to_giver?: string;
+  points_from_receiver?: string;
+  sent_on?: string;
+  closed_on?: string;
+  condition?: string;
+  receiver_comments?: string;
 }
