@@ -9,13 +9,23 @@ import Footer from '../../components/Footer';
 import ErrorPage from '../errorPage';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
+import { RouteComponentProps } from 'react-router-dom'
+import { Transaction } from '../../services/queryService/queryServiceInterfaces'
 
+type TParams = { 
+  user: string,
+  number: string
+ }
 
-export default function MoochSendPage (props) {
+ interface Data {
+  getConfidentialPendingById: Transaction
+ }
+
+export default function MoochSendPage (props: RouteComponentProps<TParams>) : JSX.Element {
   const id = props.match.params.user + '/' + props.match.params.number;
   const query = queryService.GET_CONF_PENDING_GIVE(id);
 
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -24,16 +34,23 @@ export default function MoochSendPage (props) {
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const mooch = data.getConfidentialPendingById;
+  const mooch = data?.getConfidentialPendingById;
 
-  const dateReqStr = formatDate(mooch.created_on);
+  const dateReqStr = formatDate(mooch?.created_on);
   
   let dateSentStr;
-  if (mooch.sent_on) dateSentStr = formatDate(mooch.sent_on);
+  if (mooch?.sent_on) dateSentStr = formatDate(mooch.sent_on);
     else dateSentStr = "Not sent yet"
   
-  let pointsStr = mooch.points_to_giver === '10' ? "1 point" : `${parseInt(mooch.points_from_receiver)/10} points`
+  let pointsStr = '';
 
+  if (mooch) {
+    if ( mooch.points_to_giver === '10') {
+      pointsStr = '10'
+    } else if (mooch.points_from_receiver) {
+      pointsStr = `${parseInt(mooch.points_from_receiver)/10} points`
+    } 
+  }
   const pendingIDtopass = id.split('/').join('+');
 
   return (
@@ -41,12 +58,12 @@ export default function MoochSendPage (props) {
     <Header title="You're sending" />;
     <div className="mooch-send-item-grand-wrapper">
       <div className="active-item-wrapper">
-        <ActiveItem book={mooch.book}/>
+       {mooch &&  <ActiveItem book={mooch?.book}/>}
       </div>
       <p>you're getting {pointsStr} to send this book</p>
       <div className="mooch-detail-text-wrapper">
         <h4>Sending to:</h4>
-        <p>{mooch.receiver_address}</p>
+        <p>{mooch?.receiver_address}</p>
         <h4>Date requested:</h4>
         <p>{dateReqStr}</p>
         <h4>Date sent:</h4>
