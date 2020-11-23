@@ -3,18 +3,13 @@ import { Link } from 'react-router-dom';
 import './BookshelfItem.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
 import formatDate from '../../../services/dateProcessor';
-import { Listing } from '../../../services/queryService/queryServiceInterfaces';
 
-type BookshelfItemProps = {
-  listing: Listing
-}
-
-export default function BookshelfItem({listing}: BookshelfItemProps): JSX.Element {
+export default function BookshelfItem ( {listing} ) {
 
   const addedStr = formatDate(listing.listed_on)
   const book = listing.book;
 
-  const bookCover = listing && listing.book && listing.book.cover_art_url
+  const bookCover = listing && listing.book && listing.book.cover_art_url 
   ? <img className="cover-art" src={listing.book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 

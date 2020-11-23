@@ -1,6 +1,5 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { RouteComponentProps } from 'react-router-dom';
 import './bookshelf.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -8,26 +7,17 @@ import ErrorPage from '../errorPage';
 import BookshelfItem from '../../containers/BookItems/BookshelfItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
-import { User } from '../../services/queryService/queryServiceInterfaces';
 
 const ENV = {
   // eslint-disable-next-line no-undef
   user: process.env.REACT_APP_USERNAMEA
 };
 
-type TParams = {
-  username: string
-}
-
-interface Data {
-  getUserByUsername: User
-}
-
-export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX.Element {
+export default function BookshelfPage (props) {
   const username = props.match.params.username ? props.match.params.username : ENV.user;
   const query = queryService.GET_BOOKSHELF(username);
-
-  const { loading, error, data } = useQuery<Data>(query);
+  
+  const { loading, error, data } = useQuery(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -36,11 +26,11 @@ export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const bookshelfArr = data?.getUserByUsername.listings?.map(
+  const bookshelfArr = data.getUserByUsername.listings.map(
     listing => <BookshelfItem key={`${listing.asin}/${listing.listed_on}`} listing={listing}/>
     );
 
-  const bookshelf = bookshelfArr?.length
+  const bookshelf = bookshelfArr.length
     ? bookshelfArr
     : <div className="none-found">
         <p className="none-text">You don't have any books listed</p>
