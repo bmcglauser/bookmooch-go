@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.scss';
-// @ts-ignore
 import Logo from '../../assets/main-logo.svg';
 
 function Header({ title }) {
