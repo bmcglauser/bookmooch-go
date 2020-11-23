@@ -14,7 +14,7 @@ const GET_BOOK_DETAILS = (asin: string) => gql`
   }
   `;
 
-const GET_BOOKSHELF = (username: string) => gql`
+const GET_BOOKSHELF = (username: string | undefined) => gql`
   query {
     getUserByUsername (username: "${username}") {
       username
