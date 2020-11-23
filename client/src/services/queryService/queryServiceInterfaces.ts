@@ -3,8 +3,8 @@ export interface User {
   username: string;
   points: string;
   listings?: Listing[];
-  listingCount: number;
-  feedback_score: string;
+  listingCount?: number;
+  feedback_score?: string;
   pending_give?: Transaction[];
   pending_receive?: Transaction[];
   country?: string;

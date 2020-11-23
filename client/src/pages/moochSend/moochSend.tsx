@@ -36,7 +36,7 @@ export default function MoochSendPage (props: RouteComponentProps<TParams>) : JS
 
   const mooch = data?.getConfidentialPendingById;
 
-  const dateReqStr = formatDate(mooch?.created_on);
+  const dateReqStr = mooch?.created_on ?  formatDate(mooch.created_on): '';
 
   let dateSentStr;
   if (mooch?.sent_on) dateSentStr = formatDate(mooch.sent_on);

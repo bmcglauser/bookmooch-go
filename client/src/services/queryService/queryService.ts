@@ -15,7 +15,7 @@ const GET_BOOK_DETAILS = (asin: string): DocumentNode => gql`
   }
   `;
 
-const GET_BOOKSHELF = (username: string): DocumentNode => gql`
+const GET_BOOKSHELF = (username?: string): DocumentNode => gql`
   query {
     getUserByUsername (username: "${username}") {
       username
@@ -200,7 +200,7 @@ const GET_CONF_PENDING_RECEIVE = (id: string): DocumentNode => gql`
     }
   `;
 
-  const GET_USER = (username: string): DocumentNode => gql`
+  const GET_USER = (username?: string): DocumentNode => gql`
   query {
     getUserByUsername (username: "${username}") {
       display_name

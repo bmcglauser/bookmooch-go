@@ -13,13 +13,13 @@ import { RouteComponentProps } from 'react-router-dom'
 
 const falseSelf = {
   // eslint-disable-next-line no-undef
-  username: process.env.REACT_APP_USERNAMEA,
+  username: process.env.REACT_APP_USERNAMEA || '',
   // eslint-disable-next-line no-undef
-  display_name: process.env.REACT_APP_DISPLAY_NAME,
+  display_name: process.env.REACT_APP_DISPLAY_NAME || '',
   // eslint-disable-next-line no-undef
-  country: process.env.REACT_APP_COUNTRY,
+  country: process.env.REACT_APP_COUNTRY || '',
   // eslint-disable-next-line no-undef
-  points: process.env.REACT_APP_POINTS
+  points: process.env.REACT_APP_POINTS || ''
 };
 
 interface Data  {
