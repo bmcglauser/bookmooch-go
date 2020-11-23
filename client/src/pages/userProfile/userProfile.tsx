@@ -2,6 +2,7 @@ import React from 'react';
 import './userProfile.scss';
 import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
+import { RouteComponentProps } from 'react-router-dom'
 import Header from "../../components/Header";
 import ErrorPage from '../errorPage';
 import ProfileInfo from '../../containers/ProfileInfo';
@@ -13,7 +14,9 @@ const ENV = {
   user: process.env.REACT_APP_USERNAMEA
 };
 
-export default function UserProfilePage (props) {
+type TParams = { username: string}
+
+export default function UserProfilePage (props: RouteComponentProps<TParams>): JSX.Element { 
   const self = props.match.params.username ? props.match.params.username : ENV.user;
   const query = queryService.GET_USER(self);
 

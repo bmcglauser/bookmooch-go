@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import './errorPage.scss';
 import Header from '../../components/Header';
 
-export default function ErrorPage (props) {
+type ErrorPageProps = {
+  ctx: RouteComponentProps,
+  message: string
+}
+
+export default function ErrorPage (props: ErrorPageProps): JSX.Element {
   let errorButtons;
 
   const startOverButton = 

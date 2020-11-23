@@ -1,8 +1,13 @@
 import React from 'react';
 import './ProfileInfo.scss'
 import { Link } from 'react-router-dom';
+import { User } from '../../services/queryService/queryServiceInterfaces'
 
-export default function ProfileInfo ({user}) {
+type ProfileIndoProps = {
+  user: User
+}
+
+export default function ProfileInfo ({user}: ProfileIndoProps): JSX.Element {
   
   const nameArr = user.display_name.split('(')[0].split(' ');
   const initials = nameArr[1] ? nameArr[0][0]+nameArr[1][0] : nameArr[0][0];
