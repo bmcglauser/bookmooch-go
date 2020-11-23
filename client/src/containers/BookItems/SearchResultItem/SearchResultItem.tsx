@@ -2,19 +2,24 @@ import React from 'react';
 import './SearchResultItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
+import { Book } from '../../../services/queryService/queryServiceInterfaces';
 
-export default function SearchResultItem ({book}) {
+type SearchResultItemProps = {
+  book: Book
+}
+
+export default function SearchResultItem ({ book }: SearchResultItemProps): JSX.Element {
   const numberAvail = book && book.usernamesWith ? book.usernamesWith.length : 0;
   const availStr = numberAvail === 1
     ? `${numberAvail} copy available`
     : `${numberAvail} copies available`;
 
-  const bookCover = book && book.cover_art_url 
+  const bookCover = book && book.cover_art_url
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 
 
-  let bookTitle = book && book.title && book.title.length > 18 ? book.title.slice(0, 19)+'...' : book.title;
+  const bookTitle = book && book.title && book.title.length > 18 ? book.title.slice(0, 19)+'...' : book.title;
   // let bookAuthor = book.author && book.author.length > 18 ? book.author.slice(0, 19)+'...' : book.author;
 
   return(

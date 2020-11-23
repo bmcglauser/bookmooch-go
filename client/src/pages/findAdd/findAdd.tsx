@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Header from '../../components/Header';
 import UserHomeButton from '../../components/FooterButtons/UserHomeButton';
 
-export default function FindAddPage() {
+export default function FindAddPage(): JSX.Element {
   const [searchText, setSearchText] = useState('');
   return (
     <>

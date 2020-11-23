@@ -24,8 +24,9 @@ export interface Book {
   author: string;
   cover_art_url: string;
   summary?: string;
-  availCount?: string;
+  availCount: string;
   usernamesWith?: string[];
+  usersWith?: User[];
 }
 
 export interface Transaction {
