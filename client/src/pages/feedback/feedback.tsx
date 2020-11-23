@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import './feedback.scss';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Header from '../../components/Header';
 import ErrorPage from '../errorPage';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import queryService from '../../services/queryService';
+import { Transaction } from '../../services/queryService/queryServiceInterfaces'
 
-export default function FeedbackPage (props) {
+type TParams = {
+  user: string,
+  number: string
+}
+
+interface Data {
+  getPendingById: Transaction
+}
+
+export default function FeedbackPage (props: RouteComponentProps<TParams>) : JSX.Element {
   const id = props.match.params.user + '/' + props.match.params.number;
   const query = queryService.GET_TRANSACTION(id);
 
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery<Data>(query);
   const [score, setScore] = useState('0');
 
   if (loading) {
@@ -22,8 +32,8 @@ export default function FeedbackPage (props) {
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const mooch = data.getPendingById;
-  const book = mooch.book;
+  const mooch = data?.getPendingById;
+  const book = mooch?.book;
 
   const pendingIDtoPass = id.split('/').join('+');
 
@@ -33,11 +43,11 @@ export default function FeedbackPage (props) {
     <div className="feedback-page-grand-wrapper">
       <p className="top-text">You've marked the following<br />book as received:</p>
       <div className="active-item-wrapper">
-        <ActiveItem book={book} />
+        {book && <ActiveItem book={book} />}
       </div>
       <form className="feedback-form">
         <div className="top-form-block">
-          <p className="form-text">How was your<br />experience mooching<br />from {mooch.giverUsername}?</p>
+          <p className="form-text">How was your<br />experience mooching<br />from {mooch?.giverUsername}?</p>
           <div className="radio-block">
             <div className="radio-item">
               <input onChange={e=>setScore(e.target.value)} type="radio" id="bad" name="rating" value="-1" />
