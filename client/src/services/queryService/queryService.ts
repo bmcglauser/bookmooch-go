@@ -199,7 +199,7 @@ const GET_CONF_PENDING_RECEIVE = (id: string) => gql`
     }
   `;
 
-  const GET_USER = (username: string) => gql`
+  const GET_USER = (username: string | undefined) => gql`
   query {
     getUserByUsername (username: "${username}") {
       display_name
