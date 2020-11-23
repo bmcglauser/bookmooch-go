@@ -36,7 +36,7 @@ export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const bookshelfArr = data?.getUserByUsername.listings.map(
+  const bookshelfArr = data?.getUserByUsername.listings?.map(
     listing => <BookshelfItem key={`${listing.asin}/${listing.listed_on}`} listing={listing}/>
     );
 
