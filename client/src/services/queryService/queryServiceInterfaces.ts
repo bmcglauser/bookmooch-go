@@ -5,6 +5,8 @@ export interface User {
   listings?: Listing[];
   listingCount: number;
   feedback_score: string;
+  pending_give?: Transaction[];
+  pending_receive?: Transaction[];
 }
 
 export interface Listing {
@@ -15,7 +17,21 @@ export interface Listing {
 }
 
 export interface Book {
+  asin?: string;
   title: string;
   author: string;
   cover_art_url: string;
+  summary?: string;
+  availCount?: string;
+  usernamesWith?: string[];
+}
+
+export interface Transaction {
+  transaction_name: string;
+  asin: string;
+  book: Book;
+  status: string;
+  created_on: string;
+  receiverUsername?: string;
+  giverUsername?: string;
 }

@@ -1,23 +1,33 @@
 import React from 'react';
 import './pending.scss';
 import { useQuery } from '@apollo/client';
+import { RouteComponentProps } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ErrorPage from '../errorPage';
 import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
+import { User, Transaction } from '../../services/queryService/queryServiceInterfaces';
 
 const ENV = {
   // eslint-disable-next-line no-undef
-  user: process.env.REACT_APP_USERNAMEA
+  user: process.env.REACT_APP_USERNAMEA || ''
 };
 
-export default function PendingPage (props) {
+type TParams = {
+  username: string
+}
+
+interface Data {
+  getUserByUsername: User
+}
+
+export default function PendingPage (props : RouteComponentProps<TParams>): JSX.Element {
   const self = props.match.params.username ? props.match.params.username : ENV.user;
   const query = queryService.GET_ALL_PENDING(self);
-  
-  const { loading, error, data } = useQuery(query);
+
+  const { loading, error, data } = useQuery<Data>(query);
   if (loading) {
     return <RandomCenterLoader />;
   }
@@ -25,15 +35,17 @@ export default function PendingPage (props) {
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const toSendArr = data.getUserByUsername.pending_give
-    .map(transaction => <PendingItem key={transaction.transaction_name} mooch={transaction} direction='to_send' />);
-  
-  const toReceiveArr = data.getUserByUsername.pending_receive
-    .map(transaction => <PendingItem key={transaction.transaction_name} mooch={transaction} direction='to_receive' />);
+  const toSendArr = data?.getUserByUsername.pending_give?.map(
+    (transaction: Transaction) => <PendingItem key={transaction.transaction_name} mooch={transaction} direction='to_send' />
+  );
 
-  const toSend = toSendArr.length ? toSendArr : <h3 className="none-found">No pending mooches to send</h3>;
-  const toReceive = toReceiveArr.length ? toReceiveArr : <h3 className="none-found">No pending mooches to receive</h3>;
-  
+  const toReceiveArr = data?.getUserByUsername.pending_receive?.map(
+    (transaction: Transaction) => <PendingItem key={transaction.transaction_name} mooch={transaction} direction='to_receive' />
+  );
+
+  const toSend = toSendArr?.length ? toSendArr : <h3 className="none-found">No pending mooches to send</h3>;
+  const toReceive = toReceiveArr?.length ? toReceiveArr : <h3 className="none-found">No pending mooches to receive</h3>;
+
   return (
     <>
     <Header title="Your pending mooches" />

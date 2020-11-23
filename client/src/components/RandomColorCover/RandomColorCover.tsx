@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function RandomColorCover () {
+export default function RandomColorCover (): JSX.Element {
   const randomNumber = Math.floor(Math.random() * 8);
-  
+
   const colorMap = [
-    '#d3a0a0', 
+    '#d3a0a0',
     '#f0deae',
     '#ececbb',
     '#b0d8af',
