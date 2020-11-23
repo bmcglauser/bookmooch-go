@@ -1,7 +1,7 @@
 import React from 'react';
 import './JoinForm.scss';
 
-export default function JoinForm () {
+export default function JoinForm () : JSX.Element {
   return (
     <form className="join-form">
       <label htmlFor="username">Username (jsmith02):

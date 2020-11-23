@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import JoinForm from '../../containers/JoinForm';
 
 
-export default function JoinPage () {
+export default function JoinPage () : JSX.Element { 
   return (
     <>
     <Header title="Join BookMooch!" />
