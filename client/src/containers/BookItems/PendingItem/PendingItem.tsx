@@ -3,14 +3,19 @@ import './PendingItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
 import formatDate from '../../../services/dateProcessor';
+import { Transaction } from '../../../services/queryService/queryServiceInterfaces';
 
+type PendingItemProps = {
+  mooch: Transaction,
+  direction: string
+}
 
-export default function PendingItem ({mooch, direction}) {
+export default function PendingItem ({mooch, direction}: PendingItemProps): JSX.Element {
   const book = mooch.book;
 
   const addedStr = formatDate(mooch.created_on);
 
-  const bookCover = book.cover_art_url 
+  const bookCover = book.cover_art_url
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 
@@ -40,7 +45,7 @@ export default function PendingItem ({mooch, direction}) {
             <p>requested on {addedStr}</p>
           </div>
         </div>
-      </Link> 
+      </Link>
     );
-  } 
+  }
 }
