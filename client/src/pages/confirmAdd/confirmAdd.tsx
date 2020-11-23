@@ -2,19 +2,27 @@ import React from 'react';
 import './confirmAdd.scss';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import Header from '../../components/Header';
 import ErrorPage from '../errorPage';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import queryService from '../../services/queryService';
+import { Book } from '../../services/queryService/queryServiceInterfaces';
 
+type TParams = {
+  asin: string
+}
 
+interface Data {
+  getBookByAsin: Book
+}
 
-export default function ConfirmAddPage (props) {
+export default function ConfirmAddPage (props: RouteComponentProps<TParams>): JSX.Element {
   const asin = props.match.params.asin;
   const query = queryService.GET_SIMPLE_BOOK(asin);
-  
-  const { loading, error, data } = useQuery(query);
+
+  const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -29,7 +37,7 @@ export default function ConfirmAddPage (props) {
     <div className="confirm-add-page-grand-wrapper">
       <div className="top-block">
         <p className="top-text">You're adding the following<br />to your bookshelf, to give away:</p>
-        <ActiveItem book={data.getBookByAsin} />
+        {data && <ActiveItem book={data.getBookByAsin} />}
       </div>
       <p className="condition-prompt-text">You can also add notes on the condition of your copy, if you'd like</p>
       <form className="confirm-add-form">
