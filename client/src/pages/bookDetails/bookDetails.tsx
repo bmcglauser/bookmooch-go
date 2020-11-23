@@ -8,13 +8,20 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ErrorPage from '../errorPage';
 import BookDetailsInfo from '../../containers/BookItems/BookDetailsInfo';
 import queryService from '../../services/queryService';
+import { RouteComponentProps } from 'react-router-dom'
+import { Book } from '../../services/queryService/queryServiceInterfaces'
 
+interface Data {
+  getBookByAsin: Book
+}
 
-export default function BookDetailsPage (props) {
+type TParams = { asin: string }
+
+export default function BookDetailsPage (props: RouteComponentProps<TParams>): JSX.Element {
   const asin = props.match.params.asin
   const query = queryService.GET_BOOK_DETAILS(asin);
 
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -26,7 +33,7 @@ export default function BookDetailsPage (props) {
     <>
       <Header title="Book details"/>
       <div className="bookdetails-grand-wrapper">
-        <BookDetailsInfo book={data.getBookByAsin}/>
+       { data &&  <BookDetailsInfo book={data?.getBookByAsin}/>  }
         <div className="button-wrapper">
           <Link to={`/confirmadd/${asin}`} style={{textDecoration:'none'}}>
             <button className="add-wrapper wide-button">

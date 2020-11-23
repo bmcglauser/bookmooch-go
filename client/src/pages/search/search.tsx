@@ -47,7 +47,7 @@ export default function SearchPage (): JSX.Element {
         </div>
       </div>
       <div className="search-footer-wrapper">
-        <Footer leftBut="userHome" centerBut="circleAdd" />
+        <Footer leftBut="userHome" centerBut="circleAdd"/>
       </div>
     </div>
     </>

@@ -3,10 +3,11 @@ import './Footer.scss';
 import buttons from '../FooterButtons';
 import { RouteComponentProps } from 'react-router-dom'
 
-function whichButton (inputStr: string | undefined, props: RouteComponentProps | undefined): JSX.Element {
-  switch(inputStr) {
-    case 'back':
-      return <buttons.BackButton ctx={props} />;
+function whichButton (inputStr?: string, props?: RouteComponentProps): JSX.Element {
+  if (inputStr === 'back' && props) {
+    return <buttons.BackButton ctx={props} />;
+  }
+  switch(inputStr) {     
     case 'circleAdd':
       return <buttons.CircleAddButton />;
     case 'search':

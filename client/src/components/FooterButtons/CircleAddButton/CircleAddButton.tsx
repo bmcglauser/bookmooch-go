@@ -2,7 +2,7 @@ import React from 'react';
 import './CircleAddButton.scss';
 import { Link } from 'react-router-dom';
 
-export default function CircleAddButton () {
+export default function CircleAddButton (): JSX.Element {
   return (
     <div className="circle-add-button-wrapper">
       <Link to='/findadd' style={{textDecoration:'none'}}>
