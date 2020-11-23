@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './learnMore.scss';
 import Header from '../../components/Header';
 
-export default function LearnMorePage () {
+export default function LearnMorePage (): JSX.Element {
   return (
     <>
     <Header title="BookMooch is:" />
