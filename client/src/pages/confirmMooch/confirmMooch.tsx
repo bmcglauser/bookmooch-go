@@ -1,33 +1,44 @@
 import React, { useState } from 'react';
 import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Header from '../../components/Header';
 import ErrorPage from '../errorPage';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
+import { User, Book } from '../../services/queryService/queryServiceInterfaces';
 
 const self = {
   // eslint-disable-next-line no-undef
-  username: process.env.REACT_APP_USERNAMEA,
+  username: process.env.REACT_APP_USERNAMEA || '',
   // eslint-disable-next-line no-undef
-  display_name: process.env.REACT_APP_DISPLAY_NAME,
+  display_name: process.env.REACT_APP_DISPLAY_NAME || '',
   // eslint-disable-next-line no-undef
-  country: process.env.REACT_APP_COUNTRY,
+  country: process.env.REACT_APP_COUNTRY || '',
   // eslint-disable-next-line no-undef
-  address: process.env.REACT_APP_ADDRESS,
+  address: process.env.REACT_APP_ADDRESS || '',
   // eslint-disable-next-line no-undef
-  points: process.env.REACT_APP_POINTS
+  points: process.env.REACT_APP_POINTS || ''
 };
 
-export default function ConfirmMoochPage (props) {
+type TParams = {
+  user: string,
+  asin: string
+}
+
+interface Data {
+  getUserByUsername: User;
+  getBookByAsin: Book;
+}
+
+export default function ConfirmMoochPage (props: RouteComponentProps<TParams>): JSX.Element {
   const username = props.match.params.user;
   const asin = props.match.params.asin;
   const query = queryService.GET_CONFIRM_MOOCH(username, asin);
 
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery<Data>(query);
   const [address, setAddress] = useState('');
 
   if (loading) {
@@ -37,18 +48,18 @@ export default function ConfirmMoochPage (props) {
     return <ErrorPage message={error.message} ctx={props}/>
   }
 
-  const user = data.getUserByUsername;
-  const book = data.getBookByAsin;
+  const user = data?.getUserByUsername;
+  const book = data?.getBookByAsin;
 
-  const condition = user.listings[0].condition || '';
-  const addedDateStr = formatDate(user.listings[0].listed_on);
+  const condition = user?.listings ? user.listings[0].condition : '';
+  const addedDateStr = user?.listings ? formatDate(user.listings[0].listed_on) : '';
 
-  const pointCost = self.country === user.country ? 1 : 3;
+  const pointCost = self.country === user?.country ? 1 : 3;
   const pointsLeft = parseInt(self.points) / 10 - pointCost;
   const pointsLeftStr = pointsLeft === 1 ? '1 point' : `${pointsLeft} points`;
 
   let directMoochBool = false;
-  switch (user.willsend) {
+  switch (user?.willsend) {
     case 'anywhere':
       directMoochBool = true;
       break;
@@ -56,7 +67,7 @@ export default function ConfirmMoochPage (props) {
       directMoochBool = false;
       break;
     case 'mycountry':
-      if (self.country === user.country) {
+      if (self.country === user?.country) {
         directMoochBool = true;
       }
       break;
@@ -73,11 +84,11 @@ export default function ConfirmMoochPage (props) {
     <div className="confirm-mooch-page-grand-wrapper">
       <div className="top-block">
         <p className="top-text">{topText}</p>
-        <ActiveItem book={book} />
+        {book && <ActiveItem book={book} />}
       </div>
       <div className="mooch-copy-text">
-        <p>from {user.display_name}</p>
-        <p>Username: {user.username}</p>
+        <p>from {user?.display_name}</p>
+        <p>Username: {user?.username}</p>
         <p>Listed on: {addedDateStr}</p>
         <p>Condition notes: {condition}</p>
       </div>
