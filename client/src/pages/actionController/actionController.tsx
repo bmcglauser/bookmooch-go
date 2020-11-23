@@ -1,9 +1,20 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import controllers from '../../components/Controllers';
 import ErrorPage from '../errorPage';
 
-export default function ActionControllerPage (props) {
-  
+type TParams = {
+  action: string,
+  itemid: string,
+  username: string,
+  pw: string,
+  score: string,
+  giverid: string,
+  textBlock: string
+}
+
+export default function ActionControllerPage (props: RouteComponentProps<TParams>): JSX.Element {
+
   const {
     action,
     itemid,
@@ -13,7 +24,7 @@ export default function ActionControllerPage (props) {
     giverid,
     textBlock
   } = props.match.params;
-  
+
   const {
     AddController,
     LoginController,
@@ -22,7 +33,7 @@ export default function ActionControllerPage (props) {
     MarkSentController,
     GiveFeedbackController,
     MarkRejectedController,
-    
+
   } = controllers;
 
   switch (action) {

@@ -1,8 +1,7 @@
 import React from 'react';
 import './LoaderC.scss';
 
-function LoaderC() {
-  return (
+function LoaderC(): JSX.Element {  return (
     <div className="grand_wrapperC">
       {/* icon from Loading.io*/}
       <svg className="iconspin" viewBox="0 0 100 100" y="0" x="0" width="47px" height="47px">

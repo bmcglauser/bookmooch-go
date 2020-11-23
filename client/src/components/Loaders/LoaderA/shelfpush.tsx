@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoaderA.scss';
 
-function LoaderA() {
+function LoaderA(): JSX.Element {
   return (
     <div className="grand_wrapperA">
       <div className="bookshelf_wrapper">

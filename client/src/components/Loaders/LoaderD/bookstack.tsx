@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoaderD.scss';
 
-function LoaderD() {
+function LoaderD(): JSX.Element {
   return (
     <div className="grand_wrapperD">
       {/* icon from Loading.io*/}

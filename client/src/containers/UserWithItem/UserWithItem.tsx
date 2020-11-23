@@ -2,9 +2,15 @@ import React from 'react';
 import './UserWithItem.scss'
 import { Link } from 'react-router-dom';
 import formatDate from '../../services/dateProcessor';
+import { User } from '../../services/queryService/queryServiceInterfaces';
 
+type UserWithItemProps = {
+  self: User,
+  other: User,
+  asin: string
+}
 
-export default function UserWithItem ({self, other, asin}) {
+export default function UserWithItem ({ self, other, asin }: UserWithItemProps): JSX.Element {
 
   let willSendP;
   let requestable;
@@ -30,9 +36,9 @@ export default function UserWithItem ({self, other, asin}) {
       willSendP = <p className="will-send">will not send<br />to your country</p>;
       requestable = false;
   }
-  const condition = other.listings[0].condition || '';
-  
-  const addedDateStr = formatDate(other.listings[0].listed_on);
+  const condition = other?.listings ? other.listings[0].condition : '';
+
+  const addedDateStr = other?.listings ? formatDate(other.listings[0].listed_on): '';
 
   const idArr = other.display_name.split(' (');
   const name = idArr[0];
