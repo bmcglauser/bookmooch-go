@@ -7,6 +7,8 @@ export interface User {
   feedback_score: string;
   pending_give?: Transaction[];
   pending_receive?: Transaction[];
+  country?: string;
+  willsend?: string;
 }
 
 export interface Listing {
@@ -24,6 +26,7 @@ export interface Book {
   summary?: string;
   availCount: string;
   usernamesWith?: string[];
+  usersWith?: User[];
 }
 
 export interface Transaction {

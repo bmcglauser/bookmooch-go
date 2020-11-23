@@ -8,6 +8,8 @@ import UserWithItem from '../../containers/UserWithItem';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
+import { Book } from '../../services/queryService/queryServiceInterfaces'
+import { RouteComponentProps } from 'react-router-dom'
 
 const falseSelf = {
   // eslint-disable-next-line no-undef
@@ -20,11 +22,17 @@ const falseSelf = {
   points: process.env.REACT_APP_POINTS
 };
 
-export default function ChooseMoochPage (props) {
+interface Data  {
+  getBookByAsin: Book
+}
+
+type TParams = { asin: string }
+
+export default function ChooseMoochPage (props : RouteComponentProps<TParams>) : JSX.Element {
   const asin = props.match.params.asin
   const query = queryService.GET_MOOCH_CHOICE(asin);
   
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) {
     return <RandomCenterLoader />;
@@ -33,13 +41,13 @@ export default function ChooseMoochPage (props) {
     return <ErrorPage message={error.message} ctx={props}/>
   }
   
-  const book = data.getBookByAsin;
+  const book = data?.getBookByAsin;
   
-  const usersArr = book.usersWith.map( user => 
+  const usersArr = book?.usersWith?.map( user => 
     <UserWithItem key={user.username} self={falseSelf} other={user} asin={asin}/>
   )
 
-  const users = usersArr.length
+  const users = usersArr?.length
     ? usersArr
     : <div className="none-found">
         <p>No users found with this book listed</p>
@@ -51,7 +59,7 @@ export default function ChooseMoochPage (props) {
     <Header title="Get this book!" />
     <div className="choose-mooch-page-grand-wrapper">
       <div className="active-item-wrapper">
-        <ActiveItem book={book} />
+       { book && <ActiveItem book={book} /> }
       </div>
       <div className="users-with-wrapper">
         {users}
