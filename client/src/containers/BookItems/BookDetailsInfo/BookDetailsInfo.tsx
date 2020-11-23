@@ -1,8 +1,13 @@
 import React from 'react';
 import './BookDetailsInfo.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
+import { Book } from '../../../services/queryService/queryServiceInterfaces'
 
-export default function BookDetailsInfo ({book}) {
+type BookDetailsInfoProps = {
+  book: Book
+}
+
+export default function BookDetailsInfo ({book}: BookDetailsInfoProps) : JSX.Element {
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
