@@ -12,7 +12,7 @@ import queryService from '../../services/queryService';
 import { RouteComponentProps } from 'react-router-dom'
 import { Transaction } from '../../services/queryService/queryServiceInterfaces'
 
-type TParams = { 
+type TParams = {
   user: string,
   number: string
  }
@@ -37,19 +37,18 @@ export default function MoochSendPage (props: RouteComponentProps<TParams>) : JS
   const mooch = data?.getConfidentialPendingById;
 
   const dateReqStr = formatDate(mooch?.created_on);
-  
+
   let dateSentStr;
   if (mooch?.sent_on) dateSentStr = formatDate(mooch.sent_on);
     else dateSentStr = "Not sent yet"
-  
-  let pointsStr = '';
 
+  let pointsStr = '';
   if (mooch) {
-    if ( mooch.points_to_giver === '10') {
-      pointsStr = '10'
+    if (mooch.points_to_giver === '10') {
+      pointsStr = '1 point';
     } else if (mooch.points_from_receiver) {
-      pointsStr = `${parseInt(mooch.points_from_receiver)/10} points`
-    } 
+      pointsStr = `${parseInt(mooch.points_from_receiver)/10} points`;
+    }
   }
   const pendingIDtopass = id.split('/').join('+');
 
