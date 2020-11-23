@@ -1,9 +1,10 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import Header from '../../components/Header';
 import BackButton from '../../components/FooterButtons/BackButton';
 import './faq.scss';
 
-export default function FAQPage(props) {
+export default function FAQPage(props: RouteComponentProps): JSX.Element {
   return (
     <>
     <Header title="Frequently Asked Questions" />
