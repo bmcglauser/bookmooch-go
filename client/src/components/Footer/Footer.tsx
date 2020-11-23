@@ -1,8 +1,9 @@
 import React from 'react';
 import './Footer.scss';
 import buttons from '../FooterButtons';
+import { RouteComponentProps } from 'react-router-dom'
 
-function whichButton (inputStr, props) {
+function whichButton (inputStr: string | undefined, props: RouteComponentProps | undefined): JSX.Element {
   switch(inputStr) {
     case 'back':
       return <buttons.BackButton ctx={props} />;
@@ -17,7 +18,14 @@ function whichButton (inputStr, props) {
   }
 }
 
-export default function Footer (props) {
+type FooterProps = {
+  leftBut?: string,
+  centerBut?: string,
+  rightBut?: string,
+  ctx?: RouteComponentProps
+}
+
+export default function Footer (props: FooterProps): JSX.Element {
   const {leftBut, centerBut, rightBut, ctx} = props
   return (
     <div className="footer-grand-wrapper">
