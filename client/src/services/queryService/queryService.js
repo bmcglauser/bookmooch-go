@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_BOOK_DETAILS = (asin) => gql`
+const GET_BOOK_DETAILS = (asin: string) => gql`
   query {
     getBookByAsin (asin: "${asin}") {
       asin
@@ -96,7 +96,7 @@ const GET_SIMPLE_BOOK = (asin) => gql`
         author
         cover_art_url
       }
-      giverUsername      
+      giverUsername
     }
   }
 `;
@@ -224,7 +224,7 @@ const queryService = {
   GET_RECENT,
   GET_SEARCH,
   GET_USER,
-  
+
 };
 
 export default queryService;

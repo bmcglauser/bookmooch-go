@@ -1,7 +1,6 @@
 import React from 'react';
 import './landing.scss';
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import Logo from '../../assets/main-logo.svg';
 import WelcomeText from '../../components/WelcomeText';
 
