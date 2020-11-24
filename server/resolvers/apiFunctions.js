@@ -1,11 +1,7 @@
 const axios = require('axios').default;
 const qs = require('qs');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
-const AUTH = {
-  user: process.env.USERNAMEA,
-  pw: process.env.PWA
-};
 
 exports.GetBookByAsin = (asin) => {
   return axios({
@@ -22,7 +18,8 @@ exports.GetBookByAsin = (asin) => {
   }).then((res) => res.data[0])
     .catch((e) => e.message);
 };
-exports.GetUserByUsername = (username, self = AUTH.user, pw = AUTH.pw) => {
+exports.GetUserByUsername = async (username, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/userid',
@@ -56,7 +53,8 @@ exports.GetPendingById = (id) => {
   }).then(res => res.data[0])
     .catch(e => e.message);
 };
-exports.GetConfidentialPendingById = (id, self=AUTH.user, pw=AUTH.pw) => {
+exports.GetConfidentialPendingById = async (id, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
   return axios({
     method: 'post',
     url: 'http://api.bookmooch.com/api/pending_confidential',
@@ -106,7 +104,7 @@ exports.GetSearchRecent = () => {
   }).then(res => res.data)
     .catch((e) => e.message);
 };
-exports.LoginUser = (self = AUTH.user, pw = AUTH.pw) => {
+exports.LoginUser = (self, pw) => {
   return axios ({
     method: 'post',
     url: 'http://bookmooch.com/api/login',
@@ -121,10 +119,15 @@ exports.LoginUser = (self = AUTH.user, pw = AUTH.pw) => {
       username: `${self}`,
       password: `${pw}`
     },
-  }).then(res => res.data.success)
+  }).then(res => {
+    if (res.data.success !== '1') throw new Error();
+    const token = jwt.sign({ self, pw },process.env.JWT_SECRET)
+    return { token }
+  })
     .catch(e => e.message);
 };
-exports.AddBookToBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
+exports.AddBookToBookshelf = async (asin, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
   return axios ({
     method: 'post',
     url: 'http://bookmooch.com/api/userbook',
@@ -145,7 +148,9 @@ exports.AddBookToBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data[0])
     .catch(e => e.message);
 };
-exports.RemoveBookFromBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
+exports.RemoveBookFromBookshelf = async (asin, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios ({
     method: 'post',
     url: 'http://bookmooch.com/api/userbook',
@@ -166,7 +171,9 @@ exports.RemoveBookFromBookshelf = (asin, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data[0])
     .catch(e => e.message);
 };
-exports.RequestAskFirst = (asin, giverid, self = AUTH.user, pw = AUTH.pw) => {
+exports.RequestAskFirst = async (asin, giverid, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/askfirst',
@@ -186,7 +193,8 @@ exports.RequestAskFirst = (asin, giverid, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data)
     .catch(e => e.message);
 };
-exports.MoochNow = (asin, giverid, selfAddress, selfCountry = 'US', self = AUTH.user, pw = AUTH.pw) => {
+exports.MoochNow = async (asin, giverid, selfAddress, selfCountry = 'US', token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/mooch',
@@ -208,7 +216,9 @@ exports.MoochNow = (asin, giverid, selfAddress, selfCountry = 'US', self = AUTH.
   }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
-exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = AUTH.pw) => {
+exports.GiveFeedback = async (pendingID, score, comment = '', token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -230,7 +240,9 @@ exports.GiveFeedback = (pendingID, score, comment = '', self = AUTH.user, pw = A
   }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
-exports.MarkSent = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
+exports.MarkSent = async (pendingID, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -250,7 +262,9 @@ exports.MarkSent = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
-exports.MarkReject = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
+exports.MarkReject = async (pendingID, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -272,7 +286,9 @@ exports.MarkReject = (pendingID, self = AUTH.user, pw = AUTH.pw) => {
   }).then(res => res.data.result_text)
     .catch(e => e.message);
 };
-exports.AcceptMooch = (requester, asin, self = AUTH.user, pw = AUTH.pw) => {
+exports.AcceptMooch = async (requester, asin, token) => {
+  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  
   return axios({
     method: 'get',
     url: `http://bookmooch.com/m/askme_yes?userid=${requester}&asin=${asin}`,

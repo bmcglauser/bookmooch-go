@@ -1,5 +1,6 @@
 import React from 'react';
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.scss';
 import BookDetailsPage   from './pages/bookDetails';
@@ -21,10 +22,24 @@ import FeedbackPage      from './pages/feedback';
 import ConfirmAddPage    from './pages/confirmAdd';
 import ConfirmMoochPage  from './pages/confirmMooch';
 import ErrorPage         from './pages/errorPage';
-import ActionControllerPage    from './pages/actionController';
+import ActionControllerPage    from './pages/actionController'; 
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:4000',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    }
+  }
+});
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:4000',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
 

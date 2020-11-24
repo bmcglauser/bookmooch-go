@@ -11,7 +11,7 @@ type LoginControllerProps = {
 }
 
 interface Data {
-  login: string
+  login: { token: string }
 }
 
 export default function LoginController ({ username, pw, ...props }: LoginControllerProps): JSX.Element {
@@ -22,7 +22,8 @@ export default function LoginController ({ username, pw, ...props }: LoginContro
   if (loading) return <div />;
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
-  if (data && data.login === '1') {
+  if (data && data.login.token) {
+    localStorage.setItem('token', data.login.token);
     props.ctx.history.push(`/profile/${username}`);
     props.ctx.history.go(0);
   } else return (<ErrorPage ctx={props.ctx} message="Login failed"/>)

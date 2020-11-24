@@ -9,15 +9,15 @@ import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
-const ENV = {
-  // eslint-disable-next-line no-undef
-  user: process.env.REACT_APP_USERNAMEA
-};
+// const ENV = {
+//   // eslint-disable-next-line no-undef
+//   user: process.env.REACT_APP_USERNAMEA
+// };
 
 type TParams = { username: string}
 
 export default function UserProfilePage (props: RouteComponentProps<TParams>): JSX.Element { 
-  const self = props.match.params.username ? props.match.params.username : ENV.user;
+  const self = props.match.params.username
   const query = queryService.GET_USER(self);
 
   const { loading, error, data } = useQuery(query);
@@ -80,7 +80,10 @@ export default function UserProfilePage (props: RouteComponentProps<TParams>): J
         </div>
       </div>
       <div className="bottomLogoutWrapper">
-        <p className="bottomLogoutLink">Not your profile? All done? Log out <Link to="/">here</Link></p>
+        <p className="bottomLogoutLink">Not your profile? All done? Log out <span style={{textDecoration: 'underline', fontWeight: 'bold'}} onClick={() => {
+          localStorage.removeItem('token');
+          props.history.push('/');
+        }}>here</span></p>
       </div>
     </div>
     </>
