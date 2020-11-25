@@ -10,11 +10,6 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 import { User, Transaction } from '../../services/queryService/queryServiceInterfaces';
 
-const ENV = {
-  // eslint-disable-next-line no-undef
-  user: process.env.REACT_APP_USERNAMEA || ''
-};
-
 type TParams = {
   username: string
 }
@@ -24,7 +19,7 @@ interface Data {
 }
 
 export default function PendingPage (props : RouteComponentProps<TParams>): JSX.Element {
-  const self = props.match.params.username ? props.match.params.username : ENV.user;
+  const self = props.match.params.username;
   const query = queryService.GET_ALL_PENDING(self);
 
   const { loading, error, data } = useQuery<Data>(query);

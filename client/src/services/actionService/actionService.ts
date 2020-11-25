@@ -2,7 +2,9 @@ import { gql, DocumentNode } from '@apollo/client';
 
 const LOGIN = (username: string, pw: string): DocumentNode => gql`
     query {
-      login(self: "${username}", pw: "${pw}")
+      login(self: "${username}", pw: "${pw}") {
+        token
+      }
     }
   `;
 const ADD_BOOK = (asin: string): DocumentNode =>

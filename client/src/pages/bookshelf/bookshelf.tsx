@@ -10,10 +10,6 @@ import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 import { User } from '../../services/queryService/queryServiceInterfaces';
 
-const ENV = {
-  // eslint-disable-next-line no-undef
-  user: process.env.REACT_APP_USERNAMEA
-};
 
 type TParams = {
   username: string
@@ -24,7 +20,7 @@ interface Data {
 }
 
 export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX.Element {
-  const username = props.match.params.username ? props.match.params.username : ENV.user;
+  const username = props.match.params.username;
   const query = queryService.GET_BOOKSHELF(username);
 
   const { loading, error, data } = useQuery<Data>(query);
