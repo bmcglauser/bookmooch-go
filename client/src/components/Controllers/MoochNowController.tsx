@@ -16,7 +16,6 @@ interface Data {
 }
 
 export default function MoochNowController ({ asin, giverid, selfAddress,...props }: MoochNowControllerProps): JSX.Element {
-  console.log(asin, giverid, selfAddress)
   const query = actionService.MOOCH_NOW(asin, giverid, selfAddress);
   const { loading, error, data } = useQuery<Data>(query);
 

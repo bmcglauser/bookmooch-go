@@ -3,12 +3,12 @@ const { resolvers } = require('./resolvers/typeResolvers');
 const { typeDefs } = require('./typedefs/typeDefs');
 
 const server = new ApolloServer(
-  { 
-  typeDefs, 
+  {
+  typeDefs,
   resolvers,
   context: ({ req }) => {
     const token = req.headers.authorization.replace('Bearer ', '') || '';
-    return { token } 
+    return { token }
   }
 });
 

@@ -150,7 +150,7 @@ exports.AddBookToBookshelf = async (asin, token) => {
 };
 exports.RemoveBookFromBookshelf = async (asin, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios ({
     method: 'post',
     url: 'http://bookmooch.com/api/userbook',
@@ -173,7 +173,7 @@ exports.RemoveBookFromBookshelf = async (asin, token) => {
 };
 exports.RequestAskFirst = async (asin, giverid, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/askfirst',
@@ -218,7 +218,7 @@ exports.MoochNow = async (asin, giverid, selfAddress, selfCountry = 'US', token)
 };
 exports.GiveFeedback = async (pendingID, score, comment = '', token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -242,7 +242,7 @@ exports.GiveFeedback = async (pendingID, score, comment = '', token) => {
 };
 exports.MarkSent = async (pendingID, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -264,7 +264,7 @@ exports.MarkSent = async (pendingID, token) => {
 };
 exports.MarkReject = async (pendingID, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/pending_action',
@@ -288,7 +288,7 @@ exports.MarkReject = async (pendingID, token) => {
 };
 exports.AcceptMooch = async (requester, asin, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
-  
+
   return axios({
     method: 'get',
     url: `http://bookmooch.com/m/askme_yes?userid=${requester}&asin=${asin}`,
