@@ -3,22 +3,26 @@ const { gql } = require('apollo-server');
 exports.typeDefs = gql`
   type Query {
     getBookByAsin(asin: String!): Book,
-    getUserByUsername(username: String!, self: String, pw: String): User,
+    getUserByUsername(username: String!): User,
     getPendingById(pending_id: String!): Mooch,
     getConfidentialPendingById(pending_id: String!): Mooch,
     getSearch(text: String!, pageNum: Int): [Book],
     getSearchRecent: [Book],
 
-    addBookToBookshelf      (asin: String!, self: String, pw: String): String,
-    removeBookFromBookshelf (asin: String!, self: String, pw: String): String,
-    requestAskFirst         (asin: String!, giverid: String!, self: String, pw: String): String,
-    acceptMooch             (requester: String!, asin: String!, self: String, pw: String) : String,
-    moochNow                (asin: String!, giverid: String!, selfAddress: String!, selfCountry: String, self: String, pw: String) : String,
-    markSent                (pendingID: String!, self: String, pw: String) : String,
-    markReject              (pendingID: String!, self: String, pw: String) : String,
-    giveFeedback            (pendingID: String!, score: String!, self: String, pw: String) : String,
-    login                   (self: String, pw: String): String,
+    addBookToBookshelf      (asin: String!): String,
+    removeBookFromBookshelf (asin: String!): String,
+    requestAskFirst         (asin: String!, giverid: String!): String,
+    acceptMooch             (requester: String!, asin: String!) : String,
+    moochNow                (asin: String!, giverid: String!, selfAddress: String!, selfCountry: String) : String,
+    markSent                (pendingID: String!) : String,
+    markReject              (pendingID: String!) : String,
+    giveFeedback            (pendingID: String!, score: String!) : String,
+    login                   (self: String, pw: String): AuthPayload,
   }
+
+  type AuthPayload {
+    token: String
+  } 
 
   type Book {
     asin: String,
