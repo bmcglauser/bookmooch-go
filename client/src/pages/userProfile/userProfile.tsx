@@ -9,12 +9,8 @@ import ProfileInfo from '../../containers/ProfileInfo';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 
-// const ENV = {
-//   // eslint-disable-next-line no-undef
-//   user: process.env.REACT_APP_USERNAMEA
-// };
 
-type TParams = { username: string}
+type TParams = { username: string }
 
 export default function UserProfilePage (props: RouteComponentProps<TParams>): JSX.Element { 
   const self = props.match.params.username
