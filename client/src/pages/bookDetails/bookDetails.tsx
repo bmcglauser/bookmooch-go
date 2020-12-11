@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import './bookDetails.scss';
@@ -17,23 +17,20 @@ interface Data {
 
 type TParams = { asin: string }
 
-export default function BookDetailsPage (props: RouteComponentProps<TParams>): JSX.Element {
+const BookDetailsPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const asin = props.match.params.asin
   const query = queryService.GET_BOOK_DETAILS(asin);
 
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
+
   return (
     <>
       <Header title="Book details"/>
       <div className="bookdetails-grand-wrapper">
-       { data &&  <BookDetailsInfo book={data?.getBookByAsin}/>  }
+        { data &&  <BookDetailsInfo book={data?.getBookByAsin}/>  }
         <div className="button-wrapper">
           <Link to={`/confirmadd/${asin}`} style={{textDecoration:'none'}}>
             <button className="add-wrapper wide-button">
@@ -58,3 +55,5 @@ export default function BookDetailsPage (props: RouteComponentProps<TParams>): J
     </>
   );
 }
+
+export default BookDetailsPage;

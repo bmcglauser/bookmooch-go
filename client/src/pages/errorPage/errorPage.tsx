@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import './errorPage.scss';
 import Header from '../../components/Header';
@@ -8,7 +8,7 @@ type ErrorPageProps = {
   message: string
 }
 
-export default function ErrorPage (props: ErrorPageProps): JSX.Element {
+const ErrorPage: FunctionComponent<ErrorPageProps> = props => {
   let errorButtons;
 
   const startOverButton = 
@@ -51,3 +51,5 @@ export default function ErrorPage (props: ErrorPageProps): JSX.Element {
     </>
   );
 }
+
+export default ErrorPage;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './searchResults.scss';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from 'react-router-dom';
@@ -20,7 +20,7 @@ interface Data {
   getSearchRecent?: Book[];
 }
 
-export default function SearchResultsPage (props: RouteComponentProps<TParams>): JSX.Element {
+const SearchResultsPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const searchStr = props.match.params.string;
   const toAdd = props.match.params.toadd === 'true' ? true : false;
 
@@ -31,7 +31,7 @@ export default function SearchResultsPage (props: RouteComponentProps<TParams>):
   const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) return <LoaderA />;
-  if (error) return <ErrorPage message={error.message} ctx={props}/>
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   let results = data?.getSearch ? data.getSearch : data?.getSearchRecent;
   if (!toAdd) {results = results?.filter(book => book.availCount !== '0')}
@@ -56,7 +56,7 @@ export default function SearchResultsPage (props: RouteComponentProps<TParams>):
     ;
   }
 
-  return(
+  return (
     <>
     <Header title="Finding a book" />
     <div className="search-results-page-grand-wrapper">
@@ -70,3 +70,5 @@ export default function SearchResultsPage (props: RouteComponentProps<TParams>):
     </>
   );
 }
+
+export default SearchResultsPage;

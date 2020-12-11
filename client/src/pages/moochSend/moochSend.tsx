@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './moochSend.scss';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -15,27 +15,22 @@ import { Transaction } from '../../services/queryService/queryServiceInterfaces'
 type TParams = {
   user: string,
   number: string
- }
+}
 
- interface Data {
+interface Data {
   getConfidentialPendingById: Transaction
- }
+}
 
-export default function MoochSendPage (props: RouteComponentProps<TParams>) : JSX.Element {
+const MoochSendPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const id = props.match.params.user + '/' + props.match.params.number;
   const query = queryService.GET_CONF_PENDING_GIVE(id);
 
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   const mooch = data?.getConfidentialPendingById;
-
   const dateReqStr = mooch?.created_on ?  formatDate(mooch.created_on): '';
 
   let dateSentStr;
@@ -57,7 +52,7 @@ export default function MoochSendPage (props: RouteComponentProps<TParams>) : JS
     <Header title="You're sending" />;
     <div className="mooch-send-item-grand-wrapper">
       <div className="active-item-wrapper">
-       {mooch &&  <ActiveItem book={mooch?.book}/>}
+        {mooch &&  <ActiveItem book={mooch?.book}/>}
       </div>
       <p>you're getting {pointsStr} to send this book</p>
       <div className="mooch-detail-text-wrapper">
@@ -99,3 +94,5 @@ export default function MoochSendPage (props: RouteComponentProps<TParams>) : JS
     </>
   );
 }
+
+export default MoochSendPage;

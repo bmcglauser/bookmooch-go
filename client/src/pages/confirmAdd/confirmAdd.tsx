@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './confirmAdd.scss';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -18,18 +18,14 @@ interface Data {
   getBookByAsin: Book
 }
 
-export default function ConfirmAddPage (props: RouteComponentProps<TParams>): JSX.Element {
+const ConfirmAddPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const asin = props.match.params.asin;
   const query = queryService.GET_SIMPLE_BOOK(asin);
 
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   return (
     <>
@@ -64,3 +60,5 @@ export default function ConfirmAddPage (props: RouteComponentProps<TParams>): JS
     </>
   );
 }
+
+export default ConfirmAddPage;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './SearchResultItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
@@ -8,7 +8,9 @@ type SearchResultItemProps = {
   book: Book
 }
 
-export default function SearchResultItem ({ book }: SearchResultItemProps): JSX.Element {
+const SearchResultItem: FunctionComponent<SearchResultItemProps> = props => {
+  const { book } = props;
+
   const numberAvail = book && book.usernamesWith ? book.usernamesWith.length : 0;
   const availStr = numberAvail === 1
     ? `${numberAvail} copy available`
@@ -18,9 +20,7 @@ export default function SearchResultItem ({ book }: SearchResultItemProps): JSX.
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
   : <RandomColorCover />
 
-
   const bookTitle = book && book.title && book.title.length > 18 ? book.title.slice(0, 19)+'...' : book.title;
-  // let bookAuthor = book.author && book.author.length > 18 ? book.author.slice(0, 19)+'...' : book.author;
 
   return(
     <Link to={`/details/${book.asin}`} style={{textDecoration:'none'}}>
@@ -35,3 +35,5 @@ export default function SearchResultItem ({ book }: SearchResultItemProps): JSX.
     </Link>
   );
 }
+
+export default SearchResultItem;

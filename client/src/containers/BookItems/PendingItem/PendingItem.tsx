@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './PendingItem.scss';
 import { Link } from 'react-router-dom';
 import RandomColorCover from '../../../components/RandomColorCover';
@@ -10,7 +10,8 @@ type PendingItemProps = {
   direction: string
 }
 
-export default function PendingItem ({mooch, direction}: PendingItemProps): JSX.Element {
+const PendingItem: FunctionComponent<PendingItemProps> = props => {
+  const { mooch, direction } = props;
   const book = mooch.book;
 
   const addedStr = formatDate(mooch.created_on);
@@ -49,3 +50,5 @@ export default function PendingItem ({mooch, direction}: PendingItemProps): JSX.
     );
   }
 }
+
+export default PendingItem;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './UserWithItem.scss'
 import { Link } from 'react-router-dom';
 import formatDate from '../../services/dateProcessor';
@@ -10,7 +10,8 @@ type UserWithItemProps = {
   asin: string
 }
 
-export default function UserWithItem ({ self, other, asin }: UserWithItemProps): JSX.Element {
+const UserWithItem: FunctionComponent<UserWithItemProps> = props => {
+  const { self, other, asin } = props;
 
   let willSendP;
   let requestable;
@@ -43,7 +44,6 @@ export default function UserWithItem ({ self, other, asin }: UserWithItemProps):
   const idArr = other.display_name.split(' (');
   const name = idArr[0];
   const country = '(' + idArr[1];
-
 
   if (requestable) {
     return (
@@ -93,3 +93,5 @@ export default function UserWithItem ({ self, other, asin }: UserWithItemProps):
     );
   }
 }
+
+export default UserWithItem;

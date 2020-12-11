@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import './feedback.scss';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -18,19 +18,15 @@ interface Data {
   getPendingById: Transaction
 }
 
-export default function FeedbackPage (props: RouteComponentProps<TParams>) : JSX.Element {
+const FeedbackPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const id = props.match.params.user + '/' + props.match.params.number;
   const query = queryService.GET_TRANSACTION(id);
 
   const { loading, error, data } = useQuery<Data>(query);
   const [score, setScore] = useState('0');
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   const mooch = data?.getPendingById;
   const book = mooch?.book;
@@ -80,3 +76,5 @@ export default function FeedbackPage (props: RouteComponentProps<TParams>) : JSX
     </>
   );
 }
+
+export default FeedbackPage;

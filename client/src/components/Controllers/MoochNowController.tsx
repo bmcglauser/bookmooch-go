@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
@@ -15,8 +15,8 @@ interface Data {
   moochNow: string
 }
 
-export default function MoochNowController ({ asin, giverid, selfAddress,...props }: MoochNowControllerProps): JSX.Element {
-  const query = actionService.MOOCH_NOW(asin, giverid, selfAddress);
+const MoochNowController: FunctionComponent<MoochNowControllerProps> = props => {
+  const query = actionService.MOOCH_NOW(props.asin, props.giverid, props.selfAddress);
   const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) return <div />;
@@ -28,3 +28,5 @@ export default function MoochNowController ({ asin, giverid, selfAddress,...prop
   } else return (<ErrorPage ctx={props.ctx} message="Mooch failed"/>);
   return <div />;
 }
+
+export default MoochNowController;

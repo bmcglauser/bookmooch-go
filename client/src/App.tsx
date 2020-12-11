@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
@@ -43,41 +43,39 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-function App(): JSX.Element {
-    return (
-    <ApolloProvider client={apolloClient}>
-      <Router>        
-        <div className="route">
-          <Switch>
-            <Route path="/" exact                          component={LandingPage} />
-            <Route path="/landing"                        component={LandingPage} />
-            <Route path="/login"                          component={LoginPage} />
-            <Route path="/profile/:username?"             component={UserProfilePage} />
-            <Route path="/bookshelf/:username?"            component={BookshelfPage} />
-            <Route path="/pending/:username?"              component={PendingPage} />
-            <Route path="/search"                         component={SearchPage} />
-            <Route path="/details/:asin?"                 component={BookDetailsPage} />
-            <Route path="/confirmadd/:asin"               component={ConfirmAddPage} />
-            <Route path="/join"                           component={JoinPage} />
-            <Route path="/about"                          component={LearnMorePage} />
-            <Route path="/faq"                            component={FAQPage} />
-            <Route path="/findadd"                        component={FindAddPage} />
-            <Route path="/searchresults/:string?/:toadd?" component={SearchResultsPage} />
-            <Route path="/choose/:asin?"                  component={ChooseMoochPage} />
-            <Route path="/confirmmooch/:user/:asin"       component={ConfirmMoochPage} />
-            <Route path="/sending/:user/:number"          component={MoochSendPage} />
-            <Route path="/receiving/:user/:number"        component={MoochReceivePage} />
-            <Route path="/feedback/:user/:number"         component={FeedbackPage} />
-            <Route path="/controller/:action/:itemid?/:username?/:pw?/:score?/:giverid?/:textBlock?" component={ActionControllerPage} />
-            <Route component={ErrorPage} />
-          </Switch>
-        </div>
-        <div className="backdrop"> 
-          <div className="cream" />
-          <div className="green" />
-        </div>
-      </Router>
-    </ApolloProvider>);
-}
+const App: FunctionComponent = () =>
+  <ApolloProvider client={apolloClient}>
+    <Router>        
+      <div className="route">
+        <Switch>
+          <Route path="/" exact                          component={LandingPage} />
+          <Route path="/landing"                        component={LandingPage} />
+          <Route path="/login"                          component={LoginPage} />
+          <Route path="/profile/:username?"             component={UserProfilePage} />
+          <Route path="/bookshelf/:username?"           component={BookshelfPage} />
+          <Route path="/pending/:username?"             component={PendingPage} />
+          <Route path="/search"                         component={SearchPage} />
+          <Route path="/details/:asin?"                 component={BookDetailsPage} />
+          <Route path="/confirmadd/:asin"               component={ConfirmAddPage} />
+          <Route path="/join"                           component={JoinPage} />
+          <Route path="/about"                          component={LearnMorePage} />
+          <Route path="/faq"                            component={FAQPage} />
+          <Route path="/findadd"                        component={FindAddPage} />
+          <Route path="/searchresults/:string?/:toadd?" component={SearchResultsPage} />
+          <Route path="/choose/:asin?"                  component={ChooseMoochPage} />
+          <Route path="/confirmmooch/:user/:asin"       component={ConfirmMoochPage} />
+          <Route path="/sending/:user/:number"          component={MoochSendPage} />
+          <Route path="/receiving/:user/:number"        component={MoochReceivePage} />
+          <Route path="/feedback/:user/:number"         component={FeedbackPage} />
+          <Route path="/controller/:action/:itemid?/:username?/:pw?/:score?/:giverid?/:textBlock?" component={ActionControllerPage} />
+          <Route component={ErrorPage} />
+        </Switch>
+      </div>
+      <div className="backdrop"> 
+        <div className="cream" />
+        <div className="green" />
+      </div>
+    </Router>
+  </ApolloProvider>;
 
 export default App;

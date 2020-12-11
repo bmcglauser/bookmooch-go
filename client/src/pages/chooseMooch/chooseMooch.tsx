@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './chooseMooch.scss';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
@@ -12,13 +12,9 @@ import { Book } from '../../services/queryService/queryServiceInterfaces'
 import { RouteComponentProps } from 'react-router-dom'
 
 const falseSelf = {
-  // eslint-disable-next-line no-undef
   username: process.env.REACT_APP_USERNAMEA || '',
-  // eslint-disable-next-line no-undef
   display_name: process.env.REACT_APP_DISPLAY_NAME || '',
-  // eslint-disable-next-line no-undef
   country: process.env.REACT_APP_COUNTRY || '',
-  // eslint-disable-next-line no-undef
   points: process.env.REACT_APP_POINTS || ''
 };
 
@@ -28,18 +24,14 @@ interface Data  {
 
 type TParams = { asin: string }
 
-export default function ChooseMoochPage (props : RouteComponentProps<TParams>) : JSX.Element {
+const ChooseMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const asin = props.match.params.asin
   const query = queryService.GET_MOOCH_CHOICE(asin);
   
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
   
   const book = data?.getBookByAsin;
   
@@ -59,7 +51,7 @@ export default function ChooseMoochPage (props : RouteComponentProps<TParams>) :
     <Header title="Get this book!" />
     <div className="choose-mooch-page-grand-wrapper">
       <div className="active-item-wrapper">
-       { book && <ActiveItem book={book} /> }
+        { book && <ActiveItem book={book} /> }
       </div>
       <div className="users-with-wrapper">
         {users}
@@ -72,3 +64,5 @@ export default function ChooseMoochPage (props : RouteComponentProps<TParams>) :
     </>
   );
 }
+
+export default ChooseMoochPage;

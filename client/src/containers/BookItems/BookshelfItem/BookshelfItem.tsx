@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import './BookshelfItem.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
@@ -9,7 +9,8 @@ type BookshelfItemProps = {
   listing: Listing
 }
 
-export default function BookshelfItem ({listing}: BookshelfItemProps): JSX.Element {
+const BookshelfItem: FunctionComponent<BookshelfItemProps> = props => {
+  const { listing } = props;
 
   const addedStr = formatDate(listing.listed_on)
   const book = listing.book;
@@ -41,3 +42,5 @@ export default function BookshelfItem ({listing}: BookshelfItemProps): JSX.Eleme
     </div>
   );
 }
+
+export default BookshelfItem;

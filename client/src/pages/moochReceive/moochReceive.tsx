@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import './moochReceive.scss';
 import { useQuery } from '@apollo/client';
@@ -20,7 +20,7 @@ interface Data {
   getConfidentialPendingById: Transaction;
 }
 
-export default function MoochReceivePage (props: RouteComponentProps<TParams>): JSX.Element {
+const MoochReceivePage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const username = props.match.params.user
   const transactionNumber = props.match.params.number
   const id = username + '/' + transactionNumber;
@@ -28,12 +28,8 @@ export default function MoochReceivePage (props: RouteComponentProps<TParams>): 
 
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   const mooch = data?.getConfidentialPendingById;
 
@@ -85,3 +81,5 @@ export default function MoochReceivePage (props: RouteComponentProps<TParams>): 
     </>
   );
 }
+
+export default MoochReceivePage;

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 
 
-export default function LoginForm (): JSX.Element {
+const LoginForm: FunctionComponent = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,3 +24,5 @@ export default function LoginForm (): JSX.Element {
     </div>
   );
 }
+
+export default LoginForm;
