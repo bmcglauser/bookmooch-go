@@ -5,36 +5,41 @@ const {
   GetConfidentialPendingById,
   GetSearch,
   GetSearchRecent,
+} = require('./apiReads');
+const {
   AddBookToBookshelf,
-  RemoveBookFromBookshelf,
-  RequestAskFirst,
-  AcceptMooch,
   MoochNow,
-  MarkSent,
+} = require('./apiCreates');
+const {
+  RemoveBookFromBookshelf,
   MarkReject,
-  GiveFeedback,
+} = require('./apiDeletes');
+const {
+  RequestAskFirst,
   LoginUser,
+  AcceptMooch,
+  MarkSent,
+  GiveFeedback,
+} = require('./apiUpdates');
 
-} = require('./apiFunctions');
-
-exports.resolvers = {
+const resolvers = {
   Query: {
-    getBookByAsin:              (_, { asin })               => GetBookByAsin(asin),
-    getUserByUsername:          (_, { username }, { token }) => GetUserByUsername(username, token),
-    getPendingById:             (_, { pending_id })         => GetPendingById(pending_id),
-    getConfidentialPendingById: (_, { pending_id }, { token })         => GetConfidentialPendingById(pending_id, token),
-    getSearch:                  (_, { text })               => GetSearch(text, 1),
-    getSearchRecent:            ()                          => GetSearchRecent(),
+    getBookByAsin:              (_, { asin })                   => GetBookByAsin(asin),
+    getUserByUsername:          (_, { username }, { token })    => GetUserByUsername(username, token),
+    getPendingById:             (_, { pending_id })             => GetPendingById(pending_id),
+    getConfidentialPendingById: (_, { pending_id }, { token })  => GetConfidentialPendingById(pending_id, token),
+    getSearch:                  (_, { text })                   => GetSearch(text, 1),
+    getSearchRecent:            ()                              => GetSearchRecent(),
 
-    addBookToBookshelf:         (_, { asin }, { token })                      => AddBookToBookshelf(asin, token),
-    removeBookFromBookshelf:    (_, { asin }, { token })                      => RemoveBookFromBookshelf(asin, token),
-    requestAskFirst:            (_, { asin, giverid }, { token })             => RequestAskFirst(asin, giverid, token),
-    acceptMooch:                (_, { requester, asin }, { token })           => AcceptMooch(requester, asin, token),
+    addBookToBookshelf:         (_, { asin }, { token })                  => AddBookToBookshelf(asin, token),
+    removeBookFromBookshelf:    (_, { asin }, { token })                  => RemoveBookFromBookshelf(asin, token),
+    requestAskFirst:            (_, { asin, giverid }, { token })         => RequestAskFirst(asin, giverid, token),
+    acceptMooch:                (_, { requester, asin }, { token })       => AcceptMooch(requester, asin, token),
     moochNow:                   (_, { asin, giverid, selfAddress, selfCountry }, { token }) => MoochNow(asin, giverid, selfAddress, selfCountry, token),
-    markSent:                   (_, { pendingID }, { token })                 => MarkSent(pendingID, token),
-    markReject:                 (_, { pendingID }, { token })                 => MarkReject(pendingID, token),
-    giveFeedback:               (_, { pendingID, score }, { token })          => GiveFeedback(pendingID, score, token),
-    login:                      (_, { self, pw })                            => LoginUser(self, pw),
+    markSent:                   (_, { pendingID }, { token })             => MarkSent(pendingID, token),
+    markReject:                 (_, { pendingID }, { token })             => MarkReject(pendingID, token),
+    giveFeedback:               (_, { pendingID, score }, { token })      => GiveFeedback(pendingID, score, token),
+    login:                      (_, { self, pw })                         => LoginUser(self, pw),
   },
   Book: { 
     asin:          obj => obj.id,
@@ -138,3 +143,5 @@ exports.resolvers = {
     feedback_comment: obj => obj.feedback_comment,
   }
 };
+
+module.exports = resolvers;

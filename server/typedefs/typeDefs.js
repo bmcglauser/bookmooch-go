@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-exports.typeDefs = gql`
+const typeDefs = gql`
   type Query {
     getBookByAsin(asin: String!): Book,
     getUserByUsername(username: String!): User,
@@ -95,3 +95,5 @@ exports.typeDefs = gql`
     feedback_comment: String,
   }
 `;
+
+module.exports = typeDefs;
