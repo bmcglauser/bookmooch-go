@@ -1,6 +1,7 @@
+// @ts-nocheck
 const { ApolloServer } = require('apollo-server');
-const { resolvers } = require('./resolvers/typeResolvers');
-const { typeDefs } = require('./typedefs/typeDefs');
+const resolvers = require('./resolvers');
+const typeDefs = require('./typeDefs');
 
 const server = new ApolloServer(
   {
