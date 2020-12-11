@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './userProfile.scss';
 import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
@@ -12,18 +12,14 @@ import queryService from '../../services/queryService';
 
 type TParams = { username: string }
 
-export default function UserProfilePage (props: RouteComponentProps<TParams>): JSX.Element { 
+const UserProfilePage: FunctionComponent<RouteComponentProps<TParams>> = props => { 
   const self = props.match.params.username
   const query = queryService.GET_USER(self);
 
   const { loading, error, data } = useQuery(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   return (
     <>
@@ -85,3 +81,5 @@ export default function UserProfilePage (props: RouteComponentProps<TParams>): J
     </>
   )
 }
+
+export default UserProfilePage;

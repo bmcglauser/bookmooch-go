@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import controllers from '../../components/Controllers';
 import ErrorPage from '../errorPage';
@@ -13,7 +13,7 @@ type TParams = {
   textBlock: string
 }
 
-export default function ActionControllerPage (props: RouteComponentProps<TParams>): JSX.Element {
+const ActionControllerPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
 
   const {
     action,
@@ -55,3 +55,5 @@ export default function ActionControllerPage (props: RouteComponentProps<TParams
       return <ErrorPage ctx={props} message="Invalid action" />
   }
 }
+
+export default ActionControllerPage;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
@@ -14,9 +14,9 @@ interface Data {
   login: { token: string }
 }
 
-export default function LoginController ({ username, pw, ...props }: LoginControllerProps): JSX.Element {
+const LoginController: FunctionComponent<LoginControllerProps> =  props => {
 
-  const query = actionService.LOGIN(username, pw);
+  const query = actionService.LOGIN(props.username, props.pw);
   const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) return <div />;
@@ -24,8 +24,10 @@ export default function LoginController ({ username, pw, ...props }: LoginContro
 
   if (data && data.login.token) {
     localStorage.setItem('token', data.login.token);
-    props.ctx.history.push(`/profile/${username}`);
+    props.ctx.history.push(`/profile/${props.username}`);
     props.ctx.history.go(0);
   } else return (<ErrorPage ctx={props.ctx} message="Login failed"/>)
   return <div />;
 }
+
+export default LoginController;

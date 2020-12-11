@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
@@ -13,7 +13,7 @@ interface Data {
   removeBookFromBookshelf: string
 }
 
-export default function RemoveController (props: RemoveControllerProps): JSX.Element {
+const RemoveController: FunctionComponent<RemoveControllerProps> = props => {
   const query = actionService.REMOVE_BOOK(props.asin);
   const { loading, error, data } = useQuery<Data>(query);
 
@@ -26,3 +26,5 @@ export default function RemoveController (props: RemoveControllerProps): JSX.Ele
   } else return (<ErrorPage ctx={props.ctx} message="Remove failed"/>);
   return <div />;
 }
+
+export default RemoveController;

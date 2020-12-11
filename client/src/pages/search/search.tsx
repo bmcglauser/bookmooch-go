@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './search.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-export default function SearchPage (): JSX.Element {
+const SearchPage: FunctionComponent = () => {
   const [searchText, setSearchText] = useState('');
 
   return (
@@ -53,3 +53,5 @@ export default function SearchPage (): JSX.Element {
     </>
   );
 }
+
+export default SearchPage;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import LoaderB from '../LoaderB'
 import LoaderC from '../LoaderC'
 import LoaderD from '../LoaderD'
 
-export default function RandomCenterLoader () {
+const RandomCenterLoader: FunctionComponent = () =>{
   const randNumber = Math.ceil(Math.random() * 3);
   
   switch (randNumber) {
@@ -17,3 +17,5 @@ export default function RandomCenterLoader () {
       return <LoaderD />
   }
 }
+
+export default RandomCenterLoader;

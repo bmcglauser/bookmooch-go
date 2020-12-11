@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-export default function RandomColorCover (): JSX.Element {
+const RandomColorCover: FunctionComponent = () => {
   const randomNumber = Math.floor(Math.random() * 8);
 
   const colorMap = [
@@ -23,3 +23,5 @@ export default function RandomColorCover (): JSX.Element {
     </div>
   );
 }
+
+export default RandomColorCover;

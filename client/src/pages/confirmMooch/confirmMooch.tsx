@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
 import { Link, RouteComponentProps } from 'react-router-dom';
@@ -11,15 +11,10 @@ import queryService from '../../services/queryService';
 import { User, Book } from '../../services/queryService/queryServiceInterfaces';
 
 const self = {
-  // eslint-disable-next-line no-undef
   username: process.env.REACT_APP_USERNAMEA || '',
-  // eslint-disable-next-line no-undef
   display_name: process.env.REACT_APP_DISPLAY_NAME || '',
-  // eslint-disable-next-line no-undef
   country: process.env.REACT_APP_COUNTRY || '',
-  // eslint-disable-next-line no-undef
   address: process.env.REACT_APP_ADDRESS || '',
-  // eslint-disable-next-line no-undef
   points: process.env.REACT_APP_POINTS || ''
 };
 
@@ -33,7 +28,7 @@ interface Data {
   getBookByAsin: Book;
 }
 
-export default function ConfirmMoochPage (props: RouteComponentProps<TParams>): JSX.Element {
+const ConfirmMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const username = props.match.params.user;
   const asin = props.match.params.asin;
   const query = queryService.GET_CONFIRM_MOOCH(username, asin);
@@ -41,12 +36,8 @@ export default function ConfirmMoochPage (props: RouteComponentProps<TParams>): 
   const { loading, error, data } = useQuery<Data>(query);
   const [address, setAddress] = useState('');
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   const user = data?.getUserByUsername;
   const book = data?.getBookByAsin;
@@ -117,3 +108,5 @@ export default function ConfirmMoochPage (props: RouteComponentProps<TParams>): 
     </>
   );
 }
+
+export default ConfirmMoochPage;

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './findAdd.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Header from '../../components/Header';
 import UserHomeButton from '../../components/FooterButtons/UserHomeButton';
 
-export default function FindAddPage(): JSX.Element {
+const FindAddPage: FunctionComponent = () => {
   const [searchText, setSearchText] = useState('');
   return (
     <>
@@ -17,7 +17,7 @@ export default function FindAddPage(): JSX.Element {
           <input onChange={e=>setSearchText(e.target.value)}type="text" />
         </div>
         <p>
-  Click below to find the book you want to add. On the book's details page you'll be able to "Add this book to give away"
+          Click below to find the book you want to add. On the book's details page you'll be able to "Add this book to give away"
         </p>
         <Link to={`/searchresults/${searchText}/true`} style={{textDecoration:'none'}}>
           <button className="find-add-button">
@@ -35,3 +35,5 @@ export default function FindAddPage(): JSX.Element {
     </>
   );
 }
+
+export default FindAddPage;

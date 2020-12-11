@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from 'react-router-dom';
 import './bookshelf.scss';
@@ -19,18 +19,14 @@ interface Data {
   getUserByUsername: User
 }
 
-export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX.Element {
+const BookshelfPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const username = props.match.params.username;
   const query = queryService.GET_BOOKSHELF(username);
 
   const { loading, error, data } = useQuery<Data>(query);
 
-  if (loading) {
-    return <RandomCenterLoader />;
-  }
-  if (error) {
-    return <ErrorPage message={error.message} ctx={props}/>
-  }
+  if (loading) return <RandomCenterLoader />;
+  if (error) return <ErrorPage message={error.message} ctx={props}/>;
 
   const bookshelfArr = data?.getUserByUsername.listings?.map(
     listing => <BookshelfItem key={`${listing.asin}/${listing.listed_on}`} listing={listing}/>
@@ -60,3 +56,5 @@ export default function BookshelfPage (props: RouteComponentProps<TParams>): JSX
     </>
   );
 }
+
+export default BookshelfPage;

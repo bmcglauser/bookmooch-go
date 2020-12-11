@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
@@ -14,9 +14,10 @@ interface Data {
   markReject: string
 }
 
-export default function MarkRejectedController (props: MarkRejectedControllerProps): JSX.Element {
-  const pendingID = props.pendingID.split('+').join('/');
-  const query = actionService.REJECT_MOOCH(pendingID);
+const MarkRejectedController: FunctionComponent<MarkRejectedControllerProps> = props => {
+  
+  const slashedPendingID = props.pendingID.split('+').join('/');
+  const query = actionService.REJECT_MOOCH(slashedPendingID);
   const { loading, error, data } = useQuery<Data>(query);
 
   if (loading) return <div />;
@@ -28,3 +29,5 @@ export default function MarkRejectedController (props: MarkRejectedControllerPro
   } else return (<ErrorPage ctx={props.ctx} message="Rejection failed"/>);
   return <div />;
 }
+
+export default MarkRejectedController;

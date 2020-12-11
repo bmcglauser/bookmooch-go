@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './LoaderB.scss';
 
-function LoaderB(): JSX.Element {
-  return (
+const LoaderB: FunctionComponent = () =>
     <div className="grand_wrapperB">
       {/* icon from Loading.io*/}
       <svg className="bookrow" viewBox="0 0 100 100" y="0" x="0" width="47px" height="47px">
@@ -37,8 +36,6 @@ function LoaderB(): JSX.Element {
         </g>
       </svg>
       <p>Loading...</p>
-    </div>
-  );
-}
+    </div>;
 
 export default LoaderB;

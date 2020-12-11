@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './Footer.scss';
 import buttons from '../FooterButtons';
 import { RouteComponentProps } from 'react-router-dom'
@@ -26,17 +26,18 @@ type FooterProps = {
   ctx?: RouteComponentProps
 }
 
-export default function Footer (props: FooterProps): JSX.Element {
-  const {leftBut, centerBut, rightBut, ctx} = props
+const Footer: FunctionComponent<FooterProps> = props => {
   return (
     <div className="footer-grand-wrapper">
       <div className="small-button">
-        {whichButton(leftBut, ctx)}
+        {whichButton(props.leftBut, props.ctx)}
       </div>
-      {whichButton(centerBut, ctx)}
+      {whichButton(props.centerBut, props.ctx)}
       <div className="small-button">
-        {whichButton(rightBut, ctx)}
+        {whichButton(props.rightBut, props.ctx)}
       </div>
     </div>
   );
 }
+
+export default Footer;

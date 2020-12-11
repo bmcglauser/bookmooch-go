@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
@@ -15,7 +15,7 @@ interface Data {
   giveFeedback: string
 }
 
-export default function GiveFeedbackController (props: GiveFeedbackControllerProps): JSX.Element {
+const GiveFeedbackController: FunctionComponent<GiveFeedbackControllerProps> = props => {
   const pendingID = props.pendingID.split('+').join('/');
 
   const query = actionService.GIVE_FEEDBACK(pendingID, props.score);
@@ -30,3 +30,5 @@ export default function GiveFeedbackController (props: GiveFeedbackControllerPro
   } else return (<ErrorPage ctx={props.ctx} message="Mark as recevied failed"/>);
   return <div />;
 }
+
+export default GiveFeedbackController;

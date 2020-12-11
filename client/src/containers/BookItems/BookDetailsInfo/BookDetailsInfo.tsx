@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import './BookDetailsInfo.scss'
 import RandomColorCover from '../../../components/RandomColorCover';
 import { Book } from '../../../services/queryService/queryServiceInterfaces'
@@ -7,7 +7,8 @@ type BookDetailsInfoProps = {
   book: Book
 }
 
-export default function BookDetailsInfo ({book}: BookDetailsInfoProps) : JSX.Element {
+const BookDetailsInfo: FunctionComponent<BookDetailsInfoProps> = props => {
+  const { book } = props;
 
   const bookCover = book.cover_art_url 
   ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
@@ -46,3 +47,5 @@ export default function BookDetailsInfo ({book}: BookDetailsInfoProps) : JSX.Ele
     </div>
   );
 }
+
+export default BookDetailsInfo;
