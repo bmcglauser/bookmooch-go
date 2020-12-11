@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App The App component renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="route"
+      >
+        <div
+          class="landing"
+        >
+          <img
+            alt="BookMooch Go logo"
+            class="logo"
+            src="main-logo.svg"
+          />
+          <div
+            class="welcome-text-wrapper"
+          >
+            <div
+              class="landingText"
+            >
+              <h3>
+                Welcome 
+                
+                 to
+              </h3>
+              <h1
+                class="bookmoochTitle"
+              >
+                BookMooch
+              </h1>
+              <h1
+                class="goTitle"
+              >
+                <svg
+                  height="11px"
+                  viewBox="0 0 69 7"
+                  width="50px"
+                >
+                  <line
+                    id="Line"
+                    stroke="#689A9B"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    x1="3"
+                    x2="65.5"
+                    y1="6.4"
+                    y2="6.4"
+                  />
+                </svg>
+                <span
+                  class="goText"
+                >
+                  Go
+                </span>
+                <svg
+                  height="30px"
+                  viewBox="0 0 71 39"
+                  width="65px"
+                >
+                  <path
+                    d="M40.4120241,1.2505627 L40.5746635,1.33408842 L68.6997635,16.8595916 C70.6893122,17.9578542 70.7683179,20.7594195 68.9105458,21.9849188 L68.7415978,22.0888775 L40.8684897,38.0623664 C39.4309604,38.886184 37.5977765,38.3886724 36.7739589,36.9511431 C35.980653,35.5668556 36.4126126,33.8156786 37.7293444,32.9522299 L37.8851821,32.8566123 L55.823,22.577 L39.3016172,22.7096831 L3.02399923,22.999904 C1.367198,23.0131584 0.0133504053,21.6808005 9.59953922e-05,20.0239992 C-0.0126850427,18.4263695 1.22574745,17.1104402 2.79977436,17.0065987 L2.97600077,17.000096 L39.2536187,16.7098751 L55.773,16.577 L37.6750245,6.58690609 C36.2782221,5.81584893 35.7380096,4.09498266 36.4149094,2.67331719 L36.4984352,2.51067774 C37.2694923,1.11387536 38.9903586,0.573662874 40.4120241,1.2505627 Z"
+                    fill="#689A9B"
+                    fill-rule="nonzero"
+                    id="Line"
+                  />
+                </svg>
+              </h1>
+            </div>
+          </div>
+          <div
+            class="buttons-wrapper"
+          >
+            <a
+              href="/about"
+              style="text-decoration: none;"
+            >
+              <button>
+                Let's go
+              </button>
+            </a>
+            <a
+              href="/login"
+              style="text-decoration: none;"
+            >
+              <button>
+                Login
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="backdrop"
+      >
+        <div
+          class="cream"
+        />
+        <div
+          class="green"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="route"
+    >
+      <div
+        class="landing"
+      >
+        <img
+          alt="BookMooch Go logo"
+          class="logo"
+          src="main-logo.svg"
+        />
+        <div
+          class="welcome-text-wrapper"
+        >
+          <div
+            class="landingText"
+          >
+            <h3>
+              Welcome 
+              
+               to
+            </h3>
+            <h1
+              class="bookmoochTitle"
+            >
+              BookMooch
+            </h1>
+            <h1
+              class="goTitle"
+            >
+              <svg
+                height="11px"
+                viewBox="0 0 69 7"
+                width="50px"
+              >
+                <line
+                  id="Line"
+                  stroke="#689A9B"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                  x1="3"
+                  x2="65.5"
+                  y1="6.4"
+                  y2="6.4"
+                />
+              </svg>
+              <span
+                class="goText"
+              >
+                Go
+              </span>
+              <svg
+                height="30px"
+                viewBox="0 0 71 39"
+                width="65px"
+              >
+                <path
+                  d="M40.4120241,1.2505627 L40.5746635,1.33408842 L68.6997635,16.8595916 C70.6893122,17.9578542 70.7683179,20.7594195 68.9105458,21.9849188 L68.7415978,22.0888775 L40.8684897,38.0623664 C39.4309604,38.886184 37.5977765,38.3886724 36.7739589,36.9511431 C35.980653,35.5668556 36.4126126,33.8156786 37.7293444,32.9522299 L37.8851821,32.8566123 L55.823,22.577 L39.3016172,22.7096831 L3.02399923,22.999904 C1.367198,23.0131584 0.0133504053,21.6808005 9.59953922e-05,20.0239992 C-0.0126850427,18.4263695 1.22574745,17.1104402 2.79977436,17.0065987 L2.97600077,17.000096 L39.2536187,16.7098751 L55.773,16.577 L37.6750245,6.58690609 C36.2782221,5.81584893 35.7380096,4.09498266 36.4149094,2.67331719 L36.4984352,2.51067774 C37.2694923,1.11387536 38.9903586,0.573662874 40.4120241,1.2505627 Z"
+                  fill="#689A9B"
+                  fill-rule="nonzero"
+                  id="Line"
+                />
+              </svg>
+            </h1>
+          </div>
+        </div>
+        <div
+          class="buttons-wrapper"
+        >
+          <a
+            href="/about"
+            style="text-decoration: none;"
+          >
+            <button>
+              Let's go
+            </button>
+          </a>
+          <a
+            href="/login"
+            style="text-decoration: none;"
+          >
+            <button>
+              Login
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="backdrop"
+    >
+      <div
+        class="cream"
+      />
+      <div
+        class="green"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -20,21 +20,21 @@ const {
 exports.resolvers = {
   Query: {
     getBookByAsin:              (_, { asin })               => GetBookByAsin(asin),
-    getUserByUsername:          (_, { username, self, pw }) => GetUserByUsername(username, self, pw),
+    getUserByUsername:          (_, { username }, { token }) => GetUserByUsername(username, token),
     getPendingById:             (_, { pending_id })         => GetPendingById(pending_id),
-    getConfidentialPendingById: (_, { pending_id })         => GetConfidentialPendingById(pending_id),
+    getConfidentialPendingById: (_, { pending_id }, { token })         => GetConfidentialPendingById(pending_id, token),
     getSearch:                  (_, { text })               => GetSearch(text, 1),
     getSearchRecent:            ()                          => GetSearchRecent(),
 
-    addBookToBookshelf:         (_, {asin, self, pw})                      => AddBookToBookshelf(asin, self, pw),
-    removeBookFromBookshelf:    (_, {asin, self, pw})                      => RemoveBookFromBookshelf(asin, self, pw),
-    requestAskFirst:            (_, {asin, giverid, self, pw})             => RequestAskFirst(asin, giverid, self, pw),
-    acceptMooch:                (_, {requester, asin, self, pw})           => AcceptMooch(requester, asin, self, pw),
-    moochNow:                   (_, {asin, giverid, selfAddress, selfCountry, self}) => MoochNow(asin, giverid, selfAddress, selfCountry, self),
-    markSent:                   (_, {pendingID, self, pw})                 => MarkSent(pendingID, self, pw),
-    markReject:                 (_, {pendingID, self, pw})                 => MarkReject(pendingID, self, pw),
-    giveFeedback:               (_, {pendingID, score, self, pw})          => GiveFeedback(pendingID, score, self, pw),
-    login:                      (_, {self, pw})                            => LoginUser(self, pw),
+    addBookToBookshelf:         (_, { asin }, { token })                      => AddBookToBookshelf(asin, token),
+    removeBookFromBookshelf:    (_, { asin }, { token })                      => RemoveBookFromBookshelf(asin, token),
+    requestAskFirst:            (_, { asin, giverid }, { token })             => RequestAskFirst(asin, giverid, token),
+    acceptMooch:                (_, { requester, asin }, { token })           => AcceptMooch(requester, asin, token),
+    moochNow:                   (_, { asin, giverid, selfAddress, selfCountry }, { token }) => MoochNow(asin, giverid, selfAddress, selfCountry, token),
+    markSent:                   (_, { pendingID }, { token })                 => MarkSent(pendingID, token),
+    markReject:                 (_, { pendingID }, { token })                 => MarkReject(pendingID, token),
+    giveFeedback:               (_, { pendingID, score }, { token })          => GiveFeedback(pendingID, score, token),
+    login:                      (_, { self, pw })                            => LoginUser(self, pw),
   },
   Book: { 
     asin:          obj => obj.id,
@@ -45,7 +45,7 @@ exports.resolvers = {
     publisher:     obj => obj.Publisher,
     usernamesWith: obj => obj.userids || [],
     availCount:    obj => obj.userids ? obj.userids.length.toString() : '0',
-    usersWith:     obj => obj.userids ? obj.userids.map(username => GetUserByUsername(username)) : [],
+    usersWith:     (obj, _, { token }) => obj.userids ? obj.userids.map(username => GetUserByUsername(username, token)) : [],
     summary:       function (obj) {
                       let str = "";
                       if (obj.comments) {
@@ -115,9 +115,9 @@ exports.resolvers = {
     book:                 obj => GetBookByAsin(obj.asin),
     status:               obj => obj.status,
     giverUsername:        obj => obj.giver,
-    giver:                obj => GetUserByUsername(obj.giver),
+    giver:                (obj, _, { token }) => GetUserByUsername(obj.giver, token),
     receiverUsername:     obj => obj.receiver,
-    receiver:             obj => GetUserByUsername(obj.receiver),
+    receiver:             (obj, _, { token }) => GetUserByUsername(obj.receiver, token),
     receiver_address:     obj => obj.receiver_address,
     points_to_giver:      obj => obj.points_to_giver,
     points_from_receiver: obj => obj.points_from_receiver,
@@ -130,7 +130,7 @@ exports.resolvers = {
 
   Feedback: {
     username_from:    obj => obj.userid_from,
-    user_from:        obj => GetUserByUsername(obj.userid_from),
+    user_from:        (obj, _, { token }) => GetUserByUsername(obj.userid_from, token),
     asin:             obj => obj.asin,
     book:             obj => GetBookByAsin(obj.asin),
     date_written:     obj => new Date(parseInt(obj.now.padEnd(13, '0'))),
