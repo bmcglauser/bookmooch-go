@@ -6,7 +6,7 @@ BookMooch Go is a mobile-optimized portal for BookMooch.com, a successful global
 Check out a demo here:
 https://www.youtube.com/watch?v=C0VSxuoIxmM&t=2s
 
-<img width="932" alt="Screen Shot 2020-12-12 at 9 17 05 AM" src="https://user-images.githubusercontent.com/25126281/101980074-9d607680-3c5a-11eb-81f4-269a286479da.png">
+<img width="851" alt="Screen Shot 2020-12-12 at 9 46 03 AM" src="https://user-images.githubusercontent.com/25126281/101980624-99365800-3c5e-11eb-9bbf-15491ff6e075.png">
 
 ## Getting Started
 If you're interested in getting BookMooch Go up and running on your own machine, follow the steps below and you'll be able to use your own BookMooch account:
@@ -22,8 +22,10 @@ on success, you should get a console output of `🚀 Server ready at http://loca
 4. Open another terminal in the directory and do the same for the client:
 - `cd client && npm install`
 - `npm run start`
-5. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X). Then, navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
-6. You are now ready to explore the full extent of Bookmooch Go. Enjoy!
+5. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools.
+6. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X).
+7. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
+8. You should now see the app in the correct proportion and are now ready to explore the full extent of Bookmooch Go. Enjoy!
 
 ## Authors
 - Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
