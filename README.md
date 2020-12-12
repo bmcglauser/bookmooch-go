@@ -15,17 +15,17 @@ If you're interested in getting BookMooch Go up and running on your own machine,
 - `git clone https://github.com/bmcglauser/bookmooch-go`
 2. Enter the directory:
 - `cd bookmooch-go`
-3. Install dependencies and start the server, using localhost:4000:
-- `cd server && npm install`
-- `npm run start`
-on success, you should get a console output of `🚀 Server ready at http://localhost:4000/`
-4. Open another terminal in the directory and do the same for the client:
-- `cd client && npm install`
-- `npm run start`
-5. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools.
-6. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X).
-7. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
-8. You should now see the app in the correct proportion and are now ready to explore the full extent of Bookmooch Go. Enjoy!
+3. Install back-end dependencies with `cd server && npm install` and create your own .env file in the server folder with this single line of code:
+- `JWT_SECRET=somestring`
+4. Start the server, using localhost:4000 with `npm run start`
+- on success, you should get a console output of `🚀 Server ready at http://localhost:4000/`
+5. Open another terminal in the directory and do the same for the client with `cd client && npm install`
+- (if you plan on using your real BookMooch account to request books, follow the .env.example file in your own .env file within the client folder. It is fine to skip this step)
+- run `npm run start`
+6. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools.
+7. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X).
+8. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
+9. You should now see the app in the correct proportion and are now ready to explore the full extent of Bookmooch Go. Enjoy!
 
 ## Authors
 - Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
