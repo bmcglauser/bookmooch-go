@@ -27,7 +27,7 @@ If you're interested in getting BookMooch Go up and running on your own machine,
 8. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
 9. You should now see the app in the correct proportion and are now ready to explore the full extent of Bookmooch Go. Enjoy!
 
-## Authors
+## Contributors
 - Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
 - Developer: Mohamed Yusuf - [GitHub profile](https://www.github.com/mhyusuf)
 - Developer: Matthew Hurst - [GitHub profile](https://www.github.com/Matt-Hurst)
