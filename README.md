@@ -6,7 +6,7 @@ BookMooch Go is a mobile-optimized portal for BookMooch.com, a successful global
 Check out a demo here:
 https://www.youtube.com/watch?v=C0VSxuoIxmM&t=2s
 
-<img width="851" alt="Screen Shot 2020-12-12 at 9 46 03 AM" src="https://user-images.githubusercontent.com/25126281/101980624-99365800-3c5e-11eb-9bbf-15491ff6e075.png">
+<img width="849" alt="Screen Shot 2020-12-12 at 9 46 03 AM" src="https://user-images.githubusercontent.com/25126281/101980652-ce42aa80-3c5e-11eb-81d3-5b4fae351b8c.png">
 
 ## Getting Started
 If you're interested in getting BookMooch Go up and running on your own machine, follow the steps below and you'll be able to use your own BookMooch account:
