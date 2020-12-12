@@ -6,14 +6,26 @@ BookMooch Go is a mobile-optimized portal for BookMooch.com, a successful global
 Check out a demo here:
 https://www.youtube.com/watch?v=C0VSxuoIxmM&t=2s
 
-<div>
-<img width="202.5" alt="0landing" src="https://user-images.githubusercontent.com/25126281/101944489-b62e4500-3be4-11eb-8eff-f682e7322652.png">
-<img width="200" alt="1info" src="https://user-images.githubusercontent.com/25126281/101944490-b75f7200-3be4-11eb-9cd6-4b7ab5fbc7aa.png">
-<img width="202" alt="2profile" src="https://user-images.githubusercontent.com/25126281/101944494-b8909f00-3be4-11eb-8fe9-a70dd13ae11d.png">
-</div>
-.
-<div>
-<img width="201" alt="3search" src="https://user-images.githubusercontent.com/25126281/101944495-b9293580-3be4-11eb-848d-8fb5d633a09d.png">
-<img width="200.5" alt="4pending" src="https://user-images.githubusercontent.com/25126281/101944496-b9c1cc00-3be4-11eb-8255-958074e61a13.png">
-<img width="201.5" alt="5sending" src="https://user-images.githubusercontent.com/25126281/101946479-eaa30080-3be6-11eb-964f-3725569e3115.png">
-</div>
+<img width="932" alt="Screen Shot 2020-12-12 at 9 17 05 AM" src="https://user-images.githubusercontent.com/25126281/101980074-9d607680-3c5a-11eb-81f4-269a286479da.png">
+
+## Getting Started
+If you're interested in getting BookMooch Go up and running on your own machine, follow the steps below and you'll be able to use your own BookMooch account:
+
+1. Clone this repo onto your computer:
+- `git clone https://github.com/bmcglauser/bookmooch-go`
+2. Enter the directory:
+- `cd bookmooch-go`
+3. Install dependencies and start the server, using localhost:4000:
+- `cd server && npm install`
+- `npm run start`
+on success, you should get a console output of `🚀 Server ready at http://localhost:4000/`
+4. Open another terminal in the directory and do the same for the client:
+- `cd client && npm install`
+- `npm run start`
+5. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X). Then, navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* - please note clicking 'Back' to return will not prompt the browser to automatically resize.
+6. You are now ready to explore the full extent of Bookmooch Go. Enjoy!
+
+## Authors
+- Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
+- Developer: Mohamed Yusuf - [GitHub profile](https://www.github.com/mhyusuf)
+- Developer: Matthew Hurst - [GitHub profile](https://www.github.com/Matt-Hurst)
