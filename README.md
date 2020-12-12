@@ -29,3 +29,7 @@ If you're interested in getting BookMooch Go up and running on your own machine,
 - Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
 - Developer: Mohamed Yusuf - [GitHub profile](https://www.github.com/mhyusuf)
 - Developer: Matthew Hurst - [GitHub profile](https://www.github.com/Matt-Hurst)
+
+*bug notes:*
+- The user registration feature is only accessible with an app-key from Bookmooch, and they have not responded to my inqueries, so at the moment it is unavailable.
+- Since implementing authentication with JWT, the routing of the User Home button is failing. Fixes soon to follow.
