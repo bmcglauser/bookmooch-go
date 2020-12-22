@@ -38,7 +38,6 @@ const ConfirmMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props 
 
   if (loading) return <RandomCenterLoader />;
   if (error) return <ErrorPage message={error.message} ctx={props}/>;
-
   const user = data?.getUserByUsername;
   const book = data?.getBookByAsin;
 
