@@ -1,13 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import Search from './search';
+import Join from './join';
 
-describe('search page', () => {
-  it('renders search page', () => {
+describe('join page', () => {
+  it('renders join page', () => {
     const searchPageDomTree = render(
-        <Search />,
+        <Join />,
         { wrapper: MemoryRouter }
     );
     expect(searchPageDomTree).toMatchSnapshot();

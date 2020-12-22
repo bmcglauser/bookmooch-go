@@ -52,7 +52,9 @@ describe('User profile page', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('should show the user profile info', async () => {
-    expect(await screen.findByText('mattyboi')).toBeInTheDocument();
+  it('should show the user profile info', () => {
+    setTimeout(()=> {
+      expect(screen.findByText('mattyboi')).toBeInTheDocument();
+    },0)
   });
 });

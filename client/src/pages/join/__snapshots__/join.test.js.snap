@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`join page renders join page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="main-header"
+      >
+        <img
+          alt="BookMooch Go logo"
+          class="logo"
+          src="main-logo.svg"
+        />
+        <h1
+          class="title"
+        >
+          Join BookMooch!
+        </h1>
+      </div>
+      <div
+        class="join-page-grand-wrapper"
+      >
+        <div
+          class="join-form-wrapper"
+        >
+          <form
+            class="join-form"
+          >
+            <label
+              for="username"
+            >
+              Username (jsmith02):
+              <input
+                name="username"
+                required=""
+                type="text"
+              />
+            </label>
+            <br />
+            <label
+              for="display_name"
+            >
+              Display name (Jane S):
+              <input
+                name="display_name"
+                required=""
+                type="text"
+              />
+            </label>
+            <br />
+            <label
+              for="email"
+            >
+              E-mail address:
+              <input
+                name="email"
+                required=""
+                type="text"
+              />
+            </label>
+            <br />
+            <label
+              for="password"
+            >
+              Password:
+              <input
+                name="password"
+                required=""
+                type="password"
+              />
+            </label>
+            <br />
+            <label
+              for="confirm-password"
+            >
+              Confirm password:
+              <input
+                name="confirm-password"
+                required=""
+                type="password"
+              />
+            </label>
+            <br />
+            <label
+              for="country"
+            >
+              Country:
+              <input
+                name="country"
+                required=""
+                type="text"
+              />
+            </label>
+            <br />
+            <div
+              class="text-area-wrapper"
+            >
+              <label
+                for="address"
+              >
+                Mailing address:
+              </label>
+              <textarea
+                class="address-input"
+                name="address"
+                required=""
+              />
+            </div>
+            <label
+              for="zip_code"
+            >
+              Zip code:
+              <input
+                name="zip_code"
+                required=""
+                type="text"
+              />
+            </label>
+            <br />
+            <div
+              class="text-area-wrapper"
+            >
+              <label
+                for="secret_question"
+              >
+                Secret question:
+              </label>
+              <textarea
+                class="question-input"
+                name="secret_question"
+                required=""
+              />
+            </div>
+            <div
+              class="text-area-wrapper"
+            >
+              <label
+                for="secret_answer"
+              >
+                Secret answer:
+              </label>
+              <textarea
+                class="answer-input"
+                name="secret_answer"
+                required=""
+              />
+            </div>
+            <div
+              class="join-button-wrapper"
+            >
+              <button
+                class="join-form-submit"
+                type="submit"
+              >
+                <p
+                  class="join-button-text"
+                >
+                  Sign Up
+                </p>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          class="join-page-footer"
+        >
+          <p>
+            Already have an account? Log in 
+            <a
+              href="/login"
+            >
+              here
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="main-header"
+    >
+      <img
+        alt="BookMooch Go logo"
+        class="logo"
+        src="main-logo.svg"
+      />
+      <h1
+        class="title"
+      >
+        Join BookMooch!
+      </h1>
+    </div>
+    <div
+      class="join-page-grand-wrapper"
+    >
+      <div
+        class="join-form-wrapper"
+      >
+        <form
+          class="join-form"
+        >
+          <label
+            for="username"
+          >
+            Username (jsmith02):
+            <input
+              name="username"
+              required=""
+              type="text"
+            />
+          </label>
+          <br />
+          <label
+            for="display_name"
+          >
+            Display name (Jane S):
+            <input
+              name="display_name"
+              required=""
+              type="text"
+            />
+          </label>
+          <br />
+          <label
+            for="email"
+          >
+            E-mail address:
+            <input
+              name="email"
+              required=""
+              type="text"
+            />
+          </label>
+          <br />
+          <label
+            for="password"
+          >
+            Password:
+            <input
+              name="password"
+              required=""
+              type="password"
+            />
+          </label>
+          <br />
+          <label
+            for="confirm-password"
+          >
+            Confirm password:
+            <input
+              name="confirm-password"
+              required=""
+              type="password"
+            />
+          </label>
+          <br />
+          <label
+            for="country"
+          >
+            Country:
+            <input
+              name="country"
+              required=""
+              type="text"
+            />
+          </label>
+          <br />
+          <div
+            class="text-area-wrapper"
+          >
+            <label
+              for="address"
+            >
+              Mailing address:
+            </label>
+            <textarea
+              class="address-input"
+              name="address"
+              required=""
+            />
+          </div>
+          <label
+            for="zip_code"
+          >
+            Zip code:
+            <input
+              name="zip_code"
+              required=""
+              type="text"
+            />
+          </label>
+          <br />
+          <div
+            class="text-area-wrapper"
+          >
+            <label
+              for="secret_question"
+            >
+              Secret question:
+            </label>
+            <textarea
+              class="question-input"
+              name="secret_question"
+              required=""
+            />
+          </div>
+          <div
+            class="text-area-wrapper"
+          >
+            <label
+              for="secret_answer"
+            >
+              Secret answer:
+            </label>
+            <textarea
+              class="answer-input"
+              name="secret_answer"
+              required=""
+            />
+          </div>
+          <div
+            class="join-button-wrapper"
+          >
+            <button
+              class="join-form-submit"
+              type="submit"
+            >
+              <p
+                class="join-button-text"
+              >
+                Sign Up
+              </p>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="join-page-footer"
+      >
+        <p>
+          Already have an account? Log in 
+          <a
+            href="/login"
+          >
+            here
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

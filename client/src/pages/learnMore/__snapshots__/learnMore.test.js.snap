@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LearnMore page renders LearnMore page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="main-header"
+      >
+        <img
+          alt="BookMooch Go logo"
+          class="logo"
+          src="main-logo.svg"
+        />
+        <h1
+          class="title"
+        >
+          BookMooch is:
+        </h1>
+      </div>
+      <div
+        class="learn-more-page-wrapper"
+      >
+        <div
+          class="learn-more-top-block"
+        >
+          <div
+            class="left-text"
+          >
+            <h4>
+              So big!
+            </h4>
+            <h4>
+              So free.
+            </h4>
+            <h4>
+              So easy.
+            </h4>
+          </div>
+          <div
+            class="right-text"
+          >
+            <p>
+              Join over 
+              <b>
+                300,000 members
+              </b>
+              <br />
+              already on BookMooch.com
+            </p>
+            <p>
+              You'll never pay to join
+              <br />
+              or to get books.
+            </p>
+            <p>
+              Give away books you have.
+              <br />
+              Get books you want.
+            </p>
+          </div>
+        </div>
+        <div
+          class="learn-more-bottom-block"
+        >
+          <div
+            class="bottom-block-text"
+          >
+            <h2>
+              BookMooch Go
+            </h2>
+            <p>
+              is the first mobile-friendly way to join this 
+              <i>
+                worldwide
+              </i>
+               bookswapping community
+            </p>
+          </div>
+          <div
+            class="buttons-wrapper"
+          >
+            <a
+              class="button-link"
+              href="/join"
+              style="text-decoration: none;"
+            >
+              <button
+                class="wide-button"
+              >
+                <p>
+                  Sign up
+                </p>
+              </button>
+            </a>
+            <a
+              class="button-link"
+              href="/search"
+              style="text-decoration: none;"
+            >
+              <button
+                class="wide-button"
+              >
+                <p>
+                  Find a Book
+                </p>
+              </button>
+            </a>
+          </div>
+          <div
+            class="bottom-faq-text"
+          >
+            <p>
+              Not sure yet? read some of our
+            </p>
+            <a
+              href="/faq"
+            >
+              <h4>
+                Frequently Asked Questions
+              </h4>
+            </a>
+          </div>
+        </div>
+        <div
+          class="learn-more-footer"
+        >
+          <p>
+            Already have an account? Log in 
+            <a
+              href="/login"
+            >
+              here
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="main-header"
+    >
+      <img
+        alt="BookMooch Go logo"
+        class="logo"
+        src="main-logo.svg"
+      />
+      <h1
+        class="title"
+      >
+        BookMooch is:
+      </h1>
+    </div>
+    <div
+      class="learn-more-page-wrapper"
+    >
+      <div
+        class="learn-more-top-block"
+      >
+        <div
+          class="left-text"
+        >
+          <h4>
+            So big!
+          </h4>
+          <h4>
+            So free.
+          </h4>
+          <h4>
+            So easy.
+          </h4>
+        </div>
+        <div
+          class="right-text"
+        >
+          <p>
+            Join over 
+            <b>
+              300,000 members
+            </b>
+            <br />
+            already on BookMooch.com
+          </p>
+          <p>
+            You'll never pay to join
+            <br />
+            or to get books.
+          </p>
+          <p>
+            Give away books you have.
+            <br />
+            Get books you want.
+          </p>
+        </div>
+      </div>
+      <div
+        class="learn-more-bottom-block"
+      >
+        <div
+          class="bottom-block-text"
+        >
+          <h2>
+            BookMooch Go
+          </h2>
+          <p>
+            is the first mobile-friendly way to join this 
+            <i>
+              worldwide
+            </i>
+             bookswapping community
+          </p>
+        </div>
+        <div
+          class="buttons-wrapper"
+        >
+          <a
+            class="button-link"
+            href="/join"
+            style="text-decoration: none;"
+          >
+            <button
+              class="wide-button"
+            >
+              <p>
+                Sign up
+              </p>
+            </button>
+          </a>
+          <a
+            class="button-link"
+            href="/search"
+            style="text-decoration: none;"
+          >
+            <button
+              class="wide-button"
+            >
+              <p>
+                Find a Book
+              </p>
+            </button>
+          </a>
+        </div>
+        <div
+          class="bottom-faq-text"
+        >
+          <p>
+            Not sure yet? read some of our
+          </p>
+          <a
+            href="/faq"
+          >
+            <h4>
+              Frequently Asked Questions
+            </h4>
+          </a>
+        </div>
+      </div>
+      <div
+        class="learn-more-footer"
+      >
+        <p>
+          Already have an account? Log in 
+          <a
+            href="/login"
+          >
+            here
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

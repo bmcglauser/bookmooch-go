@@ -81,15 +81,17 @@ const mocks = [
 ]
 
 describe('search results page', () => {
-  it('renders Search Results page', async () => {
-   const { getByText } = render (
+  it('renders Search Results page', () => {
+    const { getByText } = render (
       <MockedProvider mocks={mocks} addTypename={false}>
         <SearchResults match={{ params: { string: '~~~recent' } }} />
       </MockedProvider>,
       { wrapper: MemoryRouter }
     );
     expect(getByText('Loading...')).toBeInTheDocument();
-    // const book = await findByText(/Some/);
-    // expect(book).toBeInTheDocument(); 
+    setTimeout(()=> {
+      const book = findByText("Some Enchanted Evening");
+      expect(book).toBeInTheDocument(); 
+    },0)
   });
 });

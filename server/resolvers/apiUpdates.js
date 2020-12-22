@@ -2,7 +2,6 @@
 const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 exports.LoginUser = (self, pw) => {
   return axios ({
@@ -21,7 +20,7 @@ exports.LoginUser = (self, pw) => {
     },
   }).then(res => {
     if (res.data.success !== '1') throw new Error();
-    const token = jwt.sign({ self, pw },process.env.JWT_SECRET)
+    const token = jwt.sign({ self, pw },process.env.JWT_SECRET);
     return { token }
   })
     .catch(e => e.message);

@@ -4,7 +4,11 @@
   "description": "A mobile-optimized portal for BookMooch.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "(cd server && npm i); (cd client && npm i)",
+    "client": "npm run start --prefix client",
+    "server": "nodemon server",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,10 @@
   },
   "homepage": "https://github.com/mhyusuf/bookmooch-go#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "concurrently": "^5.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "jquery": "^3.5.1",
+    "nodemon": "^2.0.6"
   },
   "config": {
     "commitizen": {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`seach page renders search page 1`] = `
+exports[`search page renders search page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

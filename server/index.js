@@ -2,13 +2,14 @@
 const { ApolloServer } = require('apollo-server');
 const resolvers = require('./resolvers');
 const typeDefs = require('./typeDefs');
+require('dotenv').config();
 
 const server = new ApolloServer(
   {
   typeDefs,
   resolvers,
   context: ({ req }) => {
-    const token = req.headers.authorization.replace('Bearer ', '') || '';
+    const token = req.headers.authorization && req.headers.authorization.replace('Bearer ', '') || '';
     return { token }
   }
 });

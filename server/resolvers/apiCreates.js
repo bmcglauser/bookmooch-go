@@ -2,7 +2,6 @@
 const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 exports.AddBookToBookshelf = async (asin, token) => {
   const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)

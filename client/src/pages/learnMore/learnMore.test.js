@@ -1,13 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import Search from './search';
+import LearnMore from './learnMore';
 
-describe('search page', () => {
-  it('renders search page', () => {
+describe('LearnMore page', () => {
+  it('renders LearnMore page', () => {
     const searchPageDomTree = render(
-        <Search />,
+        <LearnMore />,
         { wrapper: MemoryRouter }
     );
     expect(searchPageDomTree).toMatchSnapshot();
