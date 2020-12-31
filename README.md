@@ -11,22 +11,27 @@ https://www.youtube.com/watch?v=C0VSxuoIxmM
 ## Getting Started
 If you're interested in getting BookMooch Go up and running on your own machine, follow the steps below and you'll be able to use your own BookMooch account:
 
+**note: you must have Node Package Manager installed to follow the steps below**
+
 1. Clone this repo onto your computer with `git clone https://github.com/bmcglauser/bookmooch-go`
 2. Enter the directory with `cd bookmooch-go`
 3. Install dependencies with `npm install`
-4. Create your own .env file in the server folder with only this single line of code: `JWT_SECRET=somestring`
-- (if you plan on using your real BookMooch account to request books, follow the .env.example file in your own .env file within the client folder. It is fine to skip this step)
-5. Run the server and client bootstrap with `npm run dev`, which leverages the concurrently library to simultaneously launch processes on both ports 3000 and 4000
-7. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools.
-8. Select 'Toggle device toolbar' from the Elements tab, in the upper left of the panel. Select a mobile device at the top of the window (I designed using iPhone X).
-9. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* (please note clicking 'Back' to return will not prompt the browser to automatically resize).
-10. You should now see the app in the correct proportion and are now ready to explore the full extent of Bookmooch Go. Enjoy!
+4. Create your own .env file in the main directory with only this single line of code: `JWT_SECRET=somestring`
+- (if you plan on using your real BookMooch account to request books, follow the .env.example file. v  It is fine to skip this step)
+5. Run the server and client bootstrap with `npm run dev`, which uses the concurrently library to simultaneously launch processes on both ports 3000 and 4000
+7. A window will automatically open with the client, but in a distorted desktop view. Open the developer tools to select 'Toggle device toolbar' and choose a phone (I designed on iPhone X)
+8. Navigate away from localhost to any other page. Return to localhost:3000 *using the address bar* (please note clicking 'Back' to return will not prompt the browser to automatically resize). You should now see the app in the correct proportion.
+
+Enjoy!
 
 ## Contributors
 - Founder/Lead developer: Brett Glauser - [GitHub profile](https://www.github.com/bmcglauser)
 - Developer: Mohamed Yusuf - [GitHub profile](https://www.github.com/mhyusuf)
 - Developer: Matthew Hurst - [GitHub profile](https://www.github.com/Matt-Hurst)
 
+*moving forward:*
+- test coverage is expanding, primarily using React Testing Library and Apollo Testing Library
+- containerization with Docker is coming
+
 *bug notes:*
 - The user registration feature is only accessible with an app-key from Bookmooch, and they have not responded to my inqueries, so at the moment the feature is unavailable.
-- Since implementing authentication with JWT, the routing of the User Home button is failing. Fixes soon to follow.
