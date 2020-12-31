@@ -1,8 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
 import ErrorPage from '../../pages/errorPage';
+import UserContext from '../../utils/UserContext';
+import PendingPage from '../../pages/pending';
 
 
 type GiveFeedbackControllerProps = {
@@ -25,9 +27,8 @@ const GiveFeedbackController: FunctionComponent<GiveFeedbackControllerProps> = p
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.giveFeedback === "ok") {
-    props.ctx.history.push(`/pending`);
-    props.ctx.history.go(0);
-  } else return (<ErrorPage ctx={props.ctx} message="Mark as recevied failed"/>);
+    props.ctx.history.push('/profile');
+  } else return (<ErrorPage message="Mark as recevied failed" ctx={props.ctx}/>);
   return <div />;
 }
 

@@ -3,6 +3,8 @@ const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
 
+const SECRET = process.env.JWT_SECRET || 'a';
+
 exports.LoginUser = (self, pw) => {
   return axios ({
     method: 'post',
@@ -20,7 +22,7 @@ exports.LoginUser = (self, pw) => {
     },
   }).then(res => {
     if (res.data.success !== '1') throw new Error();
-    const token = jwt.sign({ self, pw },process.env.JWT_SECRET);
+    const token = jwt.sign({ self, pw },SECRET);
     return { token }
   })
     .catch(e => e.message);
@@ -28,7 +30,7 @@ exports.LoginUser = (self, pw) => {
 
 
 exports.RequestAskFirst = async (asin, giverid, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios({
     method: 'post',
@@ -50,8 +52,8 @@ exports.RequestAskFirst = async (asin, giverid, token) => {
     .catch(e => e.message);
 };
 
-exports.GiveFeedback = async (pendingID, score, comment = '', token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+exports.GiveFeedback = async (pendingID, score, token, comment = '') => {
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios({
     method: 'post',
@@ -75,7 +77,7 @@ exports.GiveFeedback = async (pendingID, score, comment = '', token) => {
     .catch(e => e.message);
 };
 exports.MarkSent = async (pendingID, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios({
     method: 'post',
@@ -98,7 +100,7 @@ exports.MarkSent = async (pendingID, token) => {
 };
 
 exports.AcceptMooch = async (requester, asin, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios({
     method: 'get',

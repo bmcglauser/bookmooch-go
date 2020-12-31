@@ -2,7 +2,8 @@
 const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+
+const SECRET = process.env.JWT_SECRET || 'a';
 
 exports.GetBookByAsin = (asin) => {
   return axios({
@@ -20,7 +21,7 @@ exports.GetBookByAsin = (asin) => {
     .catch((e) => e.message);
 };
 exports.GetUserByUsername = async (username, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/userid',
@@ -55,7 +56,7 @@ exports.GetPendingById = (id) => {
     .catch(e => e.message);
 };
 exports.GetConfidentialPendingById = async (id, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
   return axios({
     method: 'post',
     url: 'http://api.bookmooch.com/api/pending_confidential',

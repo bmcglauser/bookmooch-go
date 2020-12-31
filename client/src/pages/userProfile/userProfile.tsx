@@ -1,8 +1,7 @@
 import React, { FunctionComponent, useContext, useEffect } from 'react';
 import './userProfile.scss';
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { useQuery } from '@apollo/client';
-import { RouteComponentProps } from 'react-router-dom'
 import Header from "../../components/Header";
 import ErrorPage from '../errorPage';
 import ProfileInfo from '../../containers/ProfileInfo';
@@ -11,16 +10,20 @@ import queryService from '../../services/queryService';
 import UserContext from '../../utils/UserContext';
 
 
-type TParams = { username: string }
+interface TParams {
+  user: string;
+}
 
 const UserProfilePage: FunctionComponent<RouteComponentProps<TParams>> = props => { 
-  const self = props.match.params.username
+  const {username, setUsername} = useContext(UserContext)
+  const { user } = props.match.params;
+  const self = user && user.length ? user : username;
   const query = queryService.GET_USER(self);
-
-  const { setUsername } = useContext(UserContext);
   
   useEffect(()=>{
-    setUsername(self);
+    if (user && user.length) {
+      setUsername(user);
+    }
   },[]);
   
   const { loading, error, data } = useQuery(query);
@@ -79,11 +82,15 @@ const UserProfilePage: FunctionComponent<RouteComponentProps<TParams>> = props =
         </div>
       </div>
       <div className="bottomLogoutWrapper">
-        <p className="bottomLogoutLink">Not your profile? All done? Log out <span style={{textDecoration: 'underline', fontWeight: 'bold'}} onClick={() => {
-          setUsername('');
-          localStorage.removeItem('token');
-          props.history.push('/');
-        }}>here</span></p>
+        <p className="bottomLogoutLink">Not your profile? All done? Log out
+          <span style={{textDecoration: 'underline', fontWeight: 'bold'}} onClick={() => {
+            setUsername('');
+            localStorage.removeItem('token');
+            props.history.push('/');
+          }}>
+            here
+          </span>
+        </p>
       </div>
     </div>
     </>

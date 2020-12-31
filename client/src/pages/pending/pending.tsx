@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import './pending.scss';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from 'react-router-dom';
@@ -9,18 +9,17 @@ import PendingItem from '../../containers/BookItems/PendingItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 import { User, Transaction } from '../../services/queryService/queryServiceInterfaces';
+import UserContext from '../../utils/UserContext';
 
-type TParams = {
-  username: string
-}
 
 interface Data {
   getUserByUsername: User
 }
 
-const PendingPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
-  const self = props.match.params.username;
-  const query = queryService.GET_ALL_PENDING(self);
+const PendingPage: FunctionComponent<RouteComponentProps> = props => {
+  const { username } = useContext(UserContext);
+
+  const query = queryService.GET_ALL_PENDING(username);
 
   const { loading, error, data } = useQuery<Data>(query);
 

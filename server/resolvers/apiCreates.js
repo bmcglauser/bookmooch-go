@@ -3,8 +3,10 @@ const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
 
+const SECRET = process.env.JWT_SECRET || 'a';
+
 exports.AddBookToBookshelf = async (asin, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
   return axios ({
     method: 'post',
     url: 'http://bookmooch.com/api/userbook',
@@ -27,7 +29,7 @@ exports.AddBookToBookshelf = async (asin, token) => {
 };
 
 exports.MoochNow = async (asin, giverid, selfAddress, selfCountry = 'US', token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
   return axios({
     method: 'post',
     url: 'http://bookmooch.com/api/mooch',

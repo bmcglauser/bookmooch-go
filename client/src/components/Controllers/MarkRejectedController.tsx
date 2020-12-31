@@ -24,8 +24,7 @@ const MarkRejectedController: FunctionComponent<MarkRejectedControllerProps> = p
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.markReject === "ok") {
-    props.ctx.history.push(`/pending`);
-    props.ctx.history.go(0);
+    props.ctx.history.push(`/profile`);
   } else return (<ErrorPage ctx={props.ctx} message="Rejection failed"/>);
   return <div />;
 }

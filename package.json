@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "(cd server && npm i); (cd client && npm i)",
-    "client": "npm run start --prefix client",
-    "server": "nodemon server",
-    "dev": "concurrently \"npm run client\" \"npm run server\""
+    "dev": "npm run start && cd client && npm run start",
+    "start": "node server/index.js",
+    "heroku-postbuild": "npm install --prefix client --only=dev && npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhyusuf/bookmooch-go.git"
+  },
+  "engines": {
+    "node": "12.18.2",
+    "npm": "7.0.14"
   },
   "keywords": [],
   "author": "",

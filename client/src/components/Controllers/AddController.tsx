@@ -21,8 +21,7 @@ const AddController: FunctionComponent<AddControllerProps> = props => {
   if (error) <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.addBookToBookshelf === `${props.asin}`) {
-    props.ctx.history.push(`/bookshelf`);
-    props.ctx.history.go(0);
+    props.ctx.history.push(`/profile`);
   } else <ErrorPage ctx={props.ctx} message="Add failed"/>;
   return <div />;
 }

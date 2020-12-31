@@ -21,8 +21,7 @@ const RemoveController: FunctionComponent<RemoveControllerProps> = props => {
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.removeBookFromBookshelf === `${props.asin}`) {
-    props.ctx.history.push(`/bookshelf`);
-    props.ctx.history.go(0);
+    props.ctx.history.push(`/profile`);
   } else return (<ErrorPage ctx={props.ctx} message="Remove failed"/>);
   return <div />;
 }

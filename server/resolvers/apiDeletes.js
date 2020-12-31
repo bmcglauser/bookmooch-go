@@ -2,10 +2,12 @@
 const axios = require('axios').default;
 const qs = require('qs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+
+const SECRET = process.env.JWT_SECRET || 'a';
+
 
 exports.RemoveBookFromBookshelf = async (asin, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios ({
     method: 'post',
@@ -29,7 +31,7 @@ exports.RemoveBookFromBookshelf = async (asin, token) => {
 };
 
 exports.MarkReject = async (pendingID, token) => {
-  const { self, pw } = await jwt.verify(token, process.env.JWT_SECRET)
+  const { self, pw } = await jwt.verify(token, SECRET)
 
   return axios({
     method: 'post',

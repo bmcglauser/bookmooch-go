@@ -9,7 +9,7 @@ const LoginForm: FunctionComponent = () => {
   const [password, setPassword] = useState('');
 
   return (
-    <div className='login-form'>
+    <form className='login-form'>
       <label htmlFor='username'>Username</label>
       <input onChange={(e) => setUsername(e.target.value)} value={username} name='username' type='text' required/>
       <label htmlFor='password'>Password</label>
@@ -21,7 +21,7 @@ const LoginForm: FunctionComponent = () => {
           </p>
         </button>
       </Link>
-    </div>
+    </form>
   );
 }
 

@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  backend:
+    image: bmcglauser/bookmooch-backend
+    ports:
+      - '4000:4000'
+    environment:
+      JWT_SECRET: 'a'
+
+  frontend:
+    image: bmcglauser/bookmooch-frontend
+    # environment: 
+      # REACT_APP_USERNAMEA: 'yourusername'
+      # REACT_APP_PWA: 'yourpassword'
+      # REACT_APP_DISPLAY_NAME: 'Your Name'
+      # REACT_APP_COUNTRY: 'US'
+      # REACT_APP_ADDRESS: 'Your shipping address'
+      # REACT_APP_POINTS: '112'
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+      

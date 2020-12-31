@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import { RouteComponentProps } from 'react-router-dom';
 import './bookshelf.scss';
@@ -9,18 +9,15 @@ import BookshelfItem from '../../containers/BookItems/BookshelfItem';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
 import { User } from '../../services/queryService/queryServiceInterfaces';
+import UserContext from '../../utils/UserContext';
 
-
-type TParams = {
-  username: string
-}
 
 interface Data {
   getUserByUsername: User
 }
 
-const BookshelfPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
-  const username = props.match.params.username;
+const BookshelfPage: FunctionComponent<RouteComponentProps> = props => {
+  const {username} = useContext(UserContext);
   const query = queryService.GET_BOOKSHELF(username);
 
   const { loading, error, data } = useQuery<Data>(query);

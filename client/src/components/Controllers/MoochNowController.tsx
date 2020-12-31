@@ -23,8 +23,7 @@ const MoochNowController: FunctionComponent<MoochNowControllerProps> = props => 
   if (error) return <ErrorPage message={error.message} ctx={props.ctx}/>;
 
   if (data && data.moochNow === "success") {
-    props.ctx.history.push(`/pending`);
-    props.ctx.history.go(0);
+    props.ctx.history.push(`/profile`);
   } else return (<ErrorPage ctx={props.ctx} message="Mooch failed"/>);
   return <div />;
 }

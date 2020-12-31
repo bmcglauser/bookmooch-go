@@ -57,9 +57,9 @@ const App: FunctionComponent = () => {
             <Route path="/" exact                          component={LandingPage} />
             <Route path="/landing"                        component={LandingPage} />
             <Route path="/login"                          component={LoginPage} />
-            <Route path="/profile/:username?"             component={UserProfilePage} />
-            <Route path="/bookshelf/:username?"           component={BookshelfPage} />
-            <Route path="/pending/:username?"             component={PendingPage} />
+            <Route path="/profile/:user?"                        component={UserProfilePage} />
+            <Route path="/bookshelf"                      component={BookshelfPage} />
+            <Route path="/pending"                        component={PendingPage} />
             <Route path="/search"                         component={SearchPage} />
             <Route path="/details/:asin?"                 component={BookDetailsPage} />
             <Route path="/confirmadd/:asin"               component={ConfirmAddPage} />
