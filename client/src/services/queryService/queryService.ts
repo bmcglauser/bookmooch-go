@@ -31,8 +31,14 @@ const GET_BOOKSHELF = (username?: string): DocumentNode => gql`
   }
   `;
 
-const GET_MOOCH_CHOICE = (asin: string): DocumentNode => gql`
+const GET_MOOCH_CHOICE = (asin: string, self: string): DocumentNode => gql`
   query {
+    getUserByUsername (username: "${self}") {
+      username
+      display_name
+      country
+      points
+    }
     getBookByAsin (asin: "${asin}") {
       asin
       title
@@ -66,9 +72,15 @@ const GET_SIMPLE_BOOK = (asin: string): DocumentNode => gql`
   }
   `;
 
-  const GET_CONFIRM_MOOCH = (username: string, asin: string): DocumentNode => gql`
+  const GET_CONFIRM_MOOCH = (otherUsername: string, asin: string, self: string): DocumentNode => gql`
     query {
-      getUserByUsername (username: "${username}") {
+      self: getUserByUsername (username: "${self}") {
+        username
+        display_name
+        country
+        points
+      },
+      otherUser: getUserByUsername (username: "${otherUsername}") {
         username
         display_name
         country

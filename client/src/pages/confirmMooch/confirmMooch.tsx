@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useContext } from 'react';
 import './confirmMooch.scss';
 import { useQuery } from '@apollo/client';
 import { Link, RouteComponentProps } from 'react-router-dom';
@@ -9,14 +9,7 @@ import ActiveItem from '../../containers/BookItems/ActiveItem';
 import formatDate from '../../services/dateProcessor';
 import queryService from '../../services/queryService';
 import { User, Book } from '../../services/queryService/queryServiceInterfaces';
-
-const self = {
-  username: process.env.REACT_APP_USERNAMEA || '',
-  display_name: process.env.REACT_APP_DISPLAY_NAME || '',
-  country: process.env.REACT_APP_COUNTRY || '',
-  address: process.env.REACT_APP_ADDRESS || '',
-  points: process.env.REACT_APP_POINTS || ''
-};
+import UserContext from '../../utils/UserContext';
 
 type TParams = {
   user: string,
@@ -24,28 +17,32 @@ type TParams = {
 }
 
 interface Data {
-  getUserByUsername: User;
+  self: User;
+  otherUser: User;
   getBookByAsin: Book;
 }
 
 const ConfirmMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const username = props.match.params.user;
   const asin = props.match.params.asin;
-  const query = queryService.GET_CONFIRM_MOOCH(username, asin);
+  const selfUsername = useContext(UserContext).username;
+
+  const query = queryService.GET_CONFIRM_MOOCH(username, asin, selfUsername);
 
   const { loading, error, data } = useQuery<Data>(query);
   const [address, setAddress] = useState('');
 
   if (loading) return <RandomCenterLoader />;
   if (error) return <ErrorPage message={error.message} ctx={props}/>;
-  const user = data?.getUserByUsername;
+  const user = data?.otherUser;
+  const self = data?.self;
   const book = data?.getBookByAsin;
 
   const condition = user?.listings ? user.listings[0].condition : '';
   const addedDateStr = user?.listings ? formatDate(user.listings[0].listed_on) : '';
 
-  const pointCost = self.country === user?.country ? 1 : 3;
-  const pointsLeft = parseInt(self.points) / 10 - pointCost;
+  const pointCost = self?.country === user?.country ? 1 : 3;
+  const pointsLeft = self && parseInt(self.points) / 10 - pointCost;
   const pointsLeftStr = pointsLeft === 1 ? '1 point' : `${pointsLeft} points`;
 
   let directMoochBool = false;
@@ -57,7 +54,7 @@ const ConfirmMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props 
       directMoochBool = false;
       break;
     case 'mycountry':
-      if (self.country === user?.country) {
+      if (self?.country === user?.country) {
         directMoochBool = true;
       }
       break;

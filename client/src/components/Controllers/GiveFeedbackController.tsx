@@ -1,10 +1,8 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import actionService from '../../services/actionService';
 import ErrorPage from '../../pages/errorPage';
-import UserContext from '../../utils/UserContext';
-import PendingPage from '../../pages/pending';
 
 
 type GiveFeedbackControllerProps = {

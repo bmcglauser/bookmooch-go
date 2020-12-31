@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import './chooseMooch.scss';
 import Header from '../../components/Header';
 import ActiveItem from '../../containers/BookItems/ActiveItem';
@@ -8,25 +8,22 @@ import UserWithItem from '../../containers/UserWithItem';
 import { useQuery } from '@apollo/client';
 import RandomCenterLoader from '../../components/Loaders/RandomCenterLoader';
 import queryService from '../../services/queryService';
-import { Book } from '../../services/queryService/queryServiceInterfaces'
+import { Book, User } from '../../services/queryService/queryServiceInterfaces'
 import { RouteComponentProps } from 'react-router-dom'
+import UserContext from '../../utils/UserContext';
 
-const falseSelf = {
-  username: process.env.REACT_APP_USERNAMEA || '',
-  display_name: process.env.REACT_APP_DISPLAY_NAME || '',
-  country: process.env.REACT_APP_COUNTRY || '',
-  points: process.env.REACT_APP_POINTS || ''
-};
 
 interface Data  {
-  getBookByAsin: Book
+  getBookByAsin: Book;
+  getUserByUsername: User;
 }
 
 type TParams = { asin: string }
 
 const ChooseMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props => {
   const asin = props.match.params.asin
-  const query = queryService.GET_MOOCH_CHOICE(asin);
+  const selfUsername = useContext(UserContext).username;
+  const query = queryService.GET_MOOCH_CHOICE(asin, selfUsername);
   
   const { loading, error, data } = useQuery<Data>(query);
 
@@ -34,9 +31,10 @@ const ChooseMoochPage: FunctionComponent<RouteComponentProps<TParams>> = props =
   if (error) return <ErrorPage message={error.message} ctx={props}/>;
   
   const book = data?.getBookByAsin;
-  
-  const usersArr = book?.usersWith?.map( user => 
-    <UserWithItem key={user.username} self={falseSelf} other={user} asin={asin}/>
+  const self = data?.getUserByUsername;
+
+  const usersArr = self && book?.usersWith?.map( user => 
+    <UserWithItem key={user.username} self={self} other={user} asin={asin}/>
   )
 
   const users = usersArr?.length

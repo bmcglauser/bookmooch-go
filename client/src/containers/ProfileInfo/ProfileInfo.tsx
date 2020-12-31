@@ -33,7 +33,7 @@ const ProfileInfo: FunctionComponent<ProfileIndoProps> = props => {
           <h5>Feedback score: {user.feedback_score}</h5>
         </div>
         <div className="bookshelf-button-block">
-          <Link to={`/bookshelf/${user.username}`}>
+          <Link to={`/bookshelf`}>
             <button className="bookshelf-button">
               <div className="bookshelf-icon"/>
             </button>

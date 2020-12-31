@@ -14,7 +14,7 @@ interface Data {
   login: { token: string }
 }
 
-const LoginController: FunctionComponent<LoginControllerProps> =  props => {
+const LoginController: FunctionComponent<LoginControllerProps> = props => {
   const query = actionService.LOGIN(props.username, props.pw);
   const { loading, error, data } = useQuery<Data>(query);
 
@@ -23,7 +23,7 @@ const LoginController: FunctionComponent<LoginControllerProps> =  props => {
 
   if (data && data.login.token) {
     localStorage.setItem('token', data.login.token);
-    props.ctx.history.push(`/profile/${props.username}`);
+    setTimeout(()=> {props.ctx.history.push(`/profile/${props.username}`);}, 0);
   } else return (<ErrorPage ctx={props.ctx} message="Login failed"/>)
   return <div />;
 }

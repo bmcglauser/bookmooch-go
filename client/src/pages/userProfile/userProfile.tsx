@@ -52,7 +52,7 @@ const UserProfilePage: FunctionComponent<RouteComponentProps<TParams>> = props =
         <div className="buttonColCenter">
           <div className="centerButtons">
             <div className="pendingButtonWrapper">
-              <Link to={`/pending/${self}`}>
+              <Link to={`/pending`}>
                 <button className="pending center-button">
                   <div className="white-pending-icon" />
                 </button>
