@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-client-image": "cd client && docker build -t bmcglauser/bookmooch-frontend .",
+    "build-server-image": "cd server && docker build -t bmcglauser/bookmooch-backend .",
+    "build-images": "npm run build-client-image && npm run build-server-image",
     "dev": "npm run start && cd client && npm run start",
     "start": "node server/index.js",
     "heroku-postbuild": "npm install --prefix client --only=dev && npm install --prefix client && npm run build --prefix client"
