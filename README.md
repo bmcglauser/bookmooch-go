@@ -15,7 +15,7 @@ If you're interested in getting BookMooch Go up and running on your own machine,
 
 1. Clone this repo onto your computer with `git clone https://github.com/bmcglauser/bookmooch-go`
 2. Enter the directory with `cd bookmooch-go`
-3. Run `docker-compose up` to launch both the client and server containers on ports 3000 and 4000 respectively
+3. Run `npm run build-images && docker-compose up` to create images for the client and server containers and launch them on ports 3000 and 4000 respectively
 4. Open a browser window in Chrome and access the developer tools, selecting a mobile device view (I designed on iPhone X)
 5. Navigate to localhost:3000
 
