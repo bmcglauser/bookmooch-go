@@ -4,7 +4,7 @@
   "description": "A mobile-optimized portal for BookMooch.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd client && npm run test",
     "build-client-image": "cd client && docker build -t bmcglauser/bookmooch-frontend .",
     "build-server-image": "cd server && docker build -t bmcglauser/bookmooch-backend .",
     "build-images": "npm run build-client-image && npm run build-server-image",

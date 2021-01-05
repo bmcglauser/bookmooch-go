@@ -112,7 +112,7 @@ Object {
               class="small-button"
             >
               <a
-                href="/profile"
+                href="/profile/"
                 style="text-decoration: none;"
               >
                 <div
@@ -272,7 +272,7 @@ Object {
             class="small-button"
           >
             <a
-              href="/profile"
+              href="/profile/"
               style="text-decoration: none;"
             >
               <div

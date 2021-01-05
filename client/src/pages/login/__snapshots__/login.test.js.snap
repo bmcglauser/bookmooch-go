@@ -71,7 +71,7 @@ Object {
         <div
           class="login-form-wrapper"
         >
-          <div
+          <form
             class="login-form"
           >
             <label
@@ -106,7 +106,7 @@ Object {
                 </p>
               </button>
             </a>
-          </div>
+          </form>
         </div>
         <p
           class="footerLogin"
@@ -188,7 +188,7 @@ Object {
       <div
         class="login-form-wrapper"
       >
-        <div
+        <form
           class="login-form"
         >
           <label
@@ -223,7 +223,7 @@ Object {
               </p>
             </button>
           </a>
-        </div>
+        </form>
       </div>
       <p
         class="footerLogin"

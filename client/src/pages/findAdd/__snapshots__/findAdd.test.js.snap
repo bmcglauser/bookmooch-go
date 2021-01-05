@@ -57,7 +57,7 @@ Object {
           class="add-page-footer"
         >
           <a
-            href="/profile"
+            href="/profile/"
             style="text-decoration: none;"
           >
             <div
@@ -131,7 +131,7 @@ Object {
         class="add-page-footer"
       >
         <a
-          href="/profile"
+          href="/profile/"
           style="text-decoration: none;"
         >
           <div

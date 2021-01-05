@@ -8,18 +8,24 @@ import ConfirmMoochPage from './';
 
 const GET_CONFIRM_MOOCH = gql`  
   query {
-    getUserByUsername (username: "rainroses") {
+    self: getUserByUsername (username: "${self}") {
+      username
+      display_name
+      country
+      points
+    },
+    otherUser: getUserByUsername (username: "${otherUsername}") {
       username
       display_name
       country
       willsend
-      listings (asin: "0066214122") {
+      listings(asin: "${asin}") {
         asin
         listed_on
         condition
       }
     },
-    getBookByAsin (asin: "0066214122") {
+    getBookByAsin(asin: "${asin}") {
       asin
       title
       author
@@ -34,7 +40,13 @@ const mocks = [
     },
     result: {
       "data": {
-        "getUserByUsername": {
+        "self": {
+          "username": "joeshmo",
+          "display_name": "Joe (USA: IL)",
+          "country": "US",
+          "points": 123
+        },
+        "otherUser": {
           "username": "rainroses",
           "display_name": "Ana (USA: CA)",
           "country": "US",
