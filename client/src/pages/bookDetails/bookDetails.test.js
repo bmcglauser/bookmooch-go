@@ -17,9 +17,21 @@ const mocks = [
           author: 'William P. Young',
           availCount: '10',
           cover_art_url: null,
-          summary: 'I agree with other reviewers than an open mind is necessary.  Once I got through the first few chapters, I realized I was enjoying the story and hooked.',
+          summary:
+            'I agree with other reviewers than an open mind is necessary.  Once I got through the first few chapters, I realized I was enjoying the story and hooked.',
           title: 'The Shack',
-          usernamesWith: ['mwilliams', 'lauraoathout', 'susie425', 'pchisolm', 'b1rdyb1rdy', 'giraffegirl', 'jmsmith15', 'bsu', 'vjconnor', 'christycapps'],
+          usernamesWith: [
+            'mwilliams',
+            'lauraoathout',
+            'susie425',
+            'pchisolm',
+            'b1rdyb1rdy',
+            'giraffegirl',
+            'jmsmith15',
+            'bsu',
+            'vjconnor',
+            'christycapps'
+          ]
         }
       }
     }
@@ -31,7 +43,7 @@ describe('Book Detail Page', () => {
   beforeEach(() => {
     page = render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <BookDetailsPage match={{ params: { asin: '0964729237' } }}/>
+        <BookDetailsPage match={{ params: { asin: '0964729237' } }} />
       </MockedProvider>,
       { wrapper: MemoryRouter }
     );

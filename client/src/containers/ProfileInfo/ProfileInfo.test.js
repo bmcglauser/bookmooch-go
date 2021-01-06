@@ -11,17 +11,18 @@ const mocks = {
     listingCount: 2,
     feedback_score: '26'
   }
-}
+};
 
-describe('UserWithItem', () => {  
+describe('UserWithItem', () => {
   it('Shows user profile information', async () => {
     let page;
-    page = render(
-      <ProfileInfo user={mocks.selfUser}/>,
-      { wrapper: MemoryRouter }
-    );
+    page = render(<ProfileInfo user={mocks.selfUser} />, {
+      wrapper: MemoryRouter
+    });
     expect(await screen.findByText(/Bookshelf/)).toBeInTheDocument();
     expect(await screen.findByText(/Adam L/)).toBeInTheDocument();
-    expect(await screen.findByText(`Books listed: ${mocks.selfUser.listingCount}`)).toBeInTheDocument();
-  });  
+    expect(
+      await screen.findByText(`Books listed: ${mocks.selfUser.listingCount}`)
+    ).toBeInTheDocument();
+  });
 });

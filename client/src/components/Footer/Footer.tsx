@@ -1,13 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import './Footer.scss';
 import buttons from '../FooterButtons';
-import { RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom';
 
-function whichButton (inputStr?: string, props?: RouteComponentProps): JSX.Element {
+function whichButton(
+  inputStr?: string,
+  props?: RouteComponentProps
+): JSX.Element {
   if (inputStr === 'back' && props) {
     return <buttons.BackButton ctx={props} />;
   }
-  switch(inputStr) {     
+  switch (inputStr) {
     case 'circleAdd':
       return <buttons.CircleAddButton />;
     case 'search':
@@ -20,13 +23,13 @@ function whichButton (inputStr?: string, props?: RouteComponentProps): JSX.Eleme
 }
 
 type FooterProps = {
-  leftBut?: string,
-  centerBut?: string,
-  rightBut?: string,
-  ctx?: RouteComponentProps
-}
+  leftBut?: string;
+  centerBut?: string;
+  rightBut?: string;
+  ctx?: RouteComponentProps;
+};
 
-const Footer: FunctionComponent<FooterProps> = props => {
+const Footer: FunctionComponent<FooterProps> = (props) => {
   return (
     <div className="footer-grand-wrapper">
       <div className="small-button">
@@ -38,6 +41,6 @@ const Footer: FunctionComponent<FooterProps> = props => {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;

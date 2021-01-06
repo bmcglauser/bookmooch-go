@@ -1,44 +1,44 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
-import { MockedProvider } from '@apollo/client/testing'
-import BookshelfPage from './'
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { MockedProvider } from '@apollo/client/testing';
+import BookshelfPage from './';
 import queryService from '../../services/queryService';
 import UserContext from '../../utils/UserContext';
 
 const mocks = [
   {
     request: {
-      query: queryService.GET_BOOKSHELF("mattyboi"),
+      query: queryService.GET_BOOKSHELF('mattyboi')
     },
     result: {
       data: {
         getUserByUsername: {
-          username: "mattyboi",
+          username: 'mattyboi',
           listings: [
             {
-              asin: "BM1287025487221026419",
+              asin: 'BM1287025487221026419',
               book: {
-                title: "Shogun",
-                author: "James Clavell"
+                title: 'Shogun',
+                author: 'James Clavell'
               },
-              listed_on: "1605869096000"
+              listed_on: '1605869096000'
             },
             {
-              asin: "0091927900",
+              asin: '0091927900',
               book: {
-                title: "Yes Man",
-                author: "Danny Wallace"
+                title: 'Yes Man',
+                author: 'Danny Wallace'
               },
-              listed_on: "1605869205000"
+              listed_on: '1605869205000'
             },
             {
-              asin: "BM1604225786521273516",
+              asin: 'BM1604225786521273516',
               book: {
-                title: "Angles and Demons",
-                author: "Dan Brown"
+                title: 'Angles and Demons',
+                author: 'Dan Brown'
               },
-              listed_on: "1605869241000"
+              listed_on: '1605869241000'
             }
           ]
         }
@@ -51,7 +51,7 @@ describe('Bookshelf Page', () => {
   let page;
   beforeEach(() => {
     page = render(
-      <UserContext.Provider value={{username: 'mattyboi'}}>
+      <UserContext.Provider value={{ username: 'mattyboi' }}>
         <MockedProvider mocks={mocks} addTypename={false}>
           <BookshelfPage />
         </MockedProvider>
@@ -71,4 +71,3 @@ describe('Bookshelf Page', () => {
     expect(books.length).toBe(3);
   });
 });
-

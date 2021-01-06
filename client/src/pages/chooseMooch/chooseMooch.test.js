@@ -10,7 +10,7 @@ import ChooseMoochPage from './';
 const mocks = [
   {
     request: {
-      query: queryService.GET_MOOCH_CHOICE('0964729237', 'mattyboi'),
+      query: queryService.GET_MOOCH_CHOICE('0964729237', 'mattyboi')
     },
     result: {
       data: {
@@ -24,31 +24,37 @@ const mocks = [
           asin: '0964729237',
           author: 'William P. Young',
           cover_art_url: null,
-          summary: 'I agree with other reviewers than an open mind is necessary',
+          summary:
+            'I agree with other reviewers than an open mind is necessary',
           title: 'The Shack',
           usersWith: [
             {
               country: 'US',
               display_name: 'Missy (USA: FL)',
               feedback_score: '41',
-              listings: [{
-                asin: '0964729237',
-                condition: '',
-                listed_on: '1560181918000'
-              }],
+              listings: [
+                {
+                  asin: '0964729237',
+                  condition: '',
+                  listed_on: '1560181918000'
+                }
+              ],
               username: 'mwilliams',
-              willsend: 'mycountry',
-            },{
+              willsend: 'mycountry'
+            },
+            {
               country: 'US',
               display_name: 'Laura (USA: NY)',
               feedback_score: '93',
-              listings: [{
-                asin: '0964729237',
-                condition: 'paperback',
-                listed_on: '1573938699000'
-              }],
+              listings: [
+                {
+                  asin: '0964729237',
+                  condition: 'paperback',
+                  listed_on: '1573938699000'
+                }
+              ],
               username: 'lauraoathout',
-              willsend: 'mycountry',
+              willsend: 'mycountry'
             }
           ]
         }
@@ -57,15 +63,15 @@ const mocks = [
   }
 ];
 
-  describe('Choose Mooch Page', () => {
-    let page;
-    beforeEach(() => {
-      page = render(
-        <UserContext.Provider value={{username: 'mattyboi'}}>
-          <MockedProvider mocks={mocks} addTypename={false}>
-            <ChooseMoochPage match={{ params: { asin: '0964729237' } }}/>
-          </MockedProvider>
-        </UserContext.Provider>,
+describe('Choose Mooch Page', () => {
+  let page;
+  beforeEach(() => {
+    page = render(
+      <UserContext.Provider value={{ username: 'mattyboi' }}>
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <ChooseMoochPage match={{ params: { asin: '0964729237' } }} />
+        </MockedProvider>
+      </UserContext.Provider>,
       { wrapper: MemoryRouter }
     );
   });

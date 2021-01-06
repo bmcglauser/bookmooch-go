@@ -8,7 +8,7 @@ const mocks = {
     display_name: 'A',
     username: 'user123',
     points: '100',
-    country: 'US',
+    country: 'US'
   },
   domesticUser: {
     display_name: 'Jake D',
@@ -18,13 +18,13 @@ const mocks = {
       {
         asin: '0964729237',
         listed_on: '1560181918000',
-        condition: 'Light scuff',
+        condition: 'Light scuff'
       }
     ],
     listingCount: 1,
     feedback_score: '23',
     country: 'US',
-    willsend: 'anywhere',
+    willsend: 'anywhere'
   },
   foreignUser: {
     display_name: 'Jake D',
@@ -34,23 +34,27 @@ const mocks = {
       {
         asin: '0964729237',
         listed_on: '1560181918000',
-        condition: 'Light scuff',
+        condition: 'Light scuff'
       }
     ],
     listingCount: 1,
     feedback_score: '23',
     country: 'FR',
-    willsend: 'mycountry',
+    willsend: 'mycountry'
   },
   asin: '0964729237'
-}
+};
 
-describe('UserWithItem', () => {  
+describe('UserWithItem', () => {
   describe('Shows information properly depending on country', () => {
     it('allows mooching from compatible users', async () => {
       let page;
       page = render(
-        <UserWithItem self={mocks.selfUser} other={mocks.domesticUser} asin={mocks.asin}/>,
+        <UserWithItem
+          self={mocks.selfUser}
+          other={mocks.domesticUser}
+          asin={mocks.asin}
+        />,
         { wrapper: MemoryRouter }
       );
       expect(await screen.findByText(/request/)).toBeInTheDocument();
@@ -60,7 +64,11 @@ describe('UserWithItem', () => {
     it('restricts mooching from incompatible users', async () => {
       let page;
       page = render(
-        <UserWithItem self={mocks.selfUser} other={mocks.foreignUser} asin={mocks.asin}/>,
+        <UserWithItem
+          self={mocks.selfUser}
+          other={mocks.foreignUser}
+          asin={mocks.asin}
+        />,
         { wrapper: MemoryRouter }
       );
       expect(await screen.findByText(/Jake D/)).toBeInTheDocument();

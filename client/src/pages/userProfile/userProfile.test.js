@@ -5,11 +5,10 @@ import { MemoryRouter } from 'react-router-dom';
 import queryService from '../../services/queryService';
 import UserProfilePage from './userProfile';
 
-
 const mocks = [
   {
     request: {
-      query: queryService.GET_USER('mattyboi'),
+      query: queryService.GET_USER('mattyboi')
     },
     result: {
       data: {
@@ -41,8 +40,8 @@ describe('User profile page', () => {
   });
 
   it('should show the user profile info', () => {
-    setTimeout(()=> {
+    setTimeout(() => {
       expect(screen.findByText('mattyboi')).toBeInTheDocument();
-    },0)
+    }, 0);
   });
 });

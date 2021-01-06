@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ describe('Find add page', () => {
       <MemoryRouter>
         <FindAddPage />
       </MemoryRouter>
-    )
-  })
-  
+    );
+  });
+
   it('successfully renders the page', () => {
     expect(page).toMatchSnapshot();
   });
@@ -22,7 +22,7 @@ describe('Find add page', () => {
     const input = screen.getByRole('textbox');
     fireEvent.change(input, {
       target: { value: 'norris' }
-    })
+    });
     expect(input.value).toBe('norris');
   });
 });

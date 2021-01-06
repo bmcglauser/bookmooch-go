@@ -6,10 +6,7 @@ import LearnMore from './learnMore';
 
 describe('LearnMore page', () => {
   it('renders LearnMore page', () => {
-    const searchPageDomTree = render(
-        <LearnMore />,
-        { wrapper: MemoryRouter }
-    );
+    const searchPageDomTree = render(<LearnMore />, { wrapper: MemoryRouter });
     expect(searchPageDomTree).toMatchSnapshot();
-  })
-})
+  });
+});

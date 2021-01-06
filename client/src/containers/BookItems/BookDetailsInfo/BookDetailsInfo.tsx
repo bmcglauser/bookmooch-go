@@ -1,27 +1,34 @@
 import React, { FunctionComponent } from 'react';
-import './BookDetailsInfo.scss'
+import './BookDetailsInfo.scss';
 import RandomColorCover from '../../../components/RandomColorCover';
-import { Book } from '../../../services/queryService/queryServiceInterfaces'
+import { Book } from '../../../services/queryService/queryServiceInterfaces';
 
 type BookDetailsInfoProps = {
-  book: Book
-}
+  book: Book;
+};
 
-const BookDetailsInfo: FunctionComponent<BookDetailsInfoProps> = props => {
+const BookDetailsInfo: FunctionComponent<BookDetailsInfoProps> = (props) => {
   const { book } = props;
 
-  const bookCover = book.cover_art_url 
-  ? <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
-  : <RandomColorCover />
+  const bookCover = book.cover_art_url ? (
+    <img className="cover-art" src={book.cover_art_url} alt={`book cover`} />
+  ) : (
+    <RandomColorCover />
+  );
 
-  const summary = book.summary && book.summary.length
-    ? <p className="summary-text">{book.summary}</p>
-    : <p className="summary-text">No summary found for this book, but it's likely perfectly good!</p>
+  const summary =
+    book.summary && book.summary.length ? (
+      <p className="summary-text">{book.summary}</p>
+    ) : (
+      <p className="summary-text">
+        No summary found for this book, but it's likely perfectly good!
+      </p>
+    );
 
   let availabilityText;
   if (book.usernamesWith) {
     if (book.usernamesWith.length === 1) {
-      availabilityText = '1 copy is available for mooching'
+      availabilityText = '1 copy is available for mooching';
     } else {
       availabilityText = `Copies available from ${book.usernamesWith.length} users`;
     }
@@ -39,13 +46,11 @@ const BookDetailsInfo: FunctionComponent<BookDetailsInfoProps> = props => {
         </div>
       </div>
       <div className="extra-info">
-        <p className="extra-info-text">
-          {availabilityText}
-        </p>
+        <p className="extra-info-text">{availabilityText}</p>
         {summary}
       </div>
     </div>
   );
-}
+};
 
 export default BookDetailsInfo;

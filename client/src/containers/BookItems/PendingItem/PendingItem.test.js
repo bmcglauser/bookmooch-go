@@ -13,13 +13,13 @@ const mocks = {
     asin: '0060560983',
     status: '',
     book: {
-      asin: "0060560983",
-      title: "Some Enchanted Evening",
-      author: "Christina Dodd",
-      cover_art_url: "http://ecx.images-amazon.com/images/I/51Eq58LPfmL.jpg",
+      asin: '0060560983',
+      title: 'Some Enchanted Evening',
+      author: 'Christina Dodd',
+      cover_art_url: 'http://ecx.images-amazon.com/images/I/51Eq58LPfmL.jpg',
       usernamesWith: [],
-      availCount: "0",
-      summary: ""
+      availCount: '0',
+      summary: ''
     }
   }
 };

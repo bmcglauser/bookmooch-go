@@ -6,10 +6,7 @@ import Join from './join';
 
 describe('join page', () => {
   it('renders join page', () => {
-    const searchPageDomTree = render(
-        <Join />,
-        { wrapper: MemoryRouter }
-    );
+    const searchPageDomTree = render(<Join />, { wrapper: MemoryRouter });
     expect(searchPageDomTree).toMatchSnapshot();
-  })
-})
+  });
+});

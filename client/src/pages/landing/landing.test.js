@@ -6,10 +6,7 @@ import Landing from './landing';
 
 describe('landing page', () => {
   it('renders landing page', () => {
-    const searchPageDomTree = render(
-        <Landing />,
-        { wrapper: MemoryRouter }
-    );
+    const searchPageDomTree = render(<Landing />, { wrapper: MemoryRouter });
     expect(searchPageDomTree).toMatchSnapshot();
-  })
-})
+  });
+});

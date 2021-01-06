@@ -5,34 +5,33 @@ import { MockedProvider } from '@apollo/client/testing';
 import queryService from '../../services/queryService';
 
 import ConfirmAddPage from './';
-  
 
 const mocks = [
   {
     request: {
-      query: queryService.GET_SIMPLE_BOOK("0066214122"),
+      query: queryService.GET_SIMPLE_BOOK('0066214122')
     },
     result: {
-      "data": {
-        "getBookByAsin": {
-          "asin": "0066214122",
-          "title": "Prey",
-          "author": "Michael Crichton",
-          "cover_art_url": null,
+      data: {
+        getBookByAsin: {
+          asin: '0066214122',
+          title: 'Prey',
+          author: 'Michael Crichton',
+          cover_art_url: null
         }
       }
     }
   }
-]
+];
 
 describe('Confirm Add Page', () => {
   let page;
   beforeEach(() => {
     page = render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <ConfirmAddPage match={{ params: { asin: '0066214122' } }}/>
+        <ConfirmAddPage match={{ params: { asin: '0066214122' } }} />
       </MockedProvider>,
-      { wrapper: MemoryRouter}
+      { wrapper: MemoryRouter }
     );
   });
 
