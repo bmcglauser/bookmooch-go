@@ -1,14 +1,21 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
 import { gql } from '@apollo/client';
-
+import UserContext from '../../utils/UserContext';
 import ChooseMoochPage from './';
 
 
 const GET_MOOCH_CHOICE = gql`
   query {
+    getUserByUsername (username: "mattyboi") {
+      username
+      display_name
+      country
+      points
+    }
     getBookByAsin (asin: "0964729237") {
       asin
       title
@@ -36,36 +43,42 @@ const mocks = [
       query: GET_MOOCH_CHOICE,
     },
     result: {
-      "data": {
-        "getBookByAsin": {
-          "asin": "0964729237",
-          "author": "William P. Young",
-          "cover_art_url": null,
-          "summary": "I agree with other reviewers than an open mind is necessary",
-          "title": "The Shack",
-          "usersWith": [
+      data: {
+        getUserByUsername: {
+          username: 'mattyboi',
+          display_name: 'Matt H',
+          country: "US",
+          points: 123
+        },
+        getBookByAsin: {
+          asin: "0964729237",
+          author: "William P. Young",
+          cover_art_url: null,
+          summary: "I agree with other reviewers than an open mind is necessary",
+          title: "The Shack",
+          usersWith: [
             {
-              "country": "US",
-              "display_name": "Missy (USA: FL)",
-              "feedback_score": "41",
-              "listings": [{
-                "asin": "0964729237",
-                "condition": "",
-                "listed_on": "1560181918000"
+              country: "US",
+              display_name: "Missy (USA: FL)",
+              feedback_score: "41",
+              listings: [{
+                asin: "0964729237",
+                condition: "",
+                listed_on: "1560181918000"
               }],
-              "username": "mwilliams",
-              "willsend": "mycountry",
+              username: "mwilliams",
+              willsend: "mycountry",
             },{
-              "country": "US",
-              "display_name": "Laura (USA: NY)",
-              "feedback_score": "93",
-              "listings": [{
-                "asin": "0964729237",
-                "condition": "paperback",
-                "listed_on": "1573938699000"
+              country: "US",
+              display_name: "Laura (USA: NY)",
+              feedback_score: "93",
+              listings: [{
+                asin: "0964729237",
+                condition: "paperback",
+                listed_on: "1573938699000"
               }],
-              "username": "lauraoathout",
-              "willsend": "mycountry",
+              username: "lauraoathout",
+              willsend: "mycountry",
             }
           ]
         }
@@ -78,10 +91,12 @@ const mocks = [
     let page;
     beforeEach(() => {
       page = render(
-        <MockedProvider mocks={mocks} addTypename={false}>
-        <ChooseMoochPage match={{ params: { asin: '0964729237' } }}/>
-      </MockedProvider>,
-      { wrapper: MemoryRouter}
+        <UserContext.Provider value={{username: 'mattyboi'}}>
+          <MockedProvider mocks={mocks} addTypename={false}>
+            <ChooseMoochPage match={{ params: { asin: '0964729237' } }}/>
+          </MockedProvider>
+        </UserContext.Provider>,
+      { wrapper: MemoryRouter }
     );
   });
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { findByText, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from '@apollo/client/testing'
 import BookshelfPage from './'

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing'
 import { MemoryRouter } from 'react-router-dom'
 import { gql } from '@apollo/client'
+import UserContext from '../../utils/UserContext';
 
 import PendingPage from './pending';
 
@@ -43,22 +44,22 @@ const mocks = [
     },
     result: {
       data: {
-        "getUserByUsername": {
-          "username": "mattyboi",
-          "pending_give": [
+        getUserByUsername: {
+          username: "mattyboi",
+          pending_give: [
             {
-              "transaction_name": "cassidymaeve/20",
-              "asin": "1593083327",
-              "book": {
-                "title": "A Tale of Two Cities (Barnes & Noble Classics Series) (B&N Classics Hardcover)",
-                "author": "Charles Dickens"
+              transaction_name: "cassidymaeve/20",
+              asin: "1593083327",
+              book: {
+                title: "A Tale of Two Cities (Barnes & Noble Classics Series) (B&N Classics Hardcover)",
+                author: "Charles Dickens"
               },
-              "status": "requested",
-              "receiverUsername": "cassidymaeve",
-              "created_on": "1605886949000"
+              status: "requested",
+              receiverUsername: "cassidymaeve",
+              created_on: "1605886949000"
             }
           ],
-          "pending_receive": []
+          pending_receive: []
         }
       }
     }
@@ -68,18 +69,22 @@ const mocks = [
 describe('Pending page', () => {
   it('should show loading', () => {
     const { getByText } = render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <PendingPage match={{ params: { username: 'mattyboi' }}}/>
-      </MockedProvider>
+      <UserContext.Provider value={{username: 'mattyboi'}}>
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <PendingPage />
+        </MockedProvider>
+      </UserContext.Provider>
     )
     expect(getByText('Loading...')).toBeInTheDocument();
   });
 
   it('should show pending mooches', async () => {
     render (
-      <MockedProvider mocks={mocks} addTypename={false}>  
-        <PendingPage match={{ params: { username: 'mattyboi' }}}/>
-      </MockedProvider>,
+      <UserContext.Provider value={{username: 'mattyboi'}}>
+        <MockedProvider mocks={mocks} addTypename={false}>  
+          <PendingPage />
+        </MockedProvider>
+      </UserContext.Provider>,
       { wrapper: MemoryRouter}
     );
 
