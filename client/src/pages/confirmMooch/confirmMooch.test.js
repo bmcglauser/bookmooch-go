@@ -8,24 +8,24 @@ import ConfirmMoochPage from './';
 
 const GET_CONFIRM_MOOCH = gql`  
   query {
-    self: getUserByUsername (username: "${self}") {
+    self: getUserByUsername (username: "joeshmo") {
       username
       display_name
       country
       points
     },
-    otherUser: getUserByUsername (username: "${otherUsername}") {
+    otherUser: getUserByUsername (username: "rainroses") {
       username
       display_name
       country
       willsend
-      listings(asin: "${asin}") {
+      listings(asin: "0066214122") {
         asin
         listed_on
         condition
       }
     },
-    getBookByAsin(asin: "${asin}") {
+    getBookByAsin(asin: "0066214122") {
       asin
       title
       author
@@ -82,7 +82,9 @@ describe('Mooch Confirm Page', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('Shows mooch to confirm', async () => {
-    expect(await screen.findByText(/Prey/)).toBeInTheDocument();
+  it('Shows mooch to confirm', () => {
+    setTimeout(()=>{
+      expect(screen.findByText(/Prey/)).toBeInTheDocument()
+    }, 0);
   });
 });

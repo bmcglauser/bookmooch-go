@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from '@apollo/client/testing'
 import BookshelfPage from './'
 import { gql } from '@apollo/client'
+import UserContext from '../../utils/UserContext';
 
 const GET_BOOKSHELF = gql`
   query {
@@ -66,9 +67,11 @@ describe('Bookshelf Page', () => {
   let page;
   beforeEach(() => {
     page = render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <BookshelfPage match={{params: {username: 'mattyboi'}}} />
-      </MockedProvider>,
+      <UserContext.Provider value={{username: 'mattyboi'}}>
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <BookshelfPage />
+        </MockedProvider>
+      </UserContext.Provider>,
       { wrapper: MemoryRouter }
     );
   });
