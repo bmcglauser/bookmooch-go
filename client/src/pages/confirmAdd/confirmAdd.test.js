@@ -2,26 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
-import { gql } from '@apollo/client';
+import queryService from '../../services/queryService';
 
 import ConfirmAddPage from './';
   
 
-const GET_SIMPLE_BOOK = gql`
-  query {
-    getBookByAsin (asin: "0066214122") {
-      asin
-      title
-      author
-      cover_art_url
-    }
-  }
-`;
-
 const mocks = [
   {
     request: {
-      query: GET_SIMPLE_BOOK,
+      query: queryService.GET_SIMPLE_BOOK("0066214122"),
     },
     result: {
       "data": {

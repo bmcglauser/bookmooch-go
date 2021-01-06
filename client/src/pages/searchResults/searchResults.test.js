@@ -2,42 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing'
-import { gql } from '@apollo/client'
-
+import queryService from '../../services/queryService';
 import SearchResults from './searchResults';
-
-const GET_RECENT = gql`
-  query {
-    getSearchRecent {
-      asin
-      title
-      author
-      cover_art_url
-      usernamesWith
-      availCount
-      summary
-    }
-  }
-`;
-const GET_SEARCH = gql`
-  query {
-    getSearch (text: String) {
-      asin
-      title
-      author
-      cover_art_url
-      usernamesWith
-      availCount
-      summary
-    }
-  }
-`;
 
 const mocks = [
   {
     request: {
-      query: GET_RECENT,
-      variables: {}
+      query: queryService.GET_RECENT(),
     },
     result: {
       data: {
@@ -57,10 +28,7 @@ const mocks = [
   },
   {
     request: {
-      query: GET_SEARCH,
-      variables: {
-        text: 'some'
-      }
+      query: queryService.GET_SEARCH('some'),
     },
     result: {
       data: {

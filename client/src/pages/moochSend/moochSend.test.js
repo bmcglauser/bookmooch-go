@@ -2,51 +2,31 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
-import { gql } from '@apollo/client';
+import queryService from '../../services/queryService';
 
 import MoochSendPage from './';
-
-const GET_CONF_PENDING_GIVE = gql`
-  query {
-    getConfidentialPendingById (pending_id: "cassidymaeve/20") {
-      transaction_name
-      asin
-      book {
-        title
-        author
-      }
-      receiver_address
-      points_to_giver
-      points_from_receiver
-      created_on
-      sent_on
-      condition
-      status
-    }
-  }
-`;
 
 const mocks = [
   {
     request: {
-      query: GET_CONF_PENDING_GIVE,
+      query: queryService.GET_CONF_PENDING_GIVE('cassidymaeve/20'),
     },
     result: {
-      "data": {
-        "getConfidentialPendingById": {
-          "transaction_name": "cassidymaeve/20",
-          "asin": "1593083327",
-          "book": {
-            "title": "A Tale of Two Cities (Barnes & Noble Classics Series) (B&N Classics Hardcover)",
-            "author": "Charles Dickens"
+      data: {
+        getConfidentialPendingById: {
+          transaction_name: "cassidymaeve/20",
+          asin: "1593083327",
+          book: {
+            title: "A Tale of Two Cities (Barnes & Noble Classics Series) (B&N Classics Hardcover)",
+            author: "Charles Dickens"
           },
-          "receiver_address": null,
-          "points_to_giver": "10",
-          "points_from_receiver": "10",
-          "created_on": "1605886949000",
-          "sent_on": null,
-          "condition": null,
-          "status": "requested"
+          receiver_address: null,
+          points_to_giver: "10",
+          points_from_receiver: "10",
+          created_on: "1605886949000",
+          sent_on: null,
+          condition: null,
+          status: "requested"
         }
       }
     }

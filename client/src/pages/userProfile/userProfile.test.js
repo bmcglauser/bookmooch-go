@@ -1,27 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { gql } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import { MemoryRouter } from 'react-router-dom';
-
+import queryService from '../../services/queryService';
 import UserProfilePage from './userProfile';
 
-const GET_USER = gql`
-  query {
-    getUserByUsername(username: "mattyboi") {
-      display_name
-      username
-      points
-      listingCount
-      feedback_score
-    }
-  }
-`;
 
 const mocks = [
   {
     request: {
-      query: GET_USER
+      query: queryService.GET_USER('mattyboi'),
     },
     result: {
       data: {

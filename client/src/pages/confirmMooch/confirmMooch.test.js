@@ -2,41 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
-import { gql } from '@apollo/client';
+import queryService from '../../services/queryService';
 
 import ConfirmMoochPage from './';
-
-const GET_CONFIRM_MOOCH = gql`  
-  query {
-    self: getUserByUsername (username: "joeshmo") {
-      username
-      display_name
-      country
-      points
-    },
-    otherUser: getUserByUsername (username: "rainroses") {
-      username
-      display_name
-      country
-      willsend
-      listings(asin: "0066214122") {
-        asin
-        listed_on
-        condition
-      }
-    },
-    getBookByAsin(asin: "0066214122") {
-      asin
-      title
-      author
-    }
-  }
-`;
 
 const mocks = [
   {
     request: {
-      query: GET_CONFIRM_MOOCH,
+      query: queryService.GET_CONFIRM_MOOCH('rainroses', '0066214122', 'joeshmo'),
     },
     result: {
       "data": {

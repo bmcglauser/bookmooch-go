@@ -2,45 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing'
 import { MemoryRouter } from 'react-router-dom'
-import { gql } from '@apollo/client'
 import UserContext from '../../utils/UserContext';
+import queryService from '../../services/queryService';
 
 import PendingPage from './pending';
-
-const GET_ALL_PENDING = gql`
-  query {
-    getUserByUsername (username: "mattyboi") {
-      username
-      pending_give {
-        transaction_name
-        asin
-        book {
-          title
-          author
-        }
-        status
-        receiverUsername
-        created_on
-      }
-      pending_receive {
-        transaction_name
-        asin
-        book {
-          title
-          author
-        }
-        status
-        giverUsername
-        created_on
-      }
-    }
-  }
-`
 
 const mocks = [
   {
     request: {
-      query: GET_ALL_PENDING,
+      query: queryService.GET_ALL_PENDING("mattyboi"),
     },
     result: {
       data: {
