@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import SearchResultItem from './SearchResultItem';
+import SearchResultItem from './';
 
 const book = {
   asin: "0060560983",
@@ -20,8 +20,8 @@ describe('search result item', () => {
       <SearchResultItem book={book} />,
       { wrapper: MemoryRouter }
     );
-    expect(getByText('Some Enchanted Even...')).toBeInTheDocument();
-    expect(getByText('Christina Dodd')).toBeInTheDocument();
-    expect(getByText('0 copies available')).toBeInTheDocument();
+    expect(getByText(/Some Enchanted Eve/)).toBeInTheDocument();
+    expect(getByText(/Christina Dodd/)).toBeInTheDocument();
+    expect(getByText(/0 copies available/)).toBeInTheDocument();
   });
 });

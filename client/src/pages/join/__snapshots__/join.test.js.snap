@@ -33,6 +33,7 @@ Object {
             >
               Username (jsmith02):
               <input
+                id="username"
                 name="username"
                 required=""
                 type="text"
@@ -44,6 +45,7 @@ Object {
             >
               Display name (Jane S):
               <input
+                id="display_name"
                 name="display_name"
                 required=""
                 type="text"
@@ -55,6 +57,7 @@ Object {
             >
               E-mail address:
               <input
+                id="email"
                 name="email"
                 required=""
                 type="text"
@@ -66,6 +69,7 @@ Object {
             >
               Password:
               <input
+                id="password"
                 name="password"
                 required=""
                 type="password"
@@ -77,6 +81,7 @@ Object {
             >
               Confirm password:
               <input
+                id="confirm"
                 name="confirm-password"
                 required=""
                 type="password"
@@ -88,6 +93,7 @@ Object {
             >
               Country:
               <input
+                id="country"
                 name="country"
                 required=""
                 type="text"
@@ -104,6 +110,7 @@ Object {
               </label>
               <textarea
                 class="address-input"
+                id="address"
                 name="address"
                 required=""
               />
@@ -113,6 +120,7 @@ Object {
             >
               Zip code:
               <input
+                id="zip_code"
                 name="zip_code"
                 required=""
                 type="text"
@@ -129,6 +137,7 @@ Object {
               </label>
               <textarea
                 class="question-input"
+                id="secret_question"
                 name="secret_question"
                 required=""
               />
@@ -143,6 +152,7 @@ Object {
               </label>
               <textarea
                 class="answer-input"
+                id="secret_answer"
                 name="secret_answer"
                 required=""
               />
@@ -207,6 +217,7 @@ Object {
           >
             Username (jsmith02):
             <input
+              id="username"
               name="username"
               required=""
               type="text"
@@ -218,6 +229,7 @@ Object {
           >
             Display name (Jane S):
             <input
+              id="display_name"
               name="display_name"
               required=""
               type="text"
@@ -229,6 +241,7 @@ Object {
           >
             E-mail address:
             <input
+              id="email"
               name="email"
               required=""
               type="text"
@@ -240,6 +253,7 @@ Object {
           >
             Password:
             <input
+              id="password"
               name="password"
               required=""
               type="password"
@@ -251,6 +265,7 @@ Object {
           >
             Confirm password:
             <input
+              id="confirm"
               name="confirm-password"
               required=""
               type="password"
@@ -262,6 +277,7 @@ Object {
           >
             Country:
             <input
+              id="country"
               name="country"
               required=""
               type="text"
@@ -278,6 +294,7 @@ Object {
             </label>
             <textarea
               class="address-input"
+              id="address"
               name="address"
               required=""
             />
@@ -287,6 +304,7 @@ Object {
           >
             Zip code:
             <input
+              id="zip_code"
               name="zip_code"
               required=""
               type="text"
@@ -303,6 +321,7 @@ Object {
             </label>
             <textarea
               class="question-input"
+              id="secret_question"
               name="secret_question"
               required=""
             />
@@ -317,6 +336,7 @@ Object {
             </label>
             <textarea
               class="answer-input"
+              id="secret_answer"
               name="secret_answer"
               required=""
             />

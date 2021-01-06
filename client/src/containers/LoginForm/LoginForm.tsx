@@ -11,9 +11,9 @@ const LoginForm: FunctionComponent = () => {
   return (
     <form className='login-form'>
       <label htmlFor='username'>Username</label>
-      <input onChange={(e) => setUsername(e.target.value)} value={username} name='username' type='text' required/>
+      <input onChange={(e) => setUsername(e.target.value)} value={username} id='username' name='username' type='text' required/>
       <label htmlFor='password'>Password</label>
-      <input onChange={(e) => setPassword(e.target.value)} value={password} name='password' type='password' required/>
+      <input onChange={(e) => setPassword(e.target.value)} value={password} id='password' name='password' type='password' required/>
       <Link to={`/controller/login/x/${username}/${password}`} style={{textDecoration:'none'}}>
         <button>
           <p>

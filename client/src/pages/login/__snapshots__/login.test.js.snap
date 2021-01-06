@@ -80,6 +80,7 @@ Object {
               Username
             </label>
             <input
+              id="username"
               name="username"
               required=""
               type="text"
@@ -91,6 +92,7 @@ Object {
               Password
             </label>
             <input
+              id="password"
               name="password"
               required=""
               type="password"
@@ -197,6 +199,7 @@ Object {
             Username
           </label>
           <input
+            id="username"
             name="username"
             required=""
             type="text"
@@ -208,6 +211,7 @@ Object {
             Password
           </label>
           <input
+            id="password"
             name="password"
             required=""
             type="password"
