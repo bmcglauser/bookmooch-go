@@ -1,4 +1,4 @@
-@import '../../../App.scss';
+@use '../../../App' as *;
 
 .pending-item-grand-wrapper {
   margin: 0px 0px 15px 0px;

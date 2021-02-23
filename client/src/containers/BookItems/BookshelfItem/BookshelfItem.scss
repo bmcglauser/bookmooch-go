@@ -1,4 +1,4 @@
-@import '../../../App.scss';
+@use '../../../App' as *;
 
 .bookshelf-item-grand-wrapper {
   margin: 15px;
