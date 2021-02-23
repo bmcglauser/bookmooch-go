@@ -1,4 +1,4 @@
-@import '../../../App.scss';
+@use '../../../App' as *;
 
 .search-button-wrapper {
   margin: 15px 5px 0px 5px;

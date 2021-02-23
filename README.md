@@ -31,4 +31,4 @@ Enjoy!
 - deployment of demo version on Heroku to come
 
 *bug notes:*
-- The user registration feature is only accessible with an app-key from Bookmooch, and they have not responded to my inqueries, so at the moment the feature is unavailable.
+- The user registration feature is only accessible with an app-key from Bookmooch, and they have not responded to my inquiries, so at the moment the feature is unavailable.

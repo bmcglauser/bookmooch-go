@@ -1,4 +1,4 @@
-@import '../../../App.scss';
+@use '../../../App' as *;
 
 $thickness : 5px;
 $duration : 3000;

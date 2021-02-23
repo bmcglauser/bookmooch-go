@@ -1,4 +1,4 @@
-@import '../../App.scss';
+@use '../../App' as *;
 
 .user-with-item-grand-wrapper {
   margin: 0 10% 15px;

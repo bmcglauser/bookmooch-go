@@ -1,4 +1,4 @@
-@import '../../../App.scss';
+@use '../../../App' as *;
 
 .circle-add-button-wrapper {
   z-index: 2;
